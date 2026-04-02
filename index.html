@@ -6,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devasish Venkat Sai – Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* ─── RESET & VARIABLES ─────────────────────────────── */
+/* ─── RESET & VARIABLES ──────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -32,7 +33,7 @@ body {
   cursor: none;
 }
 
-/* ─── CURSOR ─────────────────────────────────────────── */
+/* ─── CURSOR ────────────────────────── */
 #cur-dot {
   position: fixed; width: 8px; height: 8px;
   background: var(--accent); border-radius: 50%;
@@ -53,7 +54,7 @@ body:has(button:hover) #cur-ring {
   border-color: rgba(255,58,47,0.8);
 }
 
-/* ─── NAV ─────────────────────────────────────────────── */
+/* ─── NAV ────────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   padding: 20px 60px;
@@ -94,11 +95,25 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 }
 .nav-hire:hover { background: var(--accent); color: var(--white); }
 
-/* ─── HAMBURGER (mobile) ────────────────────────────── */
+/* ─── HAMBURGER (mobile) ──────────────── */
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all .3s; }
 
-/* ─── HERO ────────────────────────────────────────────── */
+/* ─── MOBILE MENU ─────────────────── */
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(8,5,7,0.98); z-index: 190;
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cinzel', serif; font-size: 28px;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: 4px; text-transform: uppercase; transition: color .3s;
+}
+.mobile-menu a:hover { color: var(--accent); }
+
+/* ─── HERO ────────────────────────────── */
 .hero {
   position: relative; min-height: 100vh;
   display: flex; align-items: flex-end;
@@ -128,48 +143,6 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   width: 1px; height: 100%;
   background: linear-gradient(to bottom, transparent 0%, rgba(192,57,43,0.25) 40%, rgba(192,57,43,0.1) 70%, transparent 100%);
   transform: rotate(8deg) translateX(60px);
-}
-
-/* ── SAMURAI IMAGE AREA ── */
-.hero-figure {
-  position: absolute;
-  right: 8%; bottom: 0;
-  width: 42%; max-width: 580px;
-  height: 95%;
-  display: flex; align-items: flex-end; justify-content: center;
-}
-
-/* Placeholder silhouette — replace src with your real photo */
-.hero-figure img {
-  width: 100%; height: 100%;
-  object-fit: contain; object-position: bottom center;
-  filter: drop-shadow(0 0 60px rgba(192,57,43,0.35));
-  transition: filter .4s;
-}
-.hero-figure img:hover {
-  filter: drop-shadow(0 0 80px rgba(255,58,47,0.5));
-}
-
-/* SVG samurai placeholder */
-.samurai-placeholder {
-  width: 100%; height: 100%;
-  display: flex; align-items: flex-end; justify-content: center;
-  position: relative;
-}
-.samurai-svg {
-  width: 75%; height: auto;
-  opacity: 0.18;
-  filter: drop-shadow(0 0 40px rgba(192,57,43,0.4));
-}
-
-/* Glow behind figure */
-.hero-figure::before {
-  content: '';
-  position: absolute; bottom: -10%; left: 50%;
-  transform: translateX(-50%);
-  width: 80%; height: 70%;
-  background: radial-gradient(ellipse at bottom, rgba(192,57,43,0.18) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 /* Big ghost text */
@@ -287,7 +260,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   border: 1px solid rgba(244,238,236,0.12);
   display: flex; align-items: center; justify-content: center;
   color: var(--muted); text-decoration: none;
-  font-size: 11px; font-weight: 500;
+  font-size: 14px;
   transition: all .3s;
 }
 .hero-social a:hover {
@@ -316,7 +289,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   50% { opacity: 1; transform: scaleY(1.2); }
 }
 
-/* ─── MARQUEE ─────────────────────────────────────────── */
+/* ─── MARQUEE ────────────────────────── */
 .marquee-wrap {
   overflow: hidden; white-space: nowrap;
   background: var(--dark3);
@@ -334,7 +307,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .mq-dot { color: var(--accent); font-size: 7px; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ─── SECTION SHARED ──────────────────────────────────── */
+/* ─── SECTION SHARED ────────────────── */
 .sec-eyebrow {
   display: flex; align-items: center; gap: 12px;
   font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
@@ -348,7 +321,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   font-weight: 700; line-height: 1.1;
 }
 
-/* ─── ABOUT ───────────────────────────────────────────── */
+/* ─── ABOUT ──────────────────────────── */
 .about {
   background: var(--dark2);
   padding: 110px 60px;
@@ -410,7 +383,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   padding: 4px 10px; color: rgba(244,238,236,0.45);
 }
 
-/* ─── PROJECTS ────────────────────────────────────────── */
+/* ─── PROJECTS ──────────────────────── */
 .projects { padding: 110px 60px; background: var(--dark); }
 .projects-header {
   display: flex; align-items: flex-end; justify-content: space-between;
@@ -429,6 +402,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   background: var(--dark3);
   position: relative; overflow: hidden;
   transition: transform .4s, box-shadow .4s;
+  cursor: none;
 }
 .proj-card:hover {
   transform: translateY(-4px);
@@ -437,7 +411,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .proj-card:nth-child(1) { grid-column: 1 / 8; }
 .proj-card:nth-child(2) { grid-column: 8 / 13; }
 .proj-card:nth-child(3) { grid-column: 1 / 6; }
-.proj-card:nth-child(4) { grid-column: 6 / 13; }  /* placeholder for cert */
+.proj-card:nth-child(4) { grid-column: 6 / 13; }
 
 /* Accent top line */
 .proj-card::before {
@@ -497,11 +471,114 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   width: 32px; height: 32px; border: 1px solid rgba(244,238,236,0.1);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   color: rgba(244,238,236,0.3); font-size: 13px;
-  transition: all .3s;
+  transition: all .3s; text-decoration: none;
 }
-.proj-card:hover .proj-arrow { border-color: var(--accent); color: var(--accent); }
+.proj-arrow-btn {
+  width: 32px; height: 32px; border: 1px solid rgba(244,238,236,0.1);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: rgba(244,238,236,0.3); font-size: 13px;
+  transition: all .3s; background: none; cursor: none;
+}
+.proj-card:hover .proj-arrow,
+.proj-card:hover .proj-arrow-btn { border-color: var(--accent); color: var(--accent); }
 
-/* ─── SKILLS ──────────────────────────────────────────── */
+/* Highlight badge */
+.proj-highlight-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--accent); color: var(--white);
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 4px 10px; z-index: 5;
+  animation: badgePulse 2.5s ease-in-out infinite;
+}
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,58,47,0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(255,58,47,0); }
+}
+
+/* ─── MODAL ─────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(8,5,7,0.9); backdrop-filter: blur(16px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .4s ease; padding: 20px;
+}
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+
+.modal-box {
+  background: var(--dark3); border: 1px solid rgba(244,238,236,0.07);
+  width: 100%; max-width: 840px; max-height: 90vh;
+  overflow-y: auto; position: relative;
+  transform: translateY(30px) scale(0.97);
+  transition: transform .45s cubic-bezier(0.34,1.56,0.64,1);
+  scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
+}
+.modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
+.modal-box::-webkit-scrollbar { width: 3px; }
+.modal-box::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+.modal-box::before {
+  content: ''; display: block; height: 2px;
+  background: linear-gradient(to right, var(--accent), rgba(192,57,43,0.3), transparent);
+}
+
+.modal-close {
+  position: sticky; top: 16px; float: right;
+  margin: 16px 20px 0 0;
+  background: rgba(244,238,236,0.06); border: 1px solid rgba(244,238,236,0.1);
+  color: var(--muted); width: 36px; height: 36px; border-radius: 50%;
+  font-size: 13px; cursor: none; z-index: 10;
+  transition: all .3s; display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+.modal-header { padding: 28px 40px 0; display: flex; align-items: center; gap: 16px; clear: both; }
+.modal-num { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 3px; color: rgba(244,238,236,0.2); }
+.modal-category {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--accent); background: rgba(255,58,47,0.08);
+  border: 1px solid rgba(255,58,47,0.25); padding: 3px 12px;
+}
+.modal-title {
+  font-family: 'Cinzel', serif; font-size: clamp(20px,3vw,28px);
+  font-weight: 700; line-height: 1.25; padding: 14px 40px 0;
+}
+.modal-about-block { margin: 20px 40px 0; padding: 20px 24px; background: rgba(255,58,47,0.04); border-left: 2px solid rgba(255,58,47,0.5); }
+.modal-about-block p { font-size: 13px; line-height: 1.95; color: rgba(244,238,236,0.6); }
+.modal-about-block p + p { margin-top: 12px; }
+
+.modal-preview { margin: 24px 40px 0; }
+.preview-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(244,238,236,0.25); margin-bottom: 10px; }
+.preview-screen { background: #0d0a0c; border: 1px solid rgba(244,238,236,0.07); border-radius: 8px; overflow: hidden; }
+.preview-dots { padding: 10px 14px; background: rgba(244,238,236,0.03); border-bottom: 1px solid rgba(244,238,236,0.05); display: flex; gap: 6px; align-items: center; }
+.preview-dots span { width: 8px; height: 8px; border-radius: 50%; }
+.preview-dots span:nth-child(1) { background: #ff5f57; }
+.preview-dots span:nth-child(2) { background: #febc2e; }
+.preview-dots span:nth-child(3) { background: #28c840; }
+.preview-dots .p-title { font-size: 10px; color: rgba(244,238,236,0.2); letter-spacing: 2px; margin-left: 8px; }
+.preview-content { padding: 20px 24px; min-height: 160px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.85; color: rgba(244,238,236,0.45); }
+
+.modal-divider { height: 1px; background: rgba(244,238,236,0.05); margin: 24px 40px 0; }
+.modal-section-title { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); padding: 20px 40px 12px; }
+.modal-points { list-style: none; padding: 0 40px; display: flex; flex-direction: column; gap: 10px; }
+.modal-points li { font-size: 13px; color: var(--muted); line-height: 1.75; padding-left: 22px; position: relative; }
+.modal-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
+
+.modal-stack { padding: 0 40px; display: flex; flex-wrap: wrap; gap: 8px; }
+.modal-stack .stack-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(255,58,47,0.3); color: rgba(255,58,47,0.7); padding: 5px 14px; }
+
+.modal-actions { padding: 24px 40px 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+.modal-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  text-decoration: none; padding: 12px 28px;
+  transition: all .3s; border: none; font-family: 'DM Sans', sans-serif; cursor: none;
+}
+.modal-btn.primary { background: var(--accent); color: var(--white); }
+.modal-btn.primary:hover { background: var(--red); transform: translateY(-2px); }
+.modal-btn.secondary { border: 1px solid rgba(244,238,236,0.15); color: var(--muted); background: transparent; }
+.modal-btn.secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+/* ─── SKILLS ─────────────────────────── */
 .skills-sec {
   padding: 110px 60px;
   background: var(--dark2);
@@ -532,7 +609,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   content: '▸'; color: var(--accent); font-size: 9px; flex-shrink: 0;
 }
 
-/* ─── CERTS ───────────────────────────────────────────── */
+/* ─── CERTS ─────────────────────────── */
 .certs { padding: 110px 60px; background: var(--dark); }
 .certs-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
@@ -553,7 +630,14 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   width: 60px; height: 60px;
   background: radial-gradient(circle at bottom right, rgba(192,57,43,0.12), transparent);
 }
-.cert-icon { font-size: 24px; margin-bottom: 16px; }
+.cert-icon {
+  width: 44px; height: 44px;
+  display: flex; align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,58,47,0.25); color: var(--accent);
+  font-size: 16px; margin-bottom: 20px; transition: all .3s; position: relative; z-index: 1;
+}
+.cert-card:hover .cert-icon { background: rgba(255,58,47,0.08); border-color: var(--accent); transform: rotate(-5deg) scale(1.05); }
 .cert-org {
   font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
   color: var(--accent); margin-bottom: 10px;
@@ -563,7 +647,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   line-height: 1.4; color: var(--white);
 }
 
-/* ─── RED STRIP ───────────────────────────────────────── */
+/* ─── RED STRIP ────────────────────── */
 .red-strip {
   background: var(--accent);
   padding: 60px;
@@ -578,7 +662,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .rs-div { width: 1px; height: 80px; background: rgba(255,255,255,0.3); }
 .rs-text { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.82); }
 
-/* ─── CONTACT ─────────────────────────────────────────── */
+/* ─── CONTACT ─────────────────────── */
 .contact {
   padding: 120px 60px;
   background: var(--dark2);
@@ -621,7 +705,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .c-link .icon { font-size: 16px; }
 .contact-cta { margin-top: 10px; }
 
-/* ─── FOOTER ──────────────────────────────────────────── */
+/* ─── FOOTER ───────────────────────── */
 footer {
   padding: 36px 60px;
   background: var(--dark);
@@ -643,7 +727,7 @@ footer {
 }
 .f-links a:hover { color: var(--accent); }
 
-/* ─── ANIMATIONS ──────────────────────────────────────── */
+/* ─── ANIMATIONS ────────────────────── */
 @keyframes upIn {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -666,17 +750,20 @@ footer {
   opacity: 0; transform: translateY(24px);
   transition: opacity .6s ease, transform .6s ease;
 }
-.stagger.show > *:nth-child(1) { opacity:1;transform:translateY(0);transition-delay:.05s; }
-.stagger.show > *:nth-child(2) { opacity:1;transform:translateY(0);transition-delay:.15s; }
-.stagger.show > *:nth-child(3) { opacity:1;transform:translateY(0);transition-delay:.25s; }
-.stagger.show > *:nth-child(4) { opacity:1;transform:translateY(0);transition-delay:.35s; }
-.stagger.show > *:nth-child(5) { opacity:1;transform:translateY(0);transition-delay:.45s; }
-.stagger.show > *:nth-child(6) { opacity:1;transform:translateY(0);transition-delay:.55s; }
-.stagger.show > *:nth-child(7) { opacity:1;transform:translateY(0);transition-delay:.65s; }
-.stagger.show > *:nth-child(8) { opacity:1;transform:translateY(0);transition-delay:.75s; }
-.stagger.show > *:nth-child(9) { opacity:1;transform:translateY(0);transition-delay:.85s; }
+.stagger.show > *:nth-child(1)  { opacity:1;transform:translateY(0);transition-delay:.05s; }
+.stagger.show > *:nth-child(2)  { opacity:1;transform:translateY(0);transition-delay:.15s; }
+.stagger.show > *:nth-child(3)  { opacity:1;transform:translateY(0);transition-delay:.25s; }
+.stagger.show > *:nth-child(4)  { opacity:1;transform:translateY(0);transition-delay:.35s; }
+.stagger.show > *:nth-child(5)  { opacity:1;transform:translateY(0);transition-delay:.45s; }
+.stagger.show > *:nth-child(6)  { opacity:1;transform:translateY(0);transition-delay:.55s; }
+.stagger.show > *:nth-child(7)  { opacity:1;transform:translateY(0);transition-delay:.65s; }
+.stagger.show > *:nth-child(8)  { opacity:1;transform:translateY(0);transition-delay:.75s; }
+.stagger.show > *:nth-child(9)  { opacity:1;transform:translateY(0);transition-delay:.85s; }
+.stagger.show > *:nth-child(10) { opacity:1;transform:translateY(0);transition-delay:.95s; }
+.stagger.show > *:nth-child(11) { opacity:1;transform:translateY(0);transition-delay:1.05s; }
+.stagger.show > *:nth-child(12) { opacity:1;transform:translateY(0);transition-delay:1.15s; }
 
-/* ─── RESPONSIVE ──────────────────────────────────────── */
+/* ─── RESPONSIVE ────────────────────── */
 @media(max-width:900px) {
   nav { padding: 18px 28px; }
   .nav-links, .nav-hire { display: none; }
@@ -699,6 +786,10 @@ footer {
   footer { flex-direction: column; gap: 20px; text-align: center; }
   .skills-cols { grid-template-columns: 1fr; }
   .about, .certs, .contact, .skills-sec { padding: 80px 28px; }
+  .modal-header, .modal-title, .modal-about-block,
+  .modal-preview, .modal-divider, .modal-section-title,
+  .modal-points, .modal-stack, .modal-actions { padding-left: 20px; padding-right: 20px; }
+  .modal-about-block { margin: 16px 20px 0; }
 }
 </style>
 </head>
@@ -708,7 +799,7 @@ footer {
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
 
-<!-- ══════════════ NAV ══════════════ -->
+<!-- ╮══════════════ NAV ╮══════════════ -->
 <nav id="navbar">
   <a class="nav-logo" href="#"><em>D</em>EVASISH</a>
   <ul class="nav-links">
@@ -724,14 +815,22 @@ footer {
   </button>
 </nav>
 
-<!-- ══════════════ HERO ══════════════ -->
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#certs" onclick="closeMobile()">Certs</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ╮══════════════ HERO ╮══════════════ -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-line"></div>
 
   <!-- Ghost text -->
   <div class="hero-ghost">DEVA<br>SISH</div>
-  </div>
 
   <!-- Content -->
   <div class="hero-content">
@@ -739,14 +838,14 @@ footer {
     <h1 class="hero-name">
       DEVASISH<br><span class="outline">JAJIMOGGALA</span>
     </h1>
-    <p class="hero-role">B.Tech CSE · Aditya University · 2024–2028</p>
+    <p class="hero-role">B.Tech CSE &middot; Aditya University &middot; 2024&ndash;2028</p>
     <p class="hero-desc">
-      Building secure, scalable digital products — from sleek frontends to robust backends. Passionate about cybersecurity, clean code, and creating things that matter.
+      Building secure, scalable digital products &mdash; from sleek frontends to robust backends. Passionate about cybersecurity, clean code, and creating things that matter.
     </p>
     <div class="hero-btns">
       <a href="#projects" class="btn-red">View Projects</a>
       <a href="assets/Devasish_Resume.pdf" download class="btn-ghost-link">Download Resume</a>
-      <a href="#contact" class="btn-ghost-link">Get in Touch <span class="arr">→</span></a>
+      <a href="#contact" class="btn-ghost-link">Get in Touch <span class="arr">&rarr;</span></a>
     </div>
   </div>
 
@@ -768,8 +867,8 @@ footer {
 
   <!-- Social -->
   <div class="hero-social">
-    <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank" title="LinkedIn">Li</a>
-    <a href="https://github.com/Devasish009" target="_blank" title="GitHub">Gh</a>
+    <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://github.com/Devasish009" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
     <div class="social-line"></div>
   </div>
 
@@ -780,33 +879,33 @@ footer {
   </div>
 </section>
 
-<!-- ══════════════ MARQUEE ══════════════ -->
+<!-- ╮══════════════ MARQUEE ╮══════════════ -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="mq-item">Full Stack Dev <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Cyber Security <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Node.js &amp; Express <span class="mq-dot">◆</span></span>
-    <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">◆</span></span>
-    <span class="mq-item">React &amp; UI Design <span class="mq-dot">◆</span></span>
-    <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Full Stack Dev <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Cyber Security <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">◆</span></span>
-    <span class="mq-item">Node.js &amp; Express <span class="mq-dot">◆</span></span>
-    <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">◆</span></span>
-    <span class="mq-item">React &amp; UI Design <span class="mq-dot">◆</span></span>
-    <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">◆</span></span>
+    <span class="mq-item">Full Stack Dev <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Cyber Security <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Node.js &amp; Express <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">React &amp; UI Design <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Full Stack Dev <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Cyber Security <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">Node.js &amp; Express <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">React &amp; UI Design <span class="mq-dot">&#9670;</span></span>
+    <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">&#9670;</span></span>
   </div>
 </div>
 
-<!-- ══════════════ ABOUT ══════════════ -->
+<!-- ╮══════════════ ABOUT ╮══════════════ -->
 <section class="about" id="about">
   <div class="about-text reveal">
     <div class="sec-eyebrow">About Me</div>
     <h2 class="sec-title">Who I<br>Am</h2>
     <p class="about-body">
-      I'm Devasish Venkat Sai Jajimoggala — a passionate Computer Science student at Aditya University, Andhra Pradesh. I love crafting digital solutions that combine clean architecture, security-first thinking, and intuitive interfaces. From building SIEM platforms to event management apps, I ship real products that solve real problems.
+      I'm Devasish Venkat Sai Jajimoggala &mdash; a passionate Computer Science student at Aditya University, Andhra Pradesh. I love crafting digital solutions that combine clean architecture, security-first thinking, and intuitive interfaces. From building SIEM platforms to event management apps, I ship real products that solve real problems.
     </p>
     <div class="about-details stagger">
       <div class="about-row">
@@ -832,7 +931,7 @@ footer {
     <div class="edu-tag">Education</div>
     <div class="edu-deg">B.Tech in Computer Science &amp; Engineering</div>
     <div class="edu-uni">Aditya University, Surampalem, Andhra Pradesh</div>
-    <div class="edu-year">2024 – 2028</div>
+    <div class="edu-year">2024 &ndash; 2028</div>
     <div class="edu-courses">
       <div class="lbl">Relevant Coursework</div>
       <div class="course-tags">
@@ -848,7 +947,7 @@ footer {
   </div>
 </section>
 
-<!-- ══════════════ PROJECTS ══════════════ -->
+<!-- ╮══════════════ PROJECTS ╮══════════════ -->
 <section class="projects" id="projects">
   <div class="projects-header reveal">
     <div>
@@ -860,11 +959,37 @@ footer {
 
   <div class="projects-grid stagger">
 
-    <!-- AegisX -->
-    <div class="proj-card">
+        <!-- Thunder Thursday -->
+    <div class="proj-card" onclick="openModal('thunder')">
+      <div class="proj-highlight-badge">&#9733; Featured</div>
       <div class="proj-body">
-        <div class="proj-num">01 — Security</div>
-        <div class="proj-name">AegisX – Mini SIEM &amp; Intrusion Detection System</div>
+        <div class="proj-num">02 &mdash; Mobile / Web</div>
+        <div class="proj-name">Thunder Thursday &ndash; Real Time College Event &amp; Voting Platform</div>
+        <p class="proj-desc">A mobile application developed to digitally manage and enhance college cultural events with real-time participation, voting, and performance tracking.</p>
+        <ul class="proj-points">
+          <li>Secure OTP-based authentication &mdash; only verified users access the platform</li>
+          <li>Live voting system with auto-updating real-time leaderboard</li>
+          <li>Admin control panel for performance &amp; event management</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Express.js</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">Firebase</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
+    <!-- AegisX -->
+    <div class="proj-card" onclick="openModal('aegisx')">
+      <div class="proj-body">
+        <div class="proj-num">01 &mdash; Security</div>
+        <div class="proj-name">AegisX &ndash; Mini SIEM &amp; Intrusion Detection System</div>
         <p class="proj-desc">A web-based Security Information and Event Management platform for real-time threat monitoring and automated response.</p>
         <ul class="proj-points">
           <li>Log aggregation &amp; event correlation engine for auth attempts and API patterns</li>
@@ -881,41 +1006,16 @@ footer {
       </div>
       <div class="proj-footer">
         <span class="proj-year">2026</span>
-        <a href="https://github.com/Devasish009/aegisx-siem" target="_blank" class="proj-arrow">↗</a>
-      </div>
-    </div>
-
-    <!-- Thunder Thursday -->
-    <div class="proj-card">
-      <div class="proj-body">
-        <div class="proj-num">02 — Mobile / Web</div>
-        <div class="proj-name">Thunder Thursday – Real Time College Event & Voting Platform</div>
-        <p class="proj-desc">A full-featured college event platform with real-time voting, verification-based auth, and live updates.</p>
-        <ul class="proj-points">
-          <li>Verification-based authentication + JWT-secured APIs</li>
-          <li>Live voting system &amp; real-time event updates</li>
-          <li>Cross-platform Flutter mobile app</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Flutter</span>
-          <span class="stack-tag">Node.js</span>
-          <span class="stack-tag">Express.js</span>
-          <span class="stack-tag">PostgreSQL</span>
-          <span class="stack-tag">Firebase</span>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-year">2026</span>
-        <a href="https://github.com/Devasish009/thunder-thursday-app" target="_blank" class="proj-arrow">↗</a>
+        <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
 
     <!-- ShieldX -->
-    <div class="proj-card">
+    <div class="proj-card" onclick="openModal('shieldx')">
       <div class="proj-body">
-        <div class="proj-num">03 — Web</div>
-        <div class="proj-name">ShieldX – Cybersecurity Tools E-Commerce Showcase</div>
-        <p class="proj-desc">A static e-commerce showcase for cybersecurity tools with a clean, responsive UI and structured product layouA static cybersecurity tools shopping interface built with structured HTML and CSS, showcasing security products in a clean, responsive layout.</p>
+        <div class="proj-num">03 &mdash; Web</div>
+        <div class="proj-name">ShieldX &ndash; Cybersecurity Tools E-Commerce Showcase</div>
+        <p class="proj-desc">A static cybersecurity tools shopping interface built with structured HTML and CSS, showcasing security products in a clean, responsive layout.</p>
         <ul class="proj-points">
           <li>Responsive UI with HTML &amp; CSS structured layout</li>
           <li>Clean navigation &amp; user-friendly interface</li>
@@ -930,7 +1030,7 @@ footer {
       </div>
       <div class="proj-footer">
         <span class="proj-year">2025</span>
-        <a href="https://github.com/Devasish009/ShieldX" target="_blank" class="proj-arrow">↗</a>
+        <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
 
@@ -939,27 +1039,57 @@ footer {
       <div style="text-align:center;padding:40px;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(244,238,236,0.06);margin-bottom:16px;">MORE</div>
         <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,238,236,0.2);">More projects coming soon</div>
-        <div style="margin-top:20px;font-size:22px;color:rgba(255,58,47,0.3);">✦</div>
+        <div style="margin-top:20px;font-size:22px;color:rgba(255,58,47,0.3);">&#10022;</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════ RED STRIP ══════════════ -->
+<!-- PROJECT MODAL -->
+<div id="proj-modal" class="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModalBtn()">&#10005;</button>
+    <div class="modal-header">
+      <span class="modal-num" id="m-num"></span>
+      <span class="modal-category" id="m-cat"></span>
+    </div>
+    <h2 class="modal-title" id="m-title"></h2>
+    <div class="modal-about-block" id="m-about"></div>
+    <div class="modal-preview">
+      <div class="preview-label">Project Showcase</div>
+      <div class="preview-screen">
+        <div class="preview-dots">
+          <span></span><span></span><span></span>
+          <span class="p-title" id="m-preview-title"></span>
+        </div>
+        <div class="preview-content" id="m-preview"></div>
+      </div>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-section-title">Key Features</div>
+    <ul class="modal-points" id="m-points"></ul>
+    <div class="modal-divider" style="margin-top:20px;"></div>
+    <div class="modal-section-title">Tech Stack</div>
+    <div class="modal-stack" id="m-stack"></div>
+    <div class="modal-actions" id="m-actions"></div>
+  </div>
+</div>
+
+<!-- ╮══════════════ RED STRIP ╮══════════════ -->
 <div class="red-strip reveal">
   <div class="rs-title">Security<br>First.<br>Always.</div>
   <div class="rs-div"></div>
-  <p class="rs-text">Every line of code I write is reviewed through a security lens — JWT auth, OWASP principles, and secure coding practices aren't afterthoughts, they're foundations.</p>
+  <p class="rs-text">Every line of code I write is reviewed through a security lens &mdash; JWT auth, OWASP principles, and secure coding practices aren&rsquo;t afterthoughts, they&rsquo;re foundations.</p>
 </div>
 
-<!-- ══════════════ SKILLS ══════════════ -->
+<!-- ╮══════════════ SKILLS ╮══════════════ -->
 <section class="skills-sec" id="skills">
   <div class="skills-inner">
     <div class="skills-intro reveal">
       <div class="sec-eyebrow">Expertise</div>
       <h2 class="sec-title">My Tech<br>Arsenal</h2>
-      <p>From low-level C/C++ to Flutter mobile apps and Node.js backends — I operate across the full stack with a security-first mindset.</p>
+      <p>From low-level C/C++ to Flutter mobile apps and Node.js backends &mdash; I operate across the full stack with a security-first mindset.</p>
     </div>
 
     <div class="skills-cols stagger">
@@ -1031,7 +1161,7 @@ footer {
           <li>Authentication &amp; Authorization</li>
           <li>Brute Force Protection Logic</li>
           <li>Input Validation &amp; Sanitization</li>
-          <li>Session &amp;  Token Management</li>
+          <li>Session &amp; Token Management</li>
         </ul>
       </div>
 
@@ -1051,10 +1181,10 @@ footer {
         </ul>
       </div>
 
-    <div class="skills-group">
+      <div class="skills-group">
         <div class="skills-group-title">Cyber Security</div>
         <ul class="skill-list">
-          <li>Network Security&amp; Foundations</li>
+          <li>Network Security &amp; Foundations</li>
           <li>Web Application Security</li>
           <li>Offensive Security Techniques</li>
           <li>Active Directory Attacks</li>
@@ -1071,90 +1201,79 @@ footer {
   </div>
 </section>
 
-<!-- ══════════════ CERTIFICATIONS ══════════════ -->
+<!-- CERTIFICATIONS -->
 <section class="certs" id="certs">
   <div class="reveal">
     <div class="sec-eyebrow">Credentials</div>
     <h2 class="sec-title">Certifications</h2>
   </div>
-
   <div class="certs-grid stagger">
-
     <div class="cert-card">
-      <div class="cert-icon">🔴</div>
+      <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
       <div class="cert-org">Cisco NETACAD</div>
       <div class="cert-name">Python Essentials 1</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">⚙️</div>
+      <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
       <div class="cert-org">Cisco NETACAD</div>
       <div class="cert-name">Programming Essentials in C &amp; C++</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">💻</div>
+      <div class="cert-icon"><i class="fa-solid fa-server"></i></div>
       <div class="cert-org">Cisco NETACAD</div>
       <div class="cert-name">Operating Systems Basics</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">🗄️</div>
+      <div class="cert-icon"><i class="fa-solid fa-database"></i></div>
       <div class="cert-org">Coursera</div>
       <div class="cert-name">Database Management System</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">🤖</div>
+      <div class="cert-icon"><i class="fa-solid fa-microchip"></i></div>
       <div class="cert-org">Coursera</div>
       <div class="cert-name">Artificial Intelligence &amp; Python</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">🏆</div>
+      <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
       <div class="cert-org">Microsoft</div>
       <div class="cert-name">MOS Excel 2019 Associate &amp; Power Platform Fundamentals</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">🛡️</div>
-      <div class="cert-org">Kitech – Vista Pvt Ltd</div>
+      <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div class="cert-org">Kitech &ndash; Vista Pvt Ltd</div>
       <div class="cert-name">Cyber Security</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">🌐</div>
+      <div class="cert-icon"><i class="fa-brands fa-js"></i></div>
       <div class="cert-org">Coursera</div>
       <div class="cert-name">HTML, CSS &amp; JavaScript</div>
     </div>
-
     <div class="cert-card">
-      <div class="cert-icon">🖥️</div>
+      <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
       <div class="cert-org">Coursera</div>
       <div class="cert-name">Operating Systems</div>
     </div>
-
   </div>
 </section>
 
-<!-- ══════════════ CONTACT ══════════════ -->
+<!-- ╮══════════════ CONTACT ╮══════════════ -->
 <section class="contact" id="contact">
-  <div class="sec-eyebrow reveal">Let's Connect</div>
-  <h2 class="sec-title reveal">Got an Idea?<br>Let's Build It.</h2>
-  <p class="contact-sub reveal">Open to internships, freelance projects, and collaborations. Let's create something impactful together.</p>
+  <div class="sec-eyebrow reveal">Let&rsquo;s Connect</div>
+  <h2 class="sec-title reveal">Got an Idea?<br>Let&rsquo;s Build It.</h2>
+  <p class="contact-sub reveal">Open to internships, freelance projects, and collaborations. Let&rsquo;s create something impactful together.</p>
 
   <div class="contact-links stagger">
     <a class="c-link" href="mailto:jajimoggaladevasishvenkatsai@gmail.com">
-      <span class="icon">✉</span> Email Me
+      <span class="icon">&#10003;</span> Email Me
     </a>
     <a class="c-link" href="https://github.com/Devasish009" target="_blank">
-      <span class="icon">⌥</span> GitHub
+      <span class="icon"><i class="fa-brands fa-github"></i></span> GitHub
     </a>
     <a class="c-link" href="https://linkedin.com/in/devasishjajimoggala" target="_blank">
-      <span class="icon">◈</span> LinkedIn
+      <span class="icon"><i class="fa-brands fa-linkedin-in"></i></span> LinkedIn
     </a>
-    <a class="c-link" href="https://deva.in" target="_blank">
-      <span class="icon">◉</span> deva.in
+    <a class="c-link" href="https://devaverse.netlify.app" target="_blank">
+      <span class="icon">&#9672;</span> Devaverse
     </a>
   </div>
 
@@ -1163,18 +1282,18 @@ footer {
   </div>
 </section>
 
-<!-- ══════════════ FOOTER ══════════════ -->
+<!-- ╮══════════════ FOOTER ╮══════════════ -->
 <footer>
   <div class="f-logo"><em>D</em>EVASISH</div>
-  <div class="f-copy">© 2026 Devasish Venkat Sai Jajimoggala</div>
+  <div class="f-copy">&copy; 2026 Devasish Venkat Sai Jajimoggala</div>
   <div class="f-links">
     <a href="https://github.com/Devasish009" target="_blank">GitHub</a>
     <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">LinkedIn</a>
-    <a href="https://deva.in" target="_blank">deva.in</a>
+    <a href="https://devaverse.netlify.app" target="_blank">devaverse</a>
   </div>
 </footer>
 
-<!-- ══════════════ JS ══════════════ -->
+<!-- ╮══════════════ JS ╮══════════════ -->
 <script>
 /* ── Cursor ── */
 const dot  = document.getElementById('cur-dot');
@@ -1208,15 +1327,24 @@ revealEls.forEach(el => io.observe(el));
 
 /* ── Hamburger (mobile) ── */
 const ham = document.getElementById('ham');
+const mobileMenu = document.getElementById('mobileMenu');
 let menuOpen = false;
 ham.addEventListener('click', () => {
   menuOpen = !menuOpen;
-  // simple toggle — for full mobile menu, extend here
-  ham.style.opacity = menuOpen ? '0.5' : '1';
+  mobileMenu.classList.toggle('open', menuOpen);
+  const spans = ham.querySelectorAll('span');
+  spans[0].style.transform = menuOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+  spans[1].style.opacity   = menuOpen ? '0' : '1';
+  spans[2].style.transform = menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
 });
+function closeMobile() {
+  menuOpen = false;
+  mobileMenu.classList.remove('open');
+  ham.querySelectorAll('span').forEach(s => { s.style.transform=''; s.style.opacity='1'; });
+}
 
 /* ── Smooth active nav highlight ── */
-const sections = document.querySelectorAll('section[id], .about[id]');
+const sections = document.querySelectorAll('section[id]');
 const navAs = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
   let current = '';
@@ -1224,9 +1352,7 @@ window.addEventListener('scroll', () => {
     if(window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
   });
   navAs.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#'+current
-      ? 'var(--accent)'
-      : '';
+    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--accent)' : '';
   });
 });
 
@@ -1236,6 +1362,110 @@ window.addEventListener('scroll', () => {
   const y = window.scrollY;
   if(fig) fig.style.transform = `translateY(${y * 0.12}px)`;
 });
+
+/* ────────────────────────────────────────────── */
+/* PROJECT MODAL DATA                                          */
+/* ────────────────────────────────────────────── */
+const PROJECTS = {
+  aegisx: {
+    num: '01', cat: 'Security / Backend',
+    title: 'AegisX – Mini SIEM & Intrusion Detection System',
+    about: [
+      'AegisX is a web-based Security Information and Event Management (SIEM) platform designed for real-time threat monitoring, log correlation, and automated incident response.',
+      'Built with an attacker mindset, it continuously tracks authentication attempts, API patterns, and anomalous behaviour — detecting threats before they escalate and responding automatically.'
+    ],
+    previewTitle: 'AegisX — Live Threat Dashboard',
+    preview: `<span style="color:#ff3a2f">// AegisX — Live Threat Dashboard</span>
+<br><span style="color:#888">GET</span>  /api/logs/stream &nbsp;&nbsp;&nbsp;<span style="color:#28c840">● LIVE</span>
+<br><span style="color:#888">POST</span> /api/auth/block-ip &nbsp;<span style="color:#febc2e">⚠ FLAGGED</span>
+<br><br><span style="color:rgba(244,238,236,.3)">Events correlated: <span style="color:#f4eeec">1,247</span></span>
+<br><span style="color:rgba(244,238,236,.3)">IPs blocked: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3a2f">23</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Alerts fired: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#febc2e">8</span></span>
+<br><br><span style="color:#555">WebSocket: <span style="color:#28c840">CONNECTED</span></span>`,
+    features: [
+      'Real-time log aggregation & event correlation engine tracking auth attempts and suspicious API access patterns',
+      'Brute-force detection with threshold-based anomaly analysis and automatic alerting',
+      'Automated IP blocking — flagged IPs banned via Express middleware in under 50ms',
+      'WebSocket-powered live dashboard — threat feeds update without page refresh',
+      'JWT-secured admin endpoints with role-based access control (RBAC)'
+    ],
+    stack: ['Node.js','Express.js','PostgreSQL','JWT','WebSockets'],
+    github: 'https://github.com/Devasish009/aegisx-siem'
+  },
+  thunder: {
+    num: '02', cat: 'Mobile / Full Stack',
+    title: 'Thunder Thursday – Real Time College Event & Voting Platform',
+    about: [
+      'Thunder Thursday is a mobile application developed to digitally manage and enhance college cultural events by enabling real-time participation, voting, and performance tracking.',
+      'The application provides a centralized platform where students can register for performances, participate in live voting, view leaderboards, and stay updated with event notifications. By replacing traditional manual processes with a digital system, the app ensures transparency, efficiency, and a more engaging experience for both participants and organizers.',
+      'Administrators have dedicated controls to manage performances, monitor votes, update event details, and control performance status, ensuring smooth event coordination. Thunder Thursday transforms traditional college events into an interactive, technology-driven experience.'
+    ],
+    previewTitle: 'Thunder Thursday — Event Live',
+    preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event Live</span>
+<br><br><span style="color:#febc2e">⚡ Thunder Thursday</span> &nbsp;<span style="color:#28c840">LIVE</span>
+<br><span style="color:rgba(244,238,236,.3)">Participants: <span style="color:#f4eeec">342</span> &nbsp;| Votes cast: <span style="color:#f4eeec">891</span></span>
+<br><br><span style="color:#888">POST</span> /api/vote &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
+<br><span style="color:#888">GET</span>  /api/leaderboard &nbsp;<span style="color:#28c840">● STREAMING</span>
+<br><br><span style="color:rgba(244,238,236,.3)">Push &rarr; <span style="color:#f4eeec">342</span> devices</span>
+<br><span style="color:rgba(244,238,236,.3)">OTP Auth: <span style="color:#28c840">verified ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Admin panel: <span style="color:#febc2e">active</span></span>`,
+    features: [
+      'User registration and secure login with OTP verification — only verified college users can access the platform',
+      'Live voting system for event performances — students vote in real time during the event',
+      'Real-time leaderboard that automatically updates based on live voting results across all connected devices',
+      'Performance registration and management — participants can register their acts through the app',
+      'Event notifications and instant updates delivered via Firebase Cloud Messaging push notifications',
+      'Administrative control panel — admins manage performances, monitor votes, update event details, and control performance status',
+      'Cross-platform Flutter app — single codebase runs natively on Android & iOS'
+    ],
+    stack: ['Flutter','Dart','Node.js','Express.js','PostgreSQL','Firebase'],
+    github: 'https://github.com/Devasish009/thunder-thursday-app'
+  },
+  shieldx: {
+    num: '03', cat: 'Web / Security',
+    title: 'ShieldX – Cybersecurity Tools E-Commerce Showcase',
+    about: [
+      'ShieldX is a clean, responsive e-commerce showcase platform for cybersecurity tools and products, built with OWASP-aligned architecture.',
+      'Designed to establish trust for security-conscious users, it features a structured product layout, intuitive navigation, and a security-hardened Express.js backend.'
+    ],
+    previewTitle: 'ShieldX — Security Store',
+    preview: `<span style="color:#ff3a2f">// ShieldX — Security Tools Store</span>
+<br><br><span style="color:#f4eeec">ShieldX</span> <span style="color:rgba(244,238,236,.3)">v1.0</span>
+<br><span style="color:rgba(244,238,236,.3)">Products: <span style="color:#f4eeec">12</span> &nbsp;| Categories: <span style="color:#f4eeec">3</span></span>
+<br><br><span style="color:#888">GET</span> /products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
+<br><br><span style="color:rgba(244,238,236,.3)">OWASP headers: <span style="color:#28c840">configured ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">CSP enabled: &nbsp;&nbsp;&nbsp;<span style="color:#28c840">yes ✓</span></span>`,
+    features: [
+      'Fully responsive UI built with semantic HTML5 and modern CSS — mobile-first design approach',
+      'Clean product grid layout with category sections: Firewall, Pentest tools, SIEM products',
+      'Structured navigation with smooth UX and user-friendly interface design',
+      'Node.js + Express.js backend with OWASP security headers — CSP, X-Frame-Options, HSTS configured',
+      'Input sanitisation, rate limiting, and secure error handling throughout'
+    ],
+    stack: ['HTML5','CSS3','JavaScript','Node.js','Express.js'],
+    github: 'https://github.com/Devasish009/ShieldX'
+  }
+};
+
+function openModal(id) {
+  const p = PROJECTS[id]; if(!p) return;
+  document.getElementById('m-num').textContent = p.num;
+  document.getElementById('m-cat').textContent = p.cat;
+  document.getElementById('m-title').textContent = p.title;
+  document.getElementById('m-about').innerHTML = p.about.map(t => '<p>'+t+'</p>').join('');
+  document.getElementById('m-preview-title').textContent = p.previewTitle;
+  document.getElementById('m-preview').innerHTML = p.preview;
+  document.getElementById('m-points').innerHTML = p.features.map(f => '<li>'+f+'</li>').join('');
+  document.getElementById('m-stack').innerHTML = p.stack.map(t => '<span class="stack-tag">'+t+'</span>').join('');
+  document.getElementById('m-actions').innerHTML =
+    '<a href="'+p.github+'" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> View on GitHub</a>'+
+    '<button onclick="closeModalBtn()" class="modal-btn secondary">✕ Close</button>';
+  document.getElementById('proj-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) { if(e.target === document.getElementById('proj-modal')) closeModalBtn(); }
+function closeModalBtn() { document.getElementById('proj-modal').classList.remove('active'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModalBtn(); });
 </script>
 </body>
 </html>
