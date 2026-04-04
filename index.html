@@ -403,6 +403,8 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   position: relative; overflow: hidden;
   transition: transform .4s, box-shadow .4s;
   cursor: none;
+  min-height: 420px;
+  display: flex; flex-direction: column;
 }
 .proj-card:hover {
   transform: translateY(-4px);
@@ -412,6 +414,8 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .proj-card:nth-child(2) { grid-column: 8 / 13; }
 .proj-card:nth-child(3) { grid-column: 1 / 6; }
 .proj-card:nth-child(4) { grid-column: 6 / 13; }
+.proj-card:nth-child(5) { grid-column: 1 / 8; }
+.proj-card:nth-child(6) { grid-column: 8 / 13; }
 
 /* Accent top line */
 .proj-card::before {
@@ -421,7 +425,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 }
 .proj-card:hover::before { width: 100%; }
 
-.proj-body { padding: 36px 36px 28px; }
+.proj-body { padding: 36px 36px 28px; flex: 1; }
 .proj-num {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 11px; letter-spacing: 3px;
@@ -852,7 +856,7 @@ footer {
   <!-- Stats -->
   <div class="hero-stats">
     <div>
-      <div class="stat-val">3<sup>+</sup></div>
+      <div class="stat-val">4<sup>+</sup></div>
       <div class="stat-lbl">Projects Built</div>
     </div>
     <div>
@@ -1009,6 +1013,31 @@ footer {
         <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
+    <!--QuestAI-->
+    <div class="proj-card" onclick="openModal('questai')">
+      <div class="proj-body">
+        <div class="proj-num">04 &mdash; AI / Web</div>
+        <div class="proj-name">QuestAI &ndash; AI-Powered Q&amp;A Forum</div>
+        <p class="proj-desc">A web-based Q&amp;A platform that leverages AI to provide instant, accurate answers and foster community-driven knowledge sharing.</p>
+        <ul class="proj-points">
+          <li>AI-driven answer generation for user questions</li>
+          <li>Community voting system to surface the best responses</li>
+          <li>Secure user authentication and profile management</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">Tailwind CSS</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Express.js</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">Three.js</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
 
     <!-- ShieldX -->
     <div class="proj-card" onclick="openModal('shieldx')">
@@ -1034,8 +1063,33 @@ footer {
       </div>
     </div>
 
+
+    <!-- SkyRoute -->
+    <div class="proj-card" onclick="openModal('skyroute')">
+      <div class="proj-body">
+        <div class="proj-num">05 &mdash; Desktop / Java</div>
+        <div class="proj-name">SkyRoute &ndash; Bus Ticket Booking System</div>
+        <p class="proj-desc">A full-featured desktop application for bus ticket booking built with Java Swing, featuring interactive seat selection, real-time booking management, and an admin control panel.</p>
+        <ul class="proj-points">
+          <li>Interactive cinema-style seat selection with real-time availability</li>
+          <li>Admin dashboard with bus, route, and user management</li>
+          <li>Secure SHA-256 password hashing &amp; JDBC transaction handling</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Java</span>
+          <span class="stack-tag">Java Swing</span>
+          <span class="stack-tag">JDBC</span>
+          <span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2025</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
     <!-- More coming -->
-    <div class="proj-card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:200px;">
+    <div class="proj-card" style="justify-content:center;align-items:center;">
       <div style="text-align:center;padding:40px;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(244,238,236,0.06);margin-bottom:16px;">MORE</div>
         <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,238,236,0.2);">More projects coming soon</div>
@@ -1444,6 +1498,68 @@ const PROJECTS = {
     ],
     stack: ['HTML5','CSS3','JavaScript','Node.js','Express.js'],
     github: 'https://github.com/Devasish009/ShieldX'
+  },
+  skyroute: {
+    num: '05', cat: 'Desktop / Java',
+    title: 'SkyRoute – Bus Ticket Booking System',
+    about: [
+      'SkyRoute is a full-featured desktop application built with Java Swing for booking bus tickets. It provides a complete end-to-end booking experience — from searching routes and selecting seats to confirming tickets and managing bookings.',
+      'The system supports two roles: Users can search buses, view seat availability in a cinema-style interactive layout, book tickets with passenger details, and manage their bookings. Admins have a dedicated dashboard to manage buses, routes, bookings, and users.',
+      'Built with clean MVC architecture, DAO pattern for data access, secure SHA-256 password hashing, and JDBC transactions to ensure booking integrity — SkyRoute demonstrates real-world software engineering principles in a polished desktop application.'
+    ],
+    previewTitle: 'SkyRoute — Booking Terminal',
+    preview: `<span style="color:#ff3a2f">// SkyRoute — Bus Booking System</span>
+<br><br><span style="color:#febc2e">🚌 SkyRoute v1.0</span> &nbsp;<span style="color:#28c840">RUNNING</span>
+<br><span style="color:rgba(244,238,236,.3)">Routes: <span style="color:#f4eeec">15</span> &nbsp;| Buses: <span style="color:#f4eeec">24</span> &nbsp;| Users: <span style="color:#f4eeec">156</span></span>
+<br><br><span style="color:#888">SELECT</span> * FROM routes WHERE departure = 'Kakinada'
+<br><span style="color:#28c840">→ 3 routes found</span>
+<br><br><span style="color:rgba(244,238,236,.3)">Seats available: <span style="color:#28c840">32/40</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Booking ref: <span style="color:#f4eeec">SKY-2025-A7X9</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Payment: <span style="color:#28c840">confirmed ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">SHA-256 auth: <span style="color:#28c840">secure ✓</span></span>`,
+    features: [
+      'User registration and login with SHA-256 password hashing and input validation',
+      'Dashboard with real-time stats — total bookings, upcoming trips, and spending overview',
+      'Bus search by city and date with route filtering and fare display',
+      'Interactive cinema-style seat selection — visually pick available seats from the bus layout',
+      'Complete booking flow with passenger details, payment method, and booking reference generation',
+      'View, manage, and cancel bookings with JDBC transaction-safe cancellation',
+      'Admin panel — manage buses (add/edit/delete), routes (auto seat generation), view all bookings, and user management (activate/deactivate, role changes)',
+      'Clean MVC architecture with DAO pattern, custom exceptions, and utility classes'
+    ],
+    stack: ['Java','Java Swing','JDBC','MySQL','SHA-256','MVC Architecture'],
+    github: 'https://github.com/Devasish009/SkyRoute'
+  },
+  questai: {
+    num: '04', cat: 'AI / Web',
+    title: 'QuestAI – AI-Powered Q&A Forum',
+    about: [
+      'QuestAI is a web-based Q&A platform that leverages artificial intelligence to provide instant, accurate answers to user questions while fostering a vibrant community-driven knowledge ecosystem.',
+      'The platform combines a modern React frontend with immersive Three.js visual effects, a robust Node.js backend, and AI-powered answer generation — creating an intelligent forum where users can ask questions, receive AI-generated responses, and engage with community-voted answers.',
+      'With secure authentication, profile management, and a voting system to surface the best responses, QuestAI transforms traditional Q&A forums into a smart, interactive learning experience.'
+    ],
+    previewTitle: 'QuestAI — AI Forum Live',
+    preview: `<span style="color:#ff3a2f">// QuestAI — AI-Powered Q&A Forum</span>
+<br><br><span style="color:#febc2e">🤖 QuestAI</span> &nbsp;<span style="color:#28c840">ONLINE</span>
+<br><span style="color:rgba(244,238,236,.3)">Questions: <span style="color:#f4eeec">1,482</span> &nbsp;| Answers: <span style="color:#f4eeec">3,217</span></span>
+<br><br><span style="color:#888">POST</span> /api/ask &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
+<br><span style="color:#888">GET</span>  /api/answers &nbsp;&nbsp;<span style="color:#28c840">● AI GENERATING</span>
+<br><br><span style="color:rgba(244,238,236,.3)">AI model: <span style="color:#28c840">ready ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Community votes: <span style="color:#f4eeec">8,941</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Auth: <span style="color:#28c840">JWT secured ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Three.js scene: <span style="color:#28c840">rendered ✓</span></span>`,
+    features: [
+      'AI-driven answer generation — users ask questions and receive intelligent, context-aware responses powered by AI',
+      'Community voting system — upvote and downvote answers to surface the most helpful responses',
+      'Secure user authentication with JWT — registration, login, and protected routes',
+      'User profile management — track questions asked, answers given, and reputation score',
+      'Immersive Three.js visual effects — interactive 3D elements enhance the frontend experience',
+      'Modern React frontend with Tailwind CSS — responsive, clean UI with smooth animations',
+      'RESTful API backend built with Node.js and Express.js — scalable and well-structured',
+      'PostgreSQL database for reliable data persistence — questions, answers, users, and votes'
+    ],
+    stack: ['React','Tailwind CSS','Three.js','Node.js','Express.js','PostgreSQL'],
+    github: 'https://github.com/Devasish009/QuestAI'
   }
 };
 
