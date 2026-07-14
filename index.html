@@ -416,6 +416,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .proj-card:nth-child(4) { grid-column: 6 / 13; }
 .proj-card:nth-child(5) { grid-column: 1 / 8; }
 .proj-card:nth-child(6) { grid-column: 8 / 13; }
+.proj-card:nth-child(7) { grid-column: 1 / 13; }
 
 /* Accent top line */
 .proj-card::before {
@@ -856,7 +857,7 @@ footer {
   <!-- Stats -->
   <div class="hero-stats">
     <div>
-      <div class="stat-val">4<sup>+</sup></div>
+      <div class="stat-val">7</div>
       <div class="stat-lbl">Projects Built</div>
     </div>
     <div>
@@ -1062,12 +1063,83 @@ footer {
       </div>
     </div>
 
-    <!-- More coming -->
-    <div class="proj-card" style="justify-content:center;align-items:center;">
-      <div style="text-align:center;padding:40px;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(244,238,236,0.06);margin-bottom:16px;">MORE</div>
-        <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,238,236,0.2);">More projects coming soon</div>
-        <div style="margin-top:20px;font-size:22px;color:rgba(255,58,47,0.3);">&#10022;</div>
+    <!-- ExploreMate -->
+    <div class="proj-card" onclick="openModal('exploremate')">
+      <div class="proj-body">
+        <div class="proj-num">02 &mdash; Mobile / AI</div>
+        <div class="proj-name">ExploreMate &ndash; AI-Powered Travel Companion</div>
+        <p class="proj-desc">An intelligent mobile app that redefines travel through AI-driven personalization, gamification, and real-time assistance for solo travelers.</p>
+        <ul class="proj-points">
+          <li>Hidden Gem Finder &mdash; discover underrated, locally popular destinations</li>
+          <li>Mood-Based Food Explorer &mdash; AI-powered food recommendations based on mood, weather, and time</li>
+          <li>Gamified City Explorer &mdash; missions, rewards, and leaderboards to encourage exploration</li>
+          <li>AI Audio Tour Guide &mdash; personalized storytelling with historical and cultural narratives</li>
+          <li>Smart search, real-time translation, and intelligent trip scheduling</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">AI/ML</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Firebase</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
+    <!-- Thunder Thursday App -->
+    <div class="proj-card" onclick="openModal('thunder_app')">
+      <div class="proj-body">
+        <div class="proj-num">06 &mdash; Mobile / Event Tech</div>
+        <div class="proj-name">Thunder Thursday &ndash; Student &amp; Performance App</div>
+        <p class="proj-desc">A feature-rich college event management and live voting mobile application built to enhance student participation and real-time coordination.</p>
+        <ul class="proj-points">
+          <li>Live voting system with real-time Firestore sync</li>
+          <li>Interactive event registration and performance registration</li>
+          <li>FCM push notifications and local reminders for event schedules</li>
+          <li>Native media support with custom intro video players</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">Firebase Auth</span>
+          <span class="stack-tag">Cloud Firestore</span>
+          <span class="stack-tag">FCM</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
+    <!-- Thunder Thursday Admin -->
+    <div class="proj-card" onclick="openModal('thunder_admin')">
+      <div class="proj-body">
+        <div class="proj-num">07 &mdash; Mobile / Admin Portal</div>
+        <div class="proj-name">Thunder Thursday &ndash; Event Admin Console</div>
+        <p class="proj-desc">A dedicated supervisor dashboard application for coordinators to control event flows, manage performance lists, send bulk alerts, and export data.</p>
+        <ul class="proj-points">
+          <li>Live performance status coordinator (active, completed, next up)</li>
+          <li>Bulk push notification dispatcher and mailer announcement system</li>
+          <li>Detailed report generation exporting registration lists to Excel</li>
+          <li>Feedback and query resolution board with real-time Firestore sync</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">Cloud Firestore</span>
+          <span class="stack-tag">Mailer</span>
+          <span class="stack-tag">Excel API</span>
+          <span class="stack-tag">Share Plus</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
 
@@ -1395,6 +1467,37 @@ window.addEventListener('scroll', () => {
 /* PROJECT MODAL DATA                                          */
 /* ────────────────────────────────────────────── */
 const PROJECTS = {
+  exploremate: {
+    num: '02', cat: 'Mobile / AI / Travel Tech',
+    title: 'ExploreMate – AI-Powered Travel Companion',
+    about: [
+      'ExploreMate is an AI-powered mobile application designed to make travel more accessible, exciting, and independent — especially for solo travelers.',
+      'Unlike traditional travel apps that focus solely on booking and navigation, ExploreMate integrates advanced AI-driven features with personalization and gamification to create an immersive, interactive travel experience.',
+      'The app combines smart search, AI-based assistance, real-time language translation, and intelligent trip scheduling to help users plan and manage trips efficiently while discovering unique, locally-authentic experiences.'
+    ],
+    previewTitle: 'ExploreMate — AI Travel Assistant',
+    preview: `<span style="color:#ff3a2f">// ExploreMate — AI Travel Companion</span>
+<br><br><span style="color:#febc2e">🗺️ ExploreMate</span> &nbsp;<span style="color:#28c840">READY</span>
+<br><span style="color:rgba(244,238,236,.3)">Destinations: <span style="color:#f4eeec">500+</span> &nbsp;| Users: <span style="color:#f4eeec">12k+</span></span>
+<br><br><span style="color:#888">AI</span> hidden-gem-finder() &nbsp;<span style="color:#28c840">✓ active</span>
+<br><span style="color:#888">MOOD</span> food-explorer(mood, weather) &nbsp;<span style="color:#28c840">✓ ready</span>
+<br><span style="color:#888">GAME</span> city-explorer(missions) &nbsp;<span style="color:#febc2e">⚡ engaging</span>
+<br><br><span style="color:rgba(244,238,236,.3)">Audio tours: <span style="color:#f4eeec">342</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Translations: <span style="color:#28c840">real-time ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Leaderboard: <span style="color:#f4eeec">live</span></span>`,
+    features: [
+      'Smart Search & Personalization — AI-driven destination and activity recommendations tailored to user preferences',
+      'Hidden Gem Finder — discover underrated, locally popular places and hidden attractions off the beaten path',
+      'Mood-Based Food Explorer — intelligent food recommendations based on user mood, weather conditions, and time of day, with cultural stories attached',
+      'Gamified City Explorer — turn city exploration into an engaging game with missions, rewards, achievements, and leaderboards',
+      'AI Audio Tour Guide — personalized audio storytelling featuring historical insights, cultural narratives, and food-related stories',
+      'Real-Time Language Translation — instant translation for menus, signs, and conversations',
+      'Intelligent Trip Scheduling — AI-optimized itineraries that balance activities, travel time, and rest periods',
+      'Cross-Platform Compatibility — seamless experience on both Android and iOS devices'
+    ],
+    stack: ['Flutter','Dart','AI/ML','Node.js','Express.js','Firebase','PostgreSQL','Google Maps API'],
+    github: 'https://github.com/Devasish009/exploremate'
+  },
   aegisx: {
     num: '01', cat: 'Security / Backend',
     title: 'AegisX – Mini SIEM & Intrusion Detection System',
@@ -1420,34 +1523,59 @@ const PROJECTS = {
     stack: ['Node.js','Express.js','PostgreSQL','JWT','WebSockets'],
     github: 'https://github.com/Devasish009/aegisx-siem'
   },
-  thunder: {
-    num: '02', cat: 'Mobile / Full Stack',
-    title: 'Thunder Thursday – Real Time College Event & Voting Platform',
+  thunder_app: {
+    num: '06', cat: 'Mobile / Event Tech',
+    title: 'Thunder Thursday – Student & Performance App',
     about: [
-      'Thunder Thursday is a mobile application developed to digitally manage and enhance college cultural events by enabling real-time participation, voting, and performance tracking.',
-      'The application provides a centralized platform where students can register for performances, participate in live voting, view leaderboards, and stay updated with event notifications. By replacing traditional manual processes with a digital system, the app ensures transparency, efficiency, and a more engaging experience for both participants and organizers.',
-      'Administrators have dedicated controls to manage performances, monitor votes, update event details, and control performance status, ensuring smooth event coordination. Thunder Thursday transforms traditional college events into an interactive, technology-driven experience.'
+      'Thunder Thursday is a feature-rich mobile application built for college cultural event management, registration, and live voting.',
+      'It offers students a dynamic platform to register for events (such as Solo Dance, Group Music, etc.), view event guidelines, receive real-time notifications, and vote for their favorite performances.',
+      'The app incorporates native mobile experiences such as a video splash screen, interactive event gallery, and live push notifications using Firebase Cloud Messaging.'
     ],
-    previewTitle: 'Thunder Thursday — Event Live',
-    preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event Live</span>
-<br><br><span style="color:#febc2e">⚡ Thunder Thursday</span> &nbsp;<span style="color:#28c840">LIVE</span>
-<br><span style="color:rgba(244,238,236,.3)">Participants: <span style="color:#f4eeec">342</span> &nbsp;| Votes cast: <span style="color:#f4eeec">891</span></span>
+    previewTitle: 'Thunder Thursday — Student App',
+    preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event App Live</span>
+<br><br><span style="color:#febc2e">⚡ Thunder Thursday</span> &nbsp;<span style="color:#28c840">ONLINE</span>
+<br><span style="color:rgba(244,238,236,.3)">Active Users: <span style="color:#f4eeec">340+</span> &nbsp;| Votes: <span style="color:#f4eeec">890+</span></span>
 <br><br><span style="color:#888">POST</span> /api/vote &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
 <br><span style="color:#888">GET</span>  /api/leaderboard &nbsp;<span style="color:#28c840">● STREAMING</span>
-<br><br><span style="color:rgba(244,238,236,.3)">Push &rarr; <span style="color:#f4eeec">342</span> devices</span>
-<br><span style="color:rgba(244,238,236,.3)">OTP Auth: <span style="color:#28c840">verified ✓</span></span>
-<br><span style="color:rgba(244,238,236,.3)">Admin panel: <span style="color:#febc2e">active</span></span>`,
+<br><br><span style="color:rgba(244,238,236,.3)">Push FCM: <span style="color:#28c840">active ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Video Splash: <span style="color:#28c840">initialized ✓</span></span>`,
     features: [
-      'User registration and secure login with OTP verification — only verified college users can access the platform',
-      'Live voting system for event performances — students vote in real time during the event',
-      'Real-time leaderboard that automatically updates based on live voting results across all connected devices',
-      'Performance registration and management — participants can register their acts through the app',
-      'Event notifications and instant updates delivered via Firebase Cloud Messaging push notifications',
-      'Administrative control panel — admins manage performances, monitor votes, update event details, and control performance status',
-      'Cross-platform Flutter app — single codebase runs natively on Android & iOS'
+      'User registration and secure login with Firebase Authentication & verification logic',
+      'Interactive event registration forms supporting comprehensive field configurations',
+      'Live voting system with real-time Firestore synchronization for casting and viewing scores',
+      'Native-like carousels and sliders for event banner highlights',
+      'Local notifications and FCM push notification alerts for live updates and schedule changes',
+      'Custom video player for playing event promotional and intro reels'
     ],
-    stack: ['Flutter','Dart','Node.js','Express.js','PostgreSQL','Firebase'],
+    stack: ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Firebase Messaging', 'Shared Preferences'],
     github: 'https://github.com/Devasish009/thunder-thursday-app'
+  },
+  thunder_admin: {
+    num: '07', cat: 'Mobile / Admin Portal',
+    title: 'Thunder Thursday – Event Admin Console',
+    about: [
+      'Thunder Thursday Admin Console is a dedicated management app that empowers college coordinators and event administrators to supervise and control the entire event flow in real time.',
+      'Administrators can view and manage event registrations, coordinate participant performances, run live voting sessions, send bulk email/push notifications, and export comprehensive registration reports to Excel format.',
+      'The console connects directly to Cloud Firestore to manipulate live event state, toggle voting permissions, and track live statistics.'
+    ],
+    previewTitle: 'Thunder Thursday — Admin Panel',
+    preview: `<span style="color:#ff3a2f">// Thunder Thursday — Admin Console</span>
+<br><br><span style="color:#febc2e">🛡️ Admin Console</span> &nbsp;<span style="color:#28c840">CONNECTED</span>
+<br><span style="color:rgba(244,238,236,.3)">Registrations: <span style="color:#f4eeec">120+</span> &nbsp;| Toggled Votes: <span style="color:#28c840">YES</span></span>
+<br><br><span style="color:#888">EXEC</span> export-to-excel() &nbsp;&nbsp;<span style="color:#28c840">✓ SUCCESS</span>
+<br><span style="color:#888">POST</span> send-bulk-fcm() &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">✓ SENT (340)</span>
+<br><br><span style="color:rgba(244,238,236,.3)">Mailer SMTP: <span style="color:#28c840">connected ✓</span></span>
+<br><span style="color:rgba(244,238,236,.3)">Firestore Control: <span style="color:#28c840">active ✓</span></span>`,
+    features: [
+      'Role-based admin access control with secure Firebase authentication',
+      'Real-time registration dashboard to approve, reject, or filter participant applications',
+      'Live performance coordinator tool to toggle performance status (active, completed, next up)',
+      'Bulk notification center to dispatch push alerts (FCM) and email announcements (Mailer)',
+      'Detailed reporting system to export registration details into Excel files directly from the device',
+      'Feedback and query management section to handle student concerns during the event'
+    ],
+    stack: ['Flutter', 'Dart', 'Cloud Firestore', 'Firebase Messaging', 'Mailer', 'Excel API', 'Share Plus'],
+    github: 'https://github.com/Devasish009/thunder_thursday_admin'
   },
   shieldx: {
     num: '03', cat: 'Web / Security',
