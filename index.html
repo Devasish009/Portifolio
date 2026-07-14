@@ -964,6 +964,61 @@ footer {
 
   <div class="projects-grid stagger">
 
+    <!-- Thunder Thursday App -->
+    <div class="proj-card" onclick="openModal('thunder_app')">
+      <div class="proj-highlight-badge">Featured</div>
+      <div class="proj-body">
+        <div class="proj-num">06 &mdash; Mobile / Event Tech</div>
+        <div class="proj-name">Thunder Thursday &ndash; Student &amp; Performance App</div>
+        <p class="proj-desc">A feature-rich college event management and live voting mobile application built to enhance student participation and real-time coordination.</p>
+        <ul class="proj-points">
+          <li>Live voting system with real-time Firestore sync</li>
+          <li>Interactive event registration and performance registration</li>
+          <li>FCM push notifications and local reminders for event schedules</li>
+          <li>Native media support with custom intro video players</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">Firebase Auth</span>
+          <span class="stack-tag">Cloud Firestore</span>
+          <span class="stack-tag">FCM</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
+    <!-- Thunder Thursday Admin -->
+    <div class="proj-card" onclick="openModal('thunder_admin')">
+      <div class="proj-highlight-badge">Featured</div>
+      <div class="proj-body">
+        <div class="proj-num">07 &mdash; Mobile / Admin Portal</div>
+        <div class="proj-name">Thunder Thursday &ndash; Event Admin Console</div>
+        <p class="proj-desc">A dedicated supervisor dashboard application for coordinators to control event flows, manage performance lists, send bulk alerts, and export data.</p>
+        <ul class="proj-points">
+          <li>Live performance status coordinator (active, completed, next up)</li>
+          <li>Bulk push notification dispatcher and mailer announcement system</li>
+          <li>Detailed report generation exporting registration lists to Excel</li>
+          <li>Feedback and query resolution board with real-time Firestore sync</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">Cloud Firestore</span>
+          <span class="stack-tag">Mailer</span>
+          <span class="stack-tag">Excel API</span>
+          <span class="stack-tag">Share Plus</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
     <!-- AegisX -->
     <div class="proj-card" onclick="openModal('aegisx')">
       <div class="proj-body">
@@ -1013,7 +1068,7 @@ footer {
         <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
-
+    
     <!-- ShieldX -->
     <div class="proj-card" onclick="openModal('shieldx')">
       <div class="proj-body">
@@ -1532,6 +1587,8 @@ const PROJECTS = {
       'The app incorporates native mobile experiences such as a video splash screen, interactive event gallery, and live push notifications using Firebase Cloud Messaging.'
     ],
     previewTitle: 'Thunder Thursday — Student App',
+    screenshots: ['assets/thunder_app_1.jpg','assets/thunder_app_2.jpg'],
+    demo: 'https://example.com/thunder-app-demo',
     preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event App Live</span>
 <br><br><span style="color:#febc2e">⚡ Thunder Thursday</span> &nbsp;<span style="color:#28c840">ONLINE</span>
 <br><span style="color:rgba(244,238,236,.3)">Active Users: <span style="color:#f4eeec">340+</span> &nbsp;| Votes: <span style="color:#f4eeec">890+</span></span>
@@ -1559,6 +1616,8 @@ const PROJECTS = {
       'The console connects directly to Cloud Firestore to manipulate live event state, toggle voting permissions, and track live statistics.'
     ],
     previewTitle: 'Thunder Thursday — Admin Panel',
+    screenshots: ['assets/thunder_admin_1.jpg'],
+    demo: 'https://example.com/thunder-admin-demo',
     preview: `<span style="color:#ff3a2f">// Thunder Thursday — Admin Console</span>
 <br><br><span style="color:#febc2e">🛡️ Admin Console</span> &nbsp;<span style="color:#28c840">CONNECTED</span>
 <br><span style="color:rgba(244,238,236,.3)">Registrations: <span style="color:#f4eeec">120+</span> &nbsp;| Toggled Votes: <span style="color:#28c840">YES</span></span>
@@ -1672,12 +1731,23 @@ function openModal(id) {
   document.getElementById('m-title').textContent = p.title;
   document.getElementById('m-about').innerHTML = p.about.map(t => '<p>'+t+'</p>').join('');
   document.getElementById('m-preview-title').textContent = p.previewTitle;
-  document.getElementById('m-preview').innerHTML = p.preview;
+  // Render screenshots if available, then fallback to text preview
+  let previewHtml = '';
+  if (p.screenshots && p.screenshots.length) {
+    previewHtml += p.screenshots.map(s => '<img src="'+s+'" style="max-width:100%;margin-bottom:10px;border-radius:6px">').join('');
+  }
+  previewHtml += p.preview || '';
+  document.getElementById('m-preview').innerHTML = previewHtml;
   document.getElementById('m-points').innerHTML = p.features.map(f => '<li>'+f+'</li>').join('');
   document.getElementById('m-stack').innerHTML = p.stack.map(t => '<span class="stack-tag">'+t+'</span>').join('');
-  document.getElementById('m-actions').innerHTML =
-    '<a href="'+p.github+'" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> View on GitHub</a>'+
-    '<button onclick="closeModalBtn()" class="modal-btn secondary">✕ Close</button>';
+  // Build action buttons dynamically (GitHub, Demo, Play/App store if present)
+  let actions = '';
+  if (p.github) actions += '<a href="'+p.github+'" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> View on GitHub</a>';
+  if (p.demo) actions += '<a href="'+p.demo+'" target="_blank" class="modal-btn"><i class="fa-solid fa-globe"></i> Live Demo</a>';
+  if (p.play) actions += '<a href="'+p.play+'" target="_blank" class="modal-btn"><i class="fa-brands fa-google-play"></i> Play Store</a>';
+  if (p.app) actions += '<a href="'+p.app+'" target="_blank" class="modal-btn"><i class="fa-brands fa-apple"></i> App Store</a>';
+  actions += '<button onclick="closeModalBtn()" class="modal-btn secondary">✕ Close</button>';
+  document.getElementById('m-actions').innerHTML = actions;
   document.getElementById('proj-modal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
