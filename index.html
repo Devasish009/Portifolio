@@ -414,7 +414,9 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .proj-card:nth-child(2) { grid-column: 8 / 13; }
 .proj-card:nth-child(3) { grid-column: 1 / 6; }
 .proj-card:nth-child(4) { grid-column: 6 / 13; }
-.proj-card:nth-child(5) { grid-column: 1 / 13; }
+.proj-card:nth-child(5) { grid-column: 1 / 8; }
+.proj-card:nth-child(6) { grid-column: 8 / 13; }
+.proj-card:nth-child(7) { grid-column: 1 / 13; }
 
 /* Accent top line */
 .proj-card::before {
@@ -498,176 +500,7 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
   50% { box-shadow: 0 0 0 8px rgba(255,58,47,0); }
 }
 
-/* ─── THUNDER ECOSYSTEM SHOWCASE ────────────────── */
-.thunder-ecosystem {
-  width: 100%;
-  background: radial-gradient(circle at 10% 10%, #15090f 0%, #0f0a0c 100%);
-  border: 1px solid rgba(255, 58, 47, 0.2);
-  border-radius: 12px;
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 30px 100px rgba(255, 58, 47, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin-bottom: 40px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-.thunder-ecosystem::after {
-  content: '⚡';
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  font-size: 160px;
-  color: rgba(255, 58, 47, 0.03);
-  font-weight: 900;
-  pointer-events: none;
-}
-.te-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid rgba(244, 238, 236, 0.08);
-  padding-bottom: 20px;
-}
-.te-badge {
-  background: linear-gradient(135deg, #ff3a2f, #ffc107);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 4px;
-  box-shadow: 0 0 15px rgba(255, 58, 47, 0.3);
-}
-.te-tabs {
-  display: flex;
-  gap: 16px;
-}
-.te-tab-btn {
-  background: rgba(244, 238, 236, 0.03);
-  border: 1px solid rgba(244, 238, 236, 0.1);
-  color: var(--muted);
-  padding: 10px 24px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: none;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-.te-tab-btn:hover {
-  border-color: var(--accent);
-  color: var(--white);
-}
-.te-tab-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--white);
-  box-shadow: 0 5px 20px rgba(255, 58, 47, 0.25);
-}
-.te-content-wrap {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-.te-interactive-panel {
-  background: #080507;
-  border: 1px solid rgba(244, 238, 236, 0.06);
-  border-radius: 8px;
-  overflow: hidden;
-  height: 380px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-}
-.te-panel-header {
-  background: rgba(244, 238, 236, 0.02);
-  border-bottom: 1px solid rgba(244, 238, 236, 0.05);
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.te-panel-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: rgba(244, 238, 236, 0.4);
-}
-.te-dots {
-  display: flex;
-  gap: 6px;
-}
-.te-dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-.te-dots span:nth-child(1) { background: #ff5f57; }
-.te-dots span:nth-child(2) { background: #febc2e; }
-.te-dots span:nth-child(3) { background: #28c840; }
-.te-panel-body {
-  flex: 1;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  color: rgba(244, 238, 236, 0.65);
-}
-.te-info-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.te-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(22px, 3.2vw, 32px);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.25;
-}
-.te-desc {
-  font-size: 14px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-.te-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.te-features li {
-  font-size: 12px;
-  line-height: 1.6;
-  color: rgba(244, 238, 236, 0.6);
-  padding-left: 20px;
-  position: relative;
-}
-.te-features li::before {
-  content: '⚡';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 10px;
-  top: 1px;
-}
-.te-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.te-actions {
-  display: flex;
-  gap: 14px;
-}
+
 
 /* ─── CYBER MODE TOGGLE ────────────────────── */
 #cyber-mode-btn {
@@ -1007,9 +840,6 @@ footer {
   nav { padding: 18px 28px; }
   .nav-links, .nav-hire, .nav-actions { display: none !important; }
   .hamburger { display: flex; }
-  .te-content-wrap { grid-template-columns: 1fr; gap: 24px; }
-  .te-interactive-panel { height: auto; min-height: 320px; }
-  .te-header { flex-direction: column; align-items: flex-start; gap: 16px; }
 
   .hero-content { width: 100%; padding: 0 28px 120px; }
   .hero-figure { width: 60%; right: 5%; opacity: .35; }
@@ -1164,130 +994,67 @@ footer {
       </div>
       <div class="about-row">
         <span class="lbl">GitHub</span>
-        <span class="val"><a href="https://github.com/Devasish009" target="_blank">Devasish009</a></span>
-      </div>
-      <div class="about-row">
-        <span class="lbl">LinkedIn</span>
-        <span class="val"><a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">Devasish</a></span>
-      </div>
-    </div>
-  </div>
+        <span class="val"><a href="https://github.com/Devasish009" target="_blank">Dev  <div class="projects-grid stagger">
 
-  <div class="about-edu reveal">
-    <div class="edu-tag">Education</div>
-    <div class="edu-deg">B.Tech in Computer Science &amp; Engineering</div>
-    <div class="edu-uni">Aditya University, Surampalem, Andhra Pradesh</div>
-    <div class="edu-year">2024 &ndash; 2028</div>
-    <div class="edu-courses">
-      <div class="lbl">Relevant Coursework</div>
-      <div class="course-tags">
-        <span class="ctag">Full Stack Dev</span>
-        <span class="ctag">DSA</span>
-        <span class="ctag">DBMS</span>
-        <span class="ctag">OS</span>
-        <span class="ctag">Computer Networks</span>
-        <span class="ctag">OOPs</span>
-        <span class="ctag">Software Engineering</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ╮══════════════ PROJECTS ╮══════════════ -->
-<section class="projects" id="projects">
-  <div class="projects-header reveal">
-    <div>
-      <div class="sec-eyebrow">Work</div>
-      <h2 class="sec-title">Featured<br>Projects</h2>
-    </div>
-    <p class="projects-sub">Real products. Real tech. Real impact.</p>
-  </div>
-
-  <!-- Thunder Thursday Ecosystem Showcase -->
-  <div class="thunder-ecosystem reveal">
-    <div class="te-header">
-      <div>
-        <span class="te-badge">⚡ Connected Ecosystem</span>
-        <h3 style="font-family:'Cinzel',serif; font-size: 20px; font-weight:700; margin-top:10px; color:#fff;">Thunder Thursday Ecosystem</h3>
-      </div>
-      <div class="te-tabs">
-        <button class="te-tab-btn active" data-tab="app" onclick="selectTeTab('app')">Student App</button>
-        <button class="te-tab-btn" data-tab="admin" onclick="selectTeTab('admin')">Admin Console</button>
-      </div>
-    </div>
-    
-    <div class="te-content-wrap">
-      <!-- Interactive Preview Screen -->
-      <div class="te-interactive-panel">
-        <div class="te-panel-header">
-          <div class="te-dots">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="te-panel-title" id="te-panel-title">Student App Preview</div>
-        </div>
-        <div class="te-panel-body" id="te-interactive-body">
-          <!-- Dynamically populated via renderTeInteractive('app') -->
+    <!-- Thunder Thursday App -->
+    <div class="proj-card" onclick="openModal('thunder_app')">
+      <div class="proj-highlight-badge">Featured</div>
+      <div class="proj-body">
+        <div class="proj-num">01 &mdash; Mobile / Event Tech</div>
+        <div class="proj-name">Thunder Thursday &ndash; Student &amp; Performance App</div>
+        <p class="proj-desc">A feature-rich college event management and live voting mobile application built to enhance student participation and real-time coordination.</p>
+        <ul class="proj-points">
+          <li>Live voting system with real-time Firestore sync</li>
+          <li>Interactive event registration and performance registration</li>
+          <li>FCM push notifications and local reminders for event schedules</li>
+          <li>Native media support with custom intro video players</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">Firebase Auth</span>
+          <span class="stack-tag">Cloud Firestore</span>
+          <span class="stack-tag">FCM</span>
         </div>
       </div>
-      
-      <!-- Info Details Panel -->
-      <div class="te-info-panel">
-        <!-- App Info (Default visible) -->
-        <div id="te-app-content">
-          <h4 class="te-title">Student &amp; Performance App</h4>
-          <p class="te-desc" style="margin-top:12px;">A feature-rich college event management and live voting mobile application built to enhance student participation and real-time coordination.</p>
-          <ul class="te-features" style="margin-top:18px;">
-            <li>Live voting system with real-time Firestore sync</li>
-            <li>Interactive event registration and performance registration</li>
-            <li>FCM push notifications and local reminders for event schedules</li>
-            <li>Native media support with custom intro video players</li>
-          </ul>
-          <div class="te-stack" style="margin-top:20px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="stack-tag">Flutter</span>
-            <span class="stack-tag">Dart</span>
-            <span class="stack-tag">Firebase Auth</span>
-            <span class="stack-tag">Cloud Firestore</span>
-            <span class="stack-tag">FCM</span>
-          </div>
-          <div class="te-actions" style="margin-top:24px; display:flex; gap:12px;">
-            <a href="https://github.com/Devasish009/thunder-thursday-app" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a href="https://example.com/thunder-app-demo" target="_blank" class="modal-btn secondary"><i class="fa-solid fa-globe"></i> Live Demo</a>
-          </div>
-        </div>
-        
-        <!-- Info Details Panel - Admin Info (Default hidden) -->
-        <div id="te-admin-content" style="display:none;">
-          <h4 class="te-title">Event Admin Console</h4>
-          <p class="te-desc" style="margin-top:12px;">A dedicated supervisor dashboard application for coordinators to control event flows, manage performance lists, send bulk alerts, and export data.</p>
-          <ul class="te-features" style="margin-top:18px;">
-            <li>Live performance status coordinator (active, completed, next up)</li>
-            <li>Bulk push notification dispatcher and mailer announcement system</li>
-            <li>Detailed report generation exporting registration lists to Excel</li>
-            <li>Feedback and query resolution board with real-time Firestore sync</li>
-          </ul>
-          <div class="te-stack" style="margin-top:20px; display:flex; flex-wrap:wrap; gap:8px;">
-            <span class="stack-tag">Flutter</span>
-            <span class="stack-tag">Dart</span>
-            <span class="stack-tag">Cloud Firestore</span>
-            <span class="stack-tag">Mailer</span>
-            <span class="stack-tag">Excel API</span>
-            <span class="stack-tag">Share Plus</span>
-          </div>
-          <div class="te-actions" style="margin-top:24px; display:flex; gap:12px;">
-            <a href="https://github.com/Devasish009/thunder_thursday_admin" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> GitHub</a>
-            <a href="https://example.com/thunder-admin-demo" target="_blank" class="modal-btn secondary"><i class="fa-solid fa-globe"></i> Live Demo</a>
-          </div>
-        </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
-  </div>
 
-  <div class="projects-grid stagger">
+    <!-- Thunder Thursday Admin -->
+    <div class="proj-card" onclick="openModal('thunder_admin')">
+      <div class="proj-highlight-badge">Featured</div>
+      <div class="proj-body">
+        <div class="proj-num">02 &mdash; Mobile / Admin Portal</div>
+        <div class="proj-name">Thunder Thursday &ndash; Event Admin Console</div>
+        <p class="proj-desc">A dedicated supervisor dashboard application for coordinators to control event flows, manage performance lists, send bulk alerts, and export data.</p>
+        <ul class="proj-points">
+          <li>Live performance status coordinator (active, completed, next up)</li>
+          <li>Bulk push notification dispatcher and mailer announcement system</li>
+          <li>Detailed report generation exporting registration lists to Excel</li>
+          <li>Feedback and query resolution board with real-time Firestore sync</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">Dart</span>
+          <span class="stack-tag">Cloud Firestore</span>
+          <span class="stack-tag">Mailer</span>
+          <span class="stack-tag">Excel API</span>
+          <span class="stack-tag">Share Plus</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2026</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
 
     <!-- AegisX -->
     <div class="proj-card" onclick="openModal('aegisx')">
       <div class="proj-body">
-        <div class="proj-num">01 &mdash; Security</div>
+        <div class="proj-num">03 &mdash; Security</div>
         <div class="proj-name">AegisX &ndash; Mini SIEM &amp; Intrusion Detection System</div>
         <p class="proj-desc">Production SIEM: real-time log correlation, fast anomaly detection, and automated containment for risky auth and API patterns.</p>
         <ul class="proj-points">
@@ -1312,7 +1079,7 @@ footer {
     <!-- QuestAI -->
     <div class="proj-card" onclick="openModal('questai')">
       <div class="proj-body">
-        <div class="proj-num">02 &mdash; AI / Web</div>
+        <div class="proj-num">04 &mdash; AI / Web</div>
         <div class="proj-name">QuestAI &ndash; AI-Powered Q&amp;A Forum</div>
         <p class="proj-desc">AI-backed Q&amp;A that surfaces high-quality answers instantly — combines model-driven responses with community voting and reputational signals.</p>
         <ul class="proj-points">
@@ -1334,11 +1101,11 @@ footer {
         <button class="proj-arrow-btn">&#8599;</button>
       </div>
     </div>
-    
+
     <!-- ExploreMate -->
     <div class="proj-card" onclick="openModal('exploremate')">
       <div class="proj-body">
-        <div class="proj-num">03 &mdash; Mobile / AI</div>
+        <div class="proj-num">05 &mdash; Mobile / AI</div>
         <div class="proj-name">ExploreMate &ndash; AI-Powered Travel Companion</div>
         <p class="proj-desc">AI travel companion that recommends personalized itineraries, finds local gems, and gamifies exploration to boost user engagement.</p>
         <ul class="proj-points">
@@ -1365,7 +1132,7 @@ footer {
     <!-- ShieldX -->
     <div class="proj-card" onclick="openModal('shieldx')">
       <div class="proj-body">
-        <div class="proj-num">04 &mdash; Web</div>
+        <div class="proj-num">06 &mdash; Web</div>
         <div class="proj-name">ShieldX &ndash; Cybersecurity Tools E-Commerce Showcase</div>
         <p class="proj-desc">Security products showcase with a focus on clear information architecture, OWASP-aligned headers, and a polished, mobile-first storefront UI.</p>
         <ul class="proj-points">
@@ -1377,6 +1144,40 @@ footer {
           <span class="stack-tag">HTML</span>
           <span class="stack-tag">CSS</span>
           <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Express.js</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2025</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
+    <!-- SkyRoute -->
+    <div class="proj-card" onclick="openModal('skyroute')">
+      <div class="proj-body">
+        <div class="proj-num">07 &mdash; Desktop / Java</div>
+        <div class="proj-name">SkyRoute &ndash; Bus Ticket Booking System</div>
+        <p class="proj-desc">Desktop booking system with transactional seat selection, admin controls, and robust JDBC-backed booking integrity for real-world operations.</p>
+        <ul class="proj-points">
+          <li>Interactive cinema-style seat selection with real-time availability</li>
+          <li>Admin dashboard with bus, route, and user management</li>
+          <li>Secure SHA-256 password hashing &amp; JDBC transaction handling</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="stack-tag">Java</span>
+          <span class="stack-tag">Java Swing</span>
+          <span class="stack-tag">JDBC</span>
+          <span class="stack-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-year">2025</span>
+        <button class="proj-arrow-btn">&#8599;</button>
+      </div>
+    </div>
+
+  </div>tag">Node.js</span>
           <span class="stack-tag">Express.js</span>
         </div>
       </div>
@@ -1801,7 +1602,7 @@ const PROJECTS = {
     ],
     previewTitle: 'Thunder Thursday — Student App',
     screenshots: ['assets/thunder_app_1.jpg','assets/thunder_app_2.jpg'],
-    demo: 'https://example.com/thunder-app-demo',
+    demo: 'https://thunder-thursday.vercel.app',
     preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event App Live</span>
 <br><br><span style="color:#febc2e">⚡ Thunder Thursday</span> &nbsp;<span style="color:#28c840">ONLINE</span>
 <br><span style="color:rgba(244,238,236,.3)">Active Users: <span style="color:#f4eeec">340+</span> &nbsp;| Votes: <span style="color:#f4eeec">890+</span></span>
@@ -2073,153 +1874,6 @@ function animateStats() {
   });
 }
 
-/* ─── THUNDER ECOSYSTEM INTERACTION ─── */
-let activeTeTab = 'app';
-function selectTeTab(tab) {
-  activeTeTab = tab;
-  document.querySelectorAll('.te-tab-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-tab') === tab);
-  });
-  
-  const pApp = document.getElementById('te-app-content');
-  const pAdmin = document.getElementById('te-admin-content');
-  const titleEl = document.getElementById('te-panel-title');
-  
-  if (tab === 'app') {
-    if (pApp) pApp.style.display = 'block';
-    if (pAdmin) pAdmin.style.display = 'none';
-    if (titleEl) titleEl.textContent = 'Student App Preview';
-    renderTeInteractive('app');
-  } else {
-    if (pApp) pApp.style.display = 'none';
-    if (pAdmin) pAdmin.style.display = 'block';
-    if (titleEl) titleEl.textContent = 'Admin Panel Preview';
-    renderTeInteractive('admin');
-  }
-}
-
-let mockVotes = 482;
-let mockVotingOpen = true;
-let teLogs = [
-  '[System] Initialized Firebase Services...',
-  '[Firestore] Listening to real-time streams...'
-];
-
-function addTeLog(msg) {
-  teLogs.push(msg);
-  if (teLogs.length > 4) teLogs.shift();
-  const logContainer = document.getElementById('te-logs');
-  if (logContainer) {
-    logContainer.innerHTML = teLogs.map(l => `<div style="margin-top:4px;color:rgba(244,238,236,0.4)">${l}</div>`).join('');
-  }
-}
-
-function renderTeInteractive(tab) {
-  const panel = document.getElementById('te-interactive-body');
-  if (!panel) return;
-  
-  if (tab === 'app') {
-    panel.innerHTML = `
-      <div style="background:#0f0a0c;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px;max-width:280px;margin:0 auto;box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-        <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(244,238,236,0.3);margin-bottom:12px;">
-          <span>⚡ THUNDER APP</span>
-          <span>● LIVE SYNCING</span>
-        </div>
-        <div style="background:rgba(255,58,47,0.05);border:1px solid rgba(255,58,47,0.2);border-radius:6px;padding:12px;text-align:center;">
-          <div style="font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:1px;">Active Performance</div>
-          <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:bold;margin:8px 0;color:#fff;">Dinesh Kumar</div>
-          <div style="font-size:9px;color:rgba(244,238,236,0.4);letter-spacing:1px;">Department: CSE (B.Tech)</div>
-        </div>
-        <div style="margin-top:16px;text-align:center;">
-          <div style="font-size:9px;color:rgba(244,238,236,0.4);">Votes Cast on App:</div>
-          <div id="mock-vote-count" style="font-size:32px;font-family:'Bebas Neue',sans-serif;color:#fff;margin:4px 0;transition: all 0.15s ease;">${mockVotes}</div>
-          <button id="mock-vote-btn" onclick="mockVote()" style="background:${mockVotingOpen ? 'var(--accent)' : '#444'};color:#fff;border:none;padding:10px 20px;cursor:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:bold;letter-spacing:1px;width:100%;transition:all 0.2s;" ${mockVotingOpen ? '' : 'disabled'}>
-            ${mockVotingOpen ? '⚡ CAST VOTE LIVE' : '🔒 VOTING CLOSED'}
-          </button>
-        </div>
-      </div>
-      <div id="te-logs" style="margin-top:16px;border-top:1px solid rgba(244,238,236,0.05);padding-top:12px;font-size:10px;min-height:50px;">
-        ${teLogs.map(l => `<div style="margin-top:4px;color:rgba(244,238,236,0.4)">${l}</div>`).join('')}
-      </div>
-    `;
-  } else {
-    panel.innerHTML = `
-      <div style="background:#0f0a0c;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px;max-width:320px;margin:0 auto;box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-        <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(244,238,236,0.3);margin-bottom:12px;">
-          <span>🛡️ ADMIN PANEL</span>
-          <span>● FIRESTORE LIVE</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
-          <div style="background:rgba(244,238,236,0.02);border:1px solid rgba(244,238,236,0.05);padding:8px;border-radius:4px;text-align:center;">
-            <div style="font-size:9px;color:rgba(244,238,236,0.3);">VOTE STATUS</div>
-            <div id="mock-voting-status" style="font-size:11px;font-weight:bold;margin-top:4px;color:${mockVotingOpen ? '#28c840' : '#ff5f57'};">
-              ${mockVotingOpen ? 'OPEN' : 'CLOSED'}
-            </div>
-          </div>
-          <div style="background:rgba(244,238,236,0.02);border:1px solid rgba(244,238,236,0.05);padding:8px;border-radius:4px;text-align:center;">
-            <div style="font-size:9px;color:rgba(244,238,236,0.3);">REGISTRATIONS</div>
-            <div style="font-size:11px;font-weight:bold;margin-top:4px;color:#fff;">124 entries</div>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <button id="mock-toggle-btn" onclick="toggleMockVoting()" style="background:${mockVotingOpen ? '#ff5f57' : '#28c840'};color:#fff;border:none;padding:10px;cursor:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:bold;letter-spacing:1px;width:100%;">
-            ${mockVotingOpen ? '🔒 LOCK VOTING SYSTEM' : '🔓 UNLOCK VOTING SYSTEM'}
-          </button>
-          <button onclick="mockExportExcel()" style="background:rgba(244,238,236,0.08);border:1px solid rgba(244,238,236,0.15);color:#fff;padding:10px;cursor:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:bold;letter-spacing:1px;width:100%;">
-            📊 GENERATE EXCEL REPORT
-          </button>
-        </div>
-      </div>
-      <div id="te-logs" style="margin-top:16px;border-top:1px solid rgba(244,238,236,0.05);padding-top:12px;font-size:10px;min-height:50px;">
-        ${teLogs.map(l => `<div style="margin-top:4px;color:rgba(244,238,236,0.4)">${l}</div>`).join('')}
-      </div>
-    `;
-  }
-}
-
-function mockVote() {
-  if (!mockVotingOpen) return;
-  mockVotes++;
-  const counter = document.getElementById('mock-vote-count');
-  if (counter) {
-    counter.textContent = mockVotes;
-    counter.style.transform = 'scale(1.1)';
-    counter.style.color = '#ffc107';
-    setTimeout(() => {
-      counter.style.transform = 'scale(1)';
-      counter.style.color = '#fff';
-    }, 150);
-  }
-  addTeLog(`[Vote Event] CAST VOTE successfully. Current votes: ${mockVotes}`);
-  addTeLog(`[Sync Service] Push sent to Firestore: docId_voting: ${mockVotes} votes`);
-}
-
-function toggleMockVoting() {
-  mockVotingOpen = !mockVotingOpen;
-  const statusEl = document.getElementById('mock-voting-status');
-  const toggleBtn = document.getElementById('mock-toggle-btn');
-  if (statusEl) {
-    statusEl.textContent = mockVotingOpen ? 'OPEN' : 'CLOSED';
-    statusEl.style.color = mockVotingOpen ? '#28c840' : '#ff5f57';
-  }
-  if (toggleBtn) {
-    toggleBtn.textContent = mockVotingOpen ? '🔒 LOCK VOTING SYSTEM' : '🔓 UNLOCK VOTING SYSTEM';
-    toggleBtn.style.background = mockVotingOpen ? '#ff5f57' : '#28c840';
-  }
-  addTeLog(`[Admin Action] Clicked Toggle Voting System.`);
-  addTeLog(`[Firestore] Updated voting_enabled = ${mockVotingOpen}`);
-}
-
-function mockExportExcel() {
-  addTeLog(`[Excel Service] Generated registration_report_2026.xlsx`);
-  addTeLog(`[Share Service] Report saved. Shared 124 performance entries.`);
-  alert("✓ Exported 124 performance entries to Excel successfully!");
-}
-
-// Initialize on DOM ready
-window.addEventListener('DOMContentLoaded', () => {
-  selectTeTab('app');
-});
 </script>
 </body>
 </html>
