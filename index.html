@@ -994,7 +994,46 @@ footer {
       </div>
       <div class="about-row">
         <span class="lbl">GitHub</span>
-        <span class="val"><a href="https://github.com/Devasish009" target="_blank">Dev  <div class="projects-grid stagger">
+        <span class="val"><a href="https://github.com/Devasish009" target="_blank">Devasish009</a></span>
+      </div>
+      <div class="about-row">
+        <span class="lbl">LinkedIn</span>
+        <span class="val"><a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">Devasish</a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-edu reveal">
+    <div class="edu-tag">Education</div>
+    <div class="edu-deg">B.Tech in Computer Science &amp; Engineering</div>
+    <div class="edu-uni">Aditya University, Surampalem, Andhra Pradesh</div>
+    <div class="edu-year">2024 &ndash; 2028</div>
+    <div class="edu-courses">
+      <div class="lbl">Relevant Coursework</div>
+      <div class="course-tags">
+        <span class="ctag">Full Stack Dev</span>
+        <span class="ctag">DSA</span>
+        <span class="ctag">DBMS</span>
+        <span class="ctag">OS</span>
+        <span class="ctag">Computer Networks</span>
+        <span class="ctag">OOPs</span>
+        <span class="ctag">Software Engineering</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ╮══════════════ PROJECTS ╮══════════════ -->
+<section class="projects" id="projects">
+  <div class="projects-header reveal">
+    <div>
+      <div class="sec-eyebrow">Work</div>
+      <h2 class="sec-title">Featured<br>Projects</h2>
+    </div>
+    <p class="projects-sub">Real products. Real tech. Real impact.</p>
+  </div>
+
+  <div class="projects-grid stagger">
 
     <!-- Thunder Thursday App -->
     <div class="proj-card" onclick="openModal('thunder_app')">
@@ -1157,41 +1196,6 @@ footer {
     <div class="proj-card" onclick="openModal('skyroute')">
       <div class="proj-body">
         <div class="proj-num">07 &mdash; Desktop / Java</div>
-        <div class="proj-name">SkyRoute &ndash; Bus Ticket Booking System</div>
-        <p class="proj-desc">Desktop booking system with transactional seat selection, admin controls, and robust JDBC-backed booking integrity for real-world operations.</p>
-        <ul class="proj-points">
-          <li>Interactive cinema-style seat selection with real-time availability</li>
-          <li>Admin dashboard with bus, route, and user management</li>
-          <li>Secure SHA-256 password hashing &amp; JDBC transaction handling</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Java</span>
-          <span class="stack-tag">Java Swing</span>
-          <span class="stack-tag">JDBC</span>
-          <span class="stack-tag">MySQL</span>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-year">2025</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
-
-  </div>tag">Node.js</span>
-          <span class="stack-tag">Express.js</span>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-year">2025</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
-
-
-    <!-- SkyRoute -->
-    <div class="proj-card" onclick="openModal('skyroute')">
-      <div class="proj-body">
-        <div class="proj-num">05 &mdash; Desktop / Java</div>
         <div class="proj-name">SkyRoute &ndash; Bus Ticket Booking System</div>
         <p class="proj-desc">Desktop booking system with transactional seat selection, admin controls, and robust JDBC-backed booking integrity for real-world operations.</p>
         <ul class="proj-points">
@@ -1464,6 +1468,14 @@ footer {
 
 <!-- ╮══════════════ JS ╮══════════════ -->
 <script>
+/* ── Cyber log fallback ── */
+let teLogs = [];
+function addTeLog(msg) {
+  teLogs.push(msg);
+  if (teLogs.length > 4) teLogs.shift();
+  console.log(msg);
+}
+
 /* ── Cursor ── */
 const dot  = document.getElementById('cur-dot');
 const ring = document.getElementById('cur-ring');
