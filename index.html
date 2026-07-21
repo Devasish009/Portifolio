@@ -1,1565 +1,2566 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Devasish Venkat Sai – Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-/* ─── RESET & VARIABLES ──────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devasish Venkat Sai – Portfolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ─── RESET & VARIABLES ──────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-:root {
-  --red:     #c0392b;
-  --accent:  #ff3a2f;
-  --dark:    #080507;
-  --dark2:   #0f0a0c;
-  --dark3:   #181014;
-  --dark4:   #211519;
-  --white:   #f4eeec;
-  --muted:   rgba(244,238,236,0.45);
-  --faint:   rgba(244,238,236,0.08);
-}
+    :root {
+      --red: #c0392b;
+      --accent: #ff3a2f;
+      --dark: #080507;
+      --dark2: #0f0a0c;
+      --dark3: #181014;
+      --dark4: #211519;
+      --white: #f4eeec;
+      --muted: rgba(244, 238, 236, 0.45);
+      --faint: rgba(244, 238, 236, 0.08);
+    }
 
-html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  background: var(--dark);
-  color: var(--white);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-  cursor: none;
-}
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
 
-/* ─── CURSOR ────────────────────────── */
-#cur-dot {
-  position: fixed; width: 8px; height: 8px;
-  background: var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  mix-blend-mode: difference;
-}
-#cur-ring {
-  position: fixed; width: 34px; height: 34px;
-  border: 1px solid rgba(255,58,47,0.5); border-radius: 50%;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: width .3s, height .3s, border-color .3s;
-}
-body:has(a:hover) #cur-ring,
-body:has(button:hover) #cur-ring {
-  width: 50px; height: 50px;
-  border-color: rgba(255,58,47,0.8);
-}
+    /* ─── CURSOR ────────────────────────── */
+    #cur-dot {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+    }
 
-/* ─── NAV ────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  padding: 20px 60px;
-  display: flex; align-items: center; justify-content: space-between;
-  background: linear-gradient(to bottom, rgba(8,5,7,0.95) 0%, transparent 100%);
-  backdrop-filter: blur(2px);
-  transition: background .4s;
-}
-nav.scrolled { background: rgba(8,5,7,0.97); }
+    #cur-ring {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 58, 47, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width .3s, height .3s, border-color .3s;
+    }
 
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px; letter-spacing: 5px;
-  color: var(--white); text-decoration: none;
-}
-.nav-logo em { font-style: normal; color: var(--accent); }
+    body:has(a:hover) #cur-ring,
+    body:has(button:hover) #cur-ring {
+      width: 50px;
+      height: 50px;
+      border-color: rgba(255, 58, 47, 0.8);
+    }
 
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a {
-  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--muted); text-decoration: none;
-  transition: color .25s;
-  position: relative;
-}
-.nav-links a::after {
-  content: ''; position: absolute; left: 0; bottom: -3px;
-  width: 0; height: 1px; background: var(--accent);
-  transition: width .3s;
-}
-.nav-links a:hover { color: var(--white); }
-.nav-links a:hover::after { width: 100%; }
+    /* ─── NAV ────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(8, 5, 7, 0.95) 0%, transparent 100%);
+      backdrop-filter: blur(2px);
+      transition: background .4s;
+    }
 
-.nav-hire {
-  border: 1px solid var(--accent); color: var(--accent);
-  padding: 9px 22px; font-size: 11px; letter-spacing: 2.5px;
-  text-transform: uppercase; text-decoration: none;
-  transition: all .3s;
-}
-.nav-hire:hover { background: var(--accent); color: var(--white); }
+    nav.scrolled {
+      background: rgba(8, 5, 7, 0.97);
+    }
 
-/* ─── HAMBURGER (mobile) ──────────────── */
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all .3s; }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 5px;
+      color: var(--white);
+      text-decoration: none;
+    }
 
-/* ─── MOBILE MENU ─────────────────── */
-.mobile-menu {
-  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(8,5,7,0.98); z-index: 190;
-  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: 'Cinzel', serif; font-size: 28px;
-  color: var(--muted); text-decoration: none;
-  letter-spacing: 4px; text-transform: uppercase; transition: color .3s;
-}
-.mobile-menu a:hover { color: var(--accent); }
+    .nav-logo em {
+      font-style: normal;
+      color: var(--accent);
+    }
 
-/* ─── HERO ────────────────────────────── */
-.hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: flex-end;
-  overflow: hidden;
-}
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
 
-/* Gradient background */
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 70% 90% at 70% 50%, #2c0c0c 0%, transparent 65%),
-    radial-gradient(ellipse 40% 60% at 20% 80%, #1a0608 0%, transparent 60%),
-    #080507;
-}
+    .nav-links a {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .25s;
+      position: relative;
+    }
 
-/* Noise grain overlay */
-.hero-bg::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-  opacity: .5; mix-blend-mode: overlay; pointer-events: none;
-}
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width .3s;
+    }
 
-/* Diagonal accent line */
-.hero-line {
-  position: absolute; top: 0; right: 28%;
-  width: 1px; height: 100%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(192,57,43,0.25) 40%, rgba(192,57,43,0.1) 70%, transparent 100%);
-  transform: rotate(8deg) translateX(60px);
-}
+    .nav-links a:hover {
+      color: var(--white);
+    }
 
-/* Big ghost text */
-.hero-ghost {
-  position: absolute; right: 3%; top: 50%;
-  transform: translateY(-52%);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(80px, 14vw, 200px);
-  line-height: .82; letter-spacing: -3px;
-  color: rgba(244,238,236,0.04);
-  text-align: right; pointer-events: none;
-  user-select: none;
-  animation: ghostIn 1.4s ease forwards; opacity: 0;
-}
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-.hero-content {
-  position: relative; z-index: 10;
-  padding: 0 60px 90px;
-  width: 55%;
-}
+    .nav-hire {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 9px 22px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .3s;
+    }
 
-.hero-eyebrow {
-  display: flex; align-items: center; gap: 14px;
-  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 22px;
-  animation: upIn .8s .2s ease both; opacity: 0;
-}
-.hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+    .nav-hire:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
 
-.hero-name {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(40px, 6.5vw, 88px);
-  font-weight: 900; line-height: .95;
-  letter-spacing: 1px;
-  animation: upIn .8s .4s ease both; opacity: 0;
-}
-.hero-name .outline {
-  -webkit-text-stroke: 1px rgba(244,238,236,0.35);
-  color: transparent;
-}
+    /* ─── HAMBURGER (mobile) ──────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: none;
+      background: none;
+      border: none;
+    }
 
-.hero-role {
-  margin-top: 18px;
-  font-size: clamp(13px, 1.5vw, 16px);
-  color: var(--muted); line-height: 1;
-  letter-spacing: 3px; text-transform: uppercase;
-  animation: upIn .8s .55s ease both; opacity: 0;
-}
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all .3s;
+    }
 
-.hero-desc {
-  margin-top: 20px;
-  font-size: 14px; line-height: 1.85;
-  color: var(--muted); max-width: 420px;
-  animation: upIn .8s .7s ease both; opacity: 0;
-}
+    /* ─── MOBILE MENU ─────────────────── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 5, 7, 0.98);
+      z-index: 190;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
 
-.hero-btns {
-  display: flex; align-items: center; gap: 28px;
-  margin-top: 40px;
-  animation: upIn .8s .85s ease both; opacity: 0;
-}
-.btn-red {
-  background: var(--accent); color: var(--white);
-  padding: 14px 34px; font-size: 11px; letter-spacing: 3px;
-  text-transform: uppercase; text-decoration: none;
-  position: relative; overflow: hidden; display: inline-block;
-  transition: transform .3s;
-}
-.btn-red::after {
-  content: ''; position: absolute; inset: 0;
-  background: rgba(255,255,255,.12);
-  transform: translateX(-101%); transition: transform .4s;
-}
-.btn-red:hover::after { transform: translateX(0); }
-.btn-red:hover { transform: translateY(-2px); }
+    .mobile-menu.open {
+      display: flex;
+    }
 
-.btn-ghost-link {
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--muted); text-decoration: none;
-  display: flex; align-items: center; gap: 10px;
-  transition: color .3s;
-}
-.btn-ghost-link .arr { transition: transform .3s; display: inline-block; }
-.btn-ghost-link:hover { color: var(--white); }
-.btn-ghost-link:hover .arr { transform: translateX(5px); }
+    .mobile-menu a {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      transition: color .3s;
+    }
 
-/* Stats bottom right */
-.hero-stats {
-  position: absolute; bottom: 88px; right: 60px;
-  display: flex; gap: 48px;
-  animation: upIn .8s 1s ease both; opacity: 0;
-  z-index: 10;
-}
-.stat-val {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 52px; line-height: 1; color: var(--white);
-}
-.stat-val sup { font-size: 22px; color: var(--accent); vertical-align: super; }
-.stat-lbl {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(244,238,236,0.35); margin-top: 5px;
-}
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
 
-/* Social — right edge */
-.hero-social {
-  position: absolute; right: 0; top: 50%;
-  transform: translateY(-50%);
-  display: flex; flex-direction: column; align-items: center;
-  gap: 16px; padding: 0 24px;
-  animation: fadeIn 1s 1.2s ease both; opacity: 0;
-  z-index: 10;
-}
-.hero-social a {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1px solid rgba(244,238,236,0.12);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); text-decoration: none;
-  font-size: 14px;
-  transition: all .3s;
-}
-.hero-social a:hover {
-  border-color: var(--accent); color: var(--accent);
-  transform: scale(1.15);
-}
-.social-line {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, rgba(244,238,236,0.12), transparent);
-}
+    /* ─── HERO ────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
 
-/* Scroll pill */
-.scroll-pill {
-  position: absolute; bottom: 32px; left: 60px;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: rgba(244,238,236,0.25); z-index: 10;
-}
-.scroll-pill .bar {
-  width: 1px; height: 48px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: barPulse 2s ease-in-out infinite;
-}
-@keyframes barPulse {
-  0%, 100% { opacity: .4; transform: scaleY(1); }
-  50% { opacity: 1; transform: scaleY(1.2); }
-}
+    /* Gradient background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 90% at 70% 50%, #2c0c0c 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, #1a0608 0%, transparent 60%),
+        #080507;
+    }
 
-/* ─── MARQUEE ────────────────────────── */
-.marquee-wrap {
-  overflow: hidden; white-space: nowrap;
-  background: var(--dark3);
-  border-top: 1px solid rgba(244,238,236,0.04);
-  border-bottom: 1px solid rgba(244,238,236,0.04);
-  padding: 18px 0;
-}
-.marquee-track { display: inline-block; animation: marquee 22s linear infinite; }
-.mq-item {
-  display: inline-flex; align-items: center; gap: 18px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px; letter-spacing: 4px;
-  color: rgba(244,238,236,0.15); margin-right: 50px;
-}
-.mq-dot { color: var(--accent); font-size: 7px; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* Noise grain overlay */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: .5;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
 
-/* ─── SECTION SHARED ────────────────── */
-.sec-eyebrow {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 14px;
-}
-.sec-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+    /* Diagonal accent line */
+    .hero-line {
+      position: absolute;
+      top: 0;
+      right: 28%;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, rgba(192, 57, 43, 0.25) 40%, rgba(192, 57, 43, 0.1) 70%, transparent 100%);
+      transform: rotate(8deg) translateX(60px);
+    }
 
-.sec-title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(28px, 4.5vw, 56px);
-  font-weight: 700; line-height: 1.1;
-}
+    /* Big ghost text */
+    .hero-ghost {
+      position: absolute;
+      right: 3%;
+      top: 50%;
+      transform: translateY(-52%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(80px, 14vw, 200px);
+      line-height: .82;
+      letter-spacing: -3px;
+      color: rgba(244, 238, 236, 0.04);
+      text-align: right;
+      pointer-events: none;
+      user-select: none;
+      animation: ghostIn 1.4s ease forwards;
+      opacity: 0;
+    }
 
-/* ─── ABOUT ──────────────────────────── */
-.about {
-  background: var(--dark2);
-  padding: 110px 60px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
-  align-items: center;
-}
-.about-text .sec-title { margin-bottom: 24px; }
-.about-body {
-  font-size: 14px; line-height: 1.95;
-  color: var(--muted); margin-bottom: 36px;
-}
-.about-details { display: flex; flex-direction: column; gap: 12px; }
-.about-row {
-  display: flex; align-items: center; gap: 16px;
-  font-size: 13px;
-}
-.about-row .lbl {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(244,238,236,0.3); min-width: 90px;
-}
-.about-row .val { color: var(--white); }
-.about-row .val a { color: var(--accent); text-decoration: none; }
-.about-row .val a:hover { text-decoration: underline; }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 0 60px 90px;
+      width: 55%;
+    }
 
-.about-edu {
-  background: var(--dark3);
-  padding: 40px;
-  position: relative; overflow: hidden;
-}
-.about-edu::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 3px; height: 100%; background: var(--accent);
-}
-.edu-tag {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 20px;
-}
-.edu-deg {
-  font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700;
-  margin-bottom: 8px;
-}
-.edu-uni { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-.edu-year {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 13px; letter-spacing: 3px; color: var(--accent);
-}
-.edu-courses {
-  margin-top: 20px; padding-top: 20px;
-  border-top: 1px solid rgba(244,238,236,0.06);
-}
-.edu-courses .lbl {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(244,238,236,0.3); margin-bottom: 10px;
-}
-.course-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.ctag {
-  font-size: 10px; letter-spacing: 1px;
-  border: 1px solid rgba(244,238,236,0.1);
-  padding: 4px 10px; color: rgba(244,238,236,0.45);
-}
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+      animation: upIn .8s .2s ease both;
+      opacity: 0;
+    }
 
-/* ─── PROJECTS ──────────────────────── */
-.projects { padding: 110px 60px; background: var(--dark); }
-.projects-header {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  margin-bottom: 70px;
-}
-.projects-sub {
-  font-size: 12px; color: rgba(244,238,236,0.3);
-  letter-spacing: 1px; max-width: 200px; line-height: 1.7;
-  text-align: right;
-}
-.projects-grid {
-  display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
-}
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
 
-.proj-card {
-  background: var(--dark3);
-  position: relative; overflow: hidden;
-  transition: transform .4s, box-shadow .4s;
-  cursor: none;
-  min-height: 420px;
-  display: flex; flex-direction: column;
-}
-.proj-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.6);
-}
-.proj-card:nth-child(1) { grid-column: 1 / 8; }
-.proj-card:nth-child(2) { grid-column: 8 / 13; }
-.proj-card:nth-child(3) { grid-column: 1 / 6; }
-.proj-card:nth-child(4) { grid-column: 6 / 13; }
-.proj-card:nth-child(5) { grid-column: 1 / 8; }
-.proj-card:nth-child(6) { grid-column: 8 / 13; }
-.proj-card:nth-child(7) { grid-column: 1 / 13; }
+    .hero-name {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(40px, 6.5vw, 88px);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: 1px;
+      animation: upIn .8s .4s ease both;
+      opacity: 0;
+    }
 
-/* Accent top line */
-.proj-card::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 0; height: 2px; background: var(--accent);
-  transition: width .5s;
-}
-.proj-card:hover::before { width: 100%; }
+    .hero-name .outline {
+      -webkit-text-stroke: 1px rgba(244, 238, 236, 0.35);
+      color: transparent;
+    }
 
-.proj-body { padding: 36px 36px 28px; flex: 1; }
-.proj-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 11px; letter-spacing: 3px;
-  color: rgba(244,238,236,0.2); margin-bottom: 18px;
-}
-.proj-name {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(18px, 2.5vw, 26px);
-  font-weight: 700; margin-bottom: 14px;
-  line-height: 1.2;
-}
-.proj-desc {
-  font-size: 13px; line-height: 1.8;
-  color: var(--muted); margin-bottom: 22px;
-}
-.proj-points { list-style: none; margin-bottom: 28px; }
-.proj-points li {
-  font-size: 12px; line-height: 1.7; color: rgba(244,238,236,0.5);
-  padding-left: 16px; position: relative; margin-bottom: 6px;
-}
-.proj-points li::before {
-  content: '—'; position: absolute; left: 0;
-  color: var(--accent); font-size: 10px;
-}
+    .hero-role {
+      margin-top: 18px;
+      font-size: clamp(13px, 1.5vw, 16px);
+      color: var(--muted);
+      line-height: 1;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: upIn .8s .55s ease both;
+      opacity: 0;
+    }
 
-.proj-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-.stack-tag {
-  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-  border: 1px solid rgba(255,58,47,0.3);
-  color: rgba(255,58,47,0.7); padding: 4px 10px;
-  transition: all .3s;
-}
-.proj-card:hover .stack-tag {
-  border-color: rgba(255,58,47,0.6); color: var(--accent);
-}
+    .hero-desc {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--muted);
+      max-width: 420px;
+      animation: upIn .8s .7s ease both;
+      opacity: 0;
+    }
 
-.proj-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 36px;
-  border-top: 1px solid rgba(244,238,236,0.05);
-}
-.proj-year {
-  font-size: 10px; letter-spacing: 3px; color: rgba(244,238,236,0.25);
-  text-transform: uppercase;
-}
-.proj-arrow {
-  width: 32px; height: 32px; border: 1px solid rgba(244,238,236,0.1);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: rgba(244,238,236,0.3); font-size: 13px;
-  transition: all .3s; text-decoration: none;
-}
-.proj-arrow-btn {
-  width: 32px; height: 32px; border: 1px solid rgba(244,238,236,0.1);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: rgba(244,238,236,0.3); font-size: 13px;
-  transition: all .3s; background: none; cursor: none;
-}
-.proj-card:hover .proj-arrow,
-.proj-card:hover .proj-arrow-btn { border-color: var(--accent); color: var(--accent); }
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-top: 40px;
+      animation: upIn .8s .85s ease both;
+      opacity: 0;
+    }
 
-/* Highlight badge */
-.proj-highlight-badge {
-  position: absolute; top: 16px; right: 16px;
-  background: var(--accent); color: var(--white);
-  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
-  padding: 4px 10px; z-index: 5;
-  animation: badgePulse 2.5s ease-in-out infinite;
-}
-@keyframes badgePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,58,47,0.5); }
-  50% { box-shadow: 0 0 0 8px rgba(255,58,47,0); }
-}
+    .btn-red {
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 34px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      transition: transform .3s;
+    }
+
+    .btn-red::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .12);
+      transform: translateX(-101%);
+      transition: transform .4s;
+    }
+
+    .btn-red:hover::after {
+      transform: translateX(0);
+    }
+
+    .btn-red:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost-link {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color .3s;
+    }
+
+    .btn-ghost-link .arr {
+      transition: transform .3s;
+      display: inline-block;
+    }
+
+    .btn-ghost-link:hover {
+      color: var(--white);
+    }
+
+    .btn-ghost-link:hover .arr {
+      transform: translateX(5px);
+    }
+
+    /* Stats bottom right */
+    .hero-stats {
+      position: absolute;
+      bottom: 88px;
+      right: 60px;
+      display: flex;
+      gap: 48px;
+      animation: upIn .8s 1s ease both;
+      opacity: 0;
+      z-index: 10;
+    }
+
+    .stat-val {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .stat-val sup {
+      font-size: 22px;
+      color: var(--accent);
+      vertical-align: super;
+    }
+
+    .stat-lbl {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(244, 238, 236, 0.35);
+      margin-top: 5px;
+    }
+
+    /* Social — right edge */
+    .hero-social {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 0 24px;
+      animation: fadeIn 1s 1.2s ease both;
+      opacity: 0;
+      z-index: 10;
+    }
+
+    .hero-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(244, 238, 236, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all .3s;
+    }
+
+    .hero-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.15);
+    }
+
+    .social-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(244, 238, 236, 0.12), transparent);
+    }
+
+    /* Scroll pill */
+    .scroll-pill {
+      position: absolute;
+      bottom: 32px;
+      left: 60px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(244, 238, 236, 0.25);
+      z-index: 10;
+    }
+
+    .scroll-pill .bar {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: barPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes barPulse {
+
+      0%,
+      100% {
+        opacity: .4;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1.2);
+      }
+    }
+
+    /* ─── MARQUEE ────────────────────────── */
+    .marquee-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      background: var(--dark3);
+      border-top: 1px solid rgba(244, 238, 236, 0.04);
+      border-bottom: 1px solid rgba(244, 238, 236, 0.04);
+      padding: 18px 0;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 22s linear infinite;
+    }
+
+    .mq-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 4px;
+      color: rgba(244, 238, 236, 0.15);
+      margin-right: 50px;
+    }
+
+    .mq-dot {
+      color: var(--accent);
+      font-size: 7px;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ─── SECTION SHARED ────────────────── */
+    .sec-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .sec-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .sec-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(28px, 4.5vw, 56px);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    /* ─── ABOUT ──────────────────────────── */
+    .about {
+      background: var(--dark2);
+      padding: 110px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text .sec-title {
+      margin-bottom: 24px;
+    }
+
+    .about-body {
+      font-size: 14px;
+      line-height: 1.95;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .about-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .about-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    .about-row .lbl {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(244, 238, 236, 0.3);
+      min-width: 90px;
+    }
+
+    .about-row .val {
+      color: var(--white);
+    }
+
+    .about-row .val a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .about-row .val a:hover {
+      text-decoration: underline;
+    }
+
+    .about-edu {
+      background: var(--dark3);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-edu::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .edu-tag {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .edu-deg {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .edu-uni {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .edu-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--accent);
+    }
+
+    .edu-courses {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(244, 238, 236, 0.06);
+    }
+
+    .edu-courses .lbl {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(244, 238, 236, 0.3);
+      margin-bottom: 10px;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ctag {
+      font-size: 10px;
+      letter-spacing: 1px;
+      border: 1px solid rgba(244, 238, 236, 0.1);
+      padding: 4px 10px;
+      color: rgba(244, 238, 236, 0.45);
+    }
+
+    /* ─── PROJECTS ──────────────────────── */
+    .projects {
+      padding: 110px 60px;
+      background: var(--dark);
+    }
+
+    .projects-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 70px;
+    }
+
+    .projects-sub {
+      font-size: 12px;
+      color: rgba(244, 238, 236, 0.3);
+      letter-spacing: 1px;
+      max-width: 200px;
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .proj-card {
+      background: var(--dark3);
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s, box-shadow .4s;
+      cursor: none;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proj-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+    }
+
+    .proj-card:nth-child(1) {
+      grid-column: 1 / 8;
+    }
+
+    .proj-card:nth-child(2) {
+      grid-column: 8 / 13;
+    }
+
+    .proj-card:nth-child(3) {
+      grid-column: 1 / 6;
+    }
+
+    .proj-card:nth-child(4) {
+      grid-column: 6 / 13;
+    }
+
+    .proj-card:nth-child(5) {
+      grid-column: 1 / 8;
+    }
+
+    .proj-card:nth-child(6) {
+      grid-column: 8 / 13;
+    }
+
+    .proj-card:nth-child(7) {
+      grid-column: 1 / 13;
+    }
+
+    /* Accent top line */
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .5s;
+    }
+
+    .proj-card:hover::before {
+      width: 100%;
+    }
+
+    .proj-body {
+      padding: 36px 36px 28px;
+      flex: 1;
+    }
+
+    .proj-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: rgba(244, 238, 236, 0.2);
+      margin-bottom: 18px;
+    }
+
+    .proj-name {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .proj-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .proj-points {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .proj-points li {
+      font-size: 12px;
+      line-height: 1.7;
+      color: rgba(244, 238, 236, 0.5);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .proj-points li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 10px;
+    }
+
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .stack-tag {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 58, 47, 0.3);
+      color: rgba(255, 58, 47, 0.7);
+      padding: 4px 10px;
+      transition: all .3s;
+    }
+
+    .proj-card:hover .stack-tag {
+      border-color: rgba(255, 58, 47, 0.6);
+      color: var(--accent);
+    }
+
+    .proj-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 36px;
+      border-top: 1px solid rgba(244, 238, 236, 0.05);
+    }
+
+    .proj-year {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(244, 238, 236, 0.25);
+      text-transform: uppercase;
+    }
+
+    .proj-arrow {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(244, 238, 236, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(244, 238, 236, 0.3);
+      font-size: 13px;
+      transition: all .3s;
+      text-decoration: none;
+    }
+
+    .proj-arrow-btn {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(244, 238, 236, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(244, 238, 236, 0.3);
+      font-size: 13px;
+      transition: all .3s;
+      background: none;
+      cursor: none;
+    }
+
+    .proj-card:hover .proj-arrow,
+    .proj-card:hover .proj-arrow-btn {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Highlight badge */
+    .proj-highlight-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      z-index: 5;
+      animation: badgePulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 58, 47, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 0 8px rgba(255, 58, 47, 0);
+      }
+    }
 
 
 
-/* ─── CYBER MODE TOGGLE ────────────────────── */
-#cyber-mode-btn {
-  background: transparent;
-  border: 1px solid rgba(244, 238, 236, 0.15);
-  color: var(--muted);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  padding: 8px 16px;
-  cursor: none;
-  transition: all 0.3s ease;
-  margin-left: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-#cyber-mode-btn:hover {
-  border-color: var(--accent);
-  color: var(--white);
-  box-shadow: 0 0 10px rgba(255, 58, 47, 0.2);
-}
+    /* ─── CYBER MODE TOGGLE ────────────────────── */
+    #cyber-mode-btn {
+      background: transparent;
+      border: 1px solid rgba(244, 238, 236, 0.15);
+      color: var(--muted);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 8px 16px;
+      cursor: none;
+      transition: all 0.3s ease;
+      margin-left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-/* ─── SKILLS FILTER BUTTONS ────────────────── */
-.skills-filters {
-  margin-top: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.skill-filter-btn {
-  background: transparent;
-  border: 1px solid rgba(244, 238, 236, 0.12);
-  color: var(--muted);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 8px 18px;
-  cursor: none;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
-.skill-filter-btn:hover {
-  border-color: var(--accent);
-  color: var(--white);
-}
-.skill-filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--white);
-  box-shadow: 0 4px 12px rgba(255, 58, 47, 0.2);
-}
-.skills-group {
-  transition: all 0.4s ease;
-  opacity: 1;
-  transform: scale(1);
-}
-.skills-group.hidden {
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  pointer-events: none;
-  position: absolute;
-  visibility: hidden;
-}
+    #cyber-mode-btn:hover {
+      border-color: var(--accent);
+      color: var(--white);
+      box-shadow: 0 0 10px rgba(255, 58, 47, 0.2);
+    }
 
-/* ─── MODAL ─────────────────────────── */
-.modal-overlay {
-  position: fixed; inset: 0; z-index: 1000;
-  background: rgba(8,5,7,0.9); backdrop-filter: blur(16px);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity .4s ease; padding: 20px;
-}
-.modal-overlay.active { opacity: 1; pointer-events: all; }
+    /* ─── SKILLS FILTER BUTTONS ────────────────── */
+    .skills-filters {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.modal-box {
-  background: var(--dark3); border: 1px solid rgba(244,238,236,0.07);
-  width: 100%; max-width: 840px; max-height: 90vh;
-  overflow-y: auto; position: relative;
-  transform: translateY(30px) scale(0.97);
-  transition: transform .45s cubic-bezier(0.34,1.56,0.64,1);
-  scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
-}
-.modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
-.modal-box::-webkit-scrollbar { width: 3px; }
-.modal-box::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
-.modal-box::before {
-  content: ''; display: block; height: 2px;
-  background: linear-gradient(to right, var(--accent), rgba(192,57,43,0.3), transparent);
-}
+    .skill-filter-btn {
+      background: transparent;
+      border: 1px solid rgba(244, 238, 236, 0.12);
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      cursor: none;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
 
-.modal-close {
-  position: sticky; top: 16px; float: right;
-  margin: 16px 20px 0 0;
-  background: rgba(244,238,236,0.06); border: 1px solid rgba(244,238,236,0.1);
-  color: var(--muted); width: 36px; height: 36px; border-radius: 50%;
-  font-size: 13px; cursor: none; z-index: 10;
-  transition: all .3s; display: flex; align-items: center; justify-content: center;
-}
-.modal-close:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .skill-filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--white);
+    }
 
-.modal-header { padding: 28px 40px 0; display: flex; align-items: center; gap: 16px; clear: both; }
-.modal-num { font-family: 'Bebas Neue', sans-serif; font-size: 12px; letter-spacing: 3px; color: rgba(244,238,236,0.2); }
-.modal-category {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--accent); background: rgba(255,58,47,0.08);
-  border: 1px solid rgba(255,58,47,0.25); padding: 3px 12px;
-}
-.modal-title {
-  font-family: 'Cinzel', serif; font-size: clamp(20px,3vw,28px);
-  font-weight: 700; line-height: 1.25; padding: 14px 40px 0;
-}
-.modal-about-block { margin: 20px 40px 0; padding: 20px 24px; background: rgba(255,58,47,0.04); border-left: 2px solid rgba(255,58,47,0.5); }
-.modal-about-block p { font-size: 13px; line-height: 1.95; color: rgba(244,238,236,0.6); }
-.modal-about-block p + p { margin-top: 12px; }
+    .skill-filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(255, 58, 47, 0.2);
+    }
 
-.modal-preview { margin: 24px 40px 0; }
-.preview-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(244,238,236,0.25); margin-bottom: 10px; }
-.preview-screen { background: #0d0a0c; border: 1px solid rgba(244,238,236,0.07); border-radius: 8px; overflow: hidden; }
-.preview-dots { padding: 10px 14px; background: rgba(244,238,236,0.03); border-bottom: 1px solid rgba(244,238,236,0.05); display: flex; gap: 6px; align-items: center; }
-.preview-dots span { width: 8px; height: 8px; border-radius: 50%; }
-.preview-dots span:nth-child(1) { background: #ff5f57; }
-.preview-dots span:nth-child(2) { background: #febc2e; }
-.preview-dots span:nth-child(3) { background: #28c840; }
-.preview-dots .p-title { font-size: 10px; color: rgba(244,238,236,0.2); letter-spacing: 2px; margin-left: 8px; }
-.preview-content { padding: 20px 24px; min-height: 160px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.85; color: rgba(244,238,236,0.45); }
+    .skills-group {
+      transition: all 0.4s ease;
+      opacity: 1;
+      transform: scale(1);
+    }
 
-.modal-divider { height: 1px; background: rgba(244,238,236,0.05); margin: 24px 40px 0; }
-.modal-section-title { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); padding: 20px 40px 12px; }
-.modal-points { list-style: none; padding: 0 40px; display: flex; flex-direction: column; gap: 10px; }
-.modal-points li { font-size: 13px; color: var(--muted); line-height: 1.75; padding-left: 22px; position: relative; }
-.modal-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
+    .skills-group.hidden {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      pointer-events: none;
+      position: absolute;
+      visibility: hidden;
+    }
 
-.modal-stack { padding: 0 40px; display: flex; flex-wrap: wrap; gap: 8px; }
-.modal-stack .stack-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(255,58,47,0.3); color: rgba(255,58,47,0.7); padding: 5px 14px; }
+    /* ─── MODAL ─────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(8, 5, 7, 0.9);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s ease;
+      padding: 20px;
+    }
 
-.modal-actions { padding: 24px 40px 36px; display: flex; gap: 14px; flex-wrap: wrap; }
-.modal-btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
-  text-decoration: none; padding: 12px 28px;
-  transition: all .3s; border: none; font-family: 'DM Sans', sans-serif; cursor: none;
-}
-.modal-btn.primary { background: var(--accent); color: var(--white); }
-.modal-btn.primary:hover { background: var(--red); transform: translateY(-2px); }
-.modal-btn.secondary { border: 1px solid rgba(244,238,236,0.15); color: var(--muted); background: transparent; }
-.modal-btn.secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-.modal-btn.outline-white { border: 1px solid rgba(244,238,236,0.25); color: var(--white); background: transparent; }
-.modal-btn.outline-white:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
 
-/* ─── SKILLS ─────────────────────────── */
-.skills-sec {
-  padding: 110px 60px;
-  background: var(--dark2);
-}
-.skills-inner {
-  display: grid; grid-template-columns: 1fr 2fr; gap: 80px;
-  align-items: start;
-}
-.skills-intro .sec-title { margin-bottom: 24px; }
-.skills-intro p {
-  font-size: 13px; line-height: 1.9; color: var(--muted);
-}
+    .modal-box {
+      background: var(--dark3);
+      border: 1px solid rgba(244, 238, 236, 0.07);
+      width: 100%;
+      max-width: 840px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(30px) scale(0.97);
+      transition: transform .45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+    }
 
-.skills-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.skills-group-title {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 18px;
-  padding-bottom: 10px; border-bottom: 1px solid rgba(255,58,47,0.2);
-}
-.skill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.skill-list li {
-  font-size: 12px; color: var(--muted); letter-spacing: .5px;
-  display: flex; align-items: center; gap: 10px;
-  transition: color .2s;
-}
-.skill-list li:hover { color: var(--white); }
-.skill-list li::before {
-  content: '▸'; color: var(--accent); font-size: 9px; flex-shrink: 0;
-}
+    .modal-overlay.active .modal-box {
+      transform: translateY(0) scale(1);
+    }
 
-/* ─── CERTS ─────────────────────────── */
-.certs { padding: 110px 60px; background: var(--dark); }
-.certs-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-  margin-top: 60px;
-}
-.cert-card {
-  background: var(--dark3); padding: 32px;
-  border: 1px solid rgba(244,238,236,0.04);
-  position: relative; overflow: hidden;
-  transition: border-color .3s, transform .3s;
-}
-.cert-card:hover {
-  border-color: rgba(255,58,47,0.25);
-  transform: translateY(-3px);
-}
-.cert-card::after {
-  content: ''; position: absolute; bottom: 0; right: 0;
-  width: 60px; height: 60px;
-  background: radial-gradient(circle at bottom right, rgba(192,57,43,0.12), transparent);
-}
-.cert-icon {
-  width: 44px; height: 44px;
-  display: flex; align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255,58,47,0.25); color: var(--accent);
-  font-size: 16px; margin-bottom: 20px; transition: all .3s; position: relative; z-index: 1;
-}
-.cert-card:hover .cert-icon { background: rgba(255,58,47,0.08); border-color: var(--accent); transform: rotate(-5deg) scale(1.05); }
-.cert-org {
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 10px;
-}
-.cert-name {
-  font-family: 'Cinzel', serif; font-size: 15px; font-weight: 700;
-  line-height: 1.4; color: var(--white);
-}
+    .modal-box::-webkit-scrollbar {
+      width: 3px;
+    }
 
-/* ─── RED STRIP ────────────────────── */
-.red-strip {
-  background: var(--accent);
-  padding: 60px;
-  display: grid; grid-template-columns: 1fr auto 1fr; gap: 50px;
-  align-items: center;
-}
-.rs-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(34px, 5vw, 64px);
-  letter-spacing: 4px; color: var(--white); line-height: 1;
-}
-.rs-div { width: 1px; height: 80px; background: rgba(255,255,255,0.3); }
-.rs-text { font-size: 14px; line-height: 1.9; color: rgba(255,255,255,0.82); }
+    .modal-box::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 2px;
+    }
 
-/* ─── CONTACT ─────────────────────── */
-.contact {
-  padding: 120px 60px;
-  background: var(--dark2);
-  text-align: center;
-  position: relative; overflow: hidden;
-}
-.contact::before {
-  content: 'CONTACT';
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: min(22vw, 260px);
-  color: rgba(244,238,236,0.02);
-  pointer-events: none; white-space: nowrap; line-height: 1;
-}
-.contact .sec-eyebrow { justify-content: center; }
-.contact .sec-eyebrow::before { display: none; }
-.contact .sec-title { font-size: clamp(32px, 5.5vw, 72px); margin-bottom: 18px; }
-.contact-sub {
-  font-size: 14px; color: var(--muted);
-  margin-bottom: 50px; max-width: 400px; margin-left: auto; margin-right: auto;
-  line-height: 1.8;
-}
-.contact-links {
-  display: flex; align-items: center; justify-content: center;
-  gap: 16px; flex-wrap: wrap; margin-bottom: 50px;
-}
-.c-link {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted); text-decoration: none;
-  padding: 12px 24px;
-  border: 1px solid rgba(244,238,236,0.1);
-  transition: all .3s;
-}
-.c-link:hover {
-  border-color: var(--accent); color: var(--accent);
-  transform: translateY(-2px);
-}
-.c-link .icon { font-size: 16px; }
-.contact-cta { margin-top: 10px; }
+    .modal-box::before {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), rgba(192, 57, 43, 0.3), transparent);
+    }
 
-/* ─── FOOTER ───────────────────────── */
-footer {
-  padding: 36px 60px;
-  background: var(--dark);
-  display: flex; align-items: center; justify-content: space-between;
-  border-top: 1px solid rgba(244,238,236,0.04);
-}
-.f-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px; letter-spacing: 5px;
-  color: rgba(244,238,236,0.3);
-}
-.f-logo em { font-style: normal; color: var(--accent); }
-.f-copy { font-size: 11px; letter-spacing: 2px; color: rgba(244,238,236,0.2); }
-.f-links { display: flex; gap: 24px; }
-.f-links a {
-  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(244,238,236,0.25); text-decoration: none;
-  transition: color .3s;
-}
-.f-links a:hover { color: var(--accent); }
+    .modal-close {
+      position: sticky;
+      top: 16px;
+      float: right;
+      margin: 16px 20px 0 0;
+      background: rgba(244, 238, 236, 0.06);
+      border: 1px solid rgba(244, 238, 236, 0.1);
+      color: var(--muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 13px;
+      cursor: none;
+      z-index: 10;
+      transition: all .3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* ─── ANIMATIONS ────────────────────── */
-@keyframes upIn {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes ghostIn {
-  from { opacity: 0; transform: translateY(-50%) translateX(30px); }
-  to   { opacity: 1; transform: translateY(-52%) translateX(0); }
-}
-@keyframes fadeIn { to { opacity: 1; } }
+    .modal-close:hover {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
 
-/* Scroll reveal */
-.reveal {
-  opacity: 0; transform: translateY(36px);
-  transition: opacity .75s ease, transform .75s ease;
-}
-.reveal.show { opacity: 1; transform: translateY(0); }
+    .modal-header {
+      padding: 28px 40px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      clear: both;
+    }
 
-/* Staggered children */
-.stagger > * {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.stagger.show > *:nth-child(1)  { opacity:1;transform:translateY(0);transition-delay:.05s; }
-.stagger.show > *:nth-child(2)  { opacity:1;transform:translateY(0);transition-delay:.15s; }
-.stagger.show > *:nth-child(3)  { opacity:1;transform:translateY(0);transition-delay:.25s; }
-.stagger.show > *:nth-child(4)  { opacity:1;transform:translateY(0);transition-delay:.35s; }
-.stagger.show > *:nth-child(5)  { opacity:1;transform:translateY(0);transition-delay:.45s; }
-.stagger.show > *:nth-child(6)  { opacity:1;transform:translateY(0);transition-delay:.55s; }
-.stagger.show > *:nth-child(7)  { opacity:1;transform:translateY(0);transition-delay:.65s; }
-.stagger.show > *:nth-child(8)  { opacity:1;transform:translateY(0);transition-delay:.75s; }
-.stagger.show > *:nth-child(9)  { opacity:1;transform:translateY(0);transition-delay:.85s; }
-.stagger.show > *:nth-child(10) { opacity:1;transform:translateY(0);transition-delay:.95s; }
-.stagger.show > *:nth-child(11) { opacity:1;transform:translateY(0);transition-delay:1.05s; }
-.stagger.show > *:nth-child(12) { opacity:1;transform:translateY(0);transition-delay:1.15s; }
+    .modal-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: rgba(244, 238, 236, 0.2);
+    }
 
-/* ─── RESPONSIVE ────────────────────── */
-@media(max-width:900px) {
-  nav { padding: 18px 28px; }
-  .nav-links, .nav-hire, .nav-actions { display: none !important; }
-  .hamburger { display: flex; }
+    .modal-category {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(255, 58, 47, 0.08);
+      border: 1px solid rgba(255, 58, 47, 0.25);
+      padding: 3px 12px;
+    }
 
-  .hero-content { width: 100%; padding: 0 28px 120px; }
-  .hero-figure { width: 60%; right: 5%; opacity: .35; }
-  .hero-ghost { display: none; }
-  .hero-stats { right: 28px; gap: 28px; bottom: 60px; }
-  .hero-social { display: none; }
-  .scroll-pill { left: 28px; }
+    .modal-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.25;
+      padding: 14px 40px 0;
+    }
 
-  .about, .skills-inner { grid-template-columns: 1fr; gap: 50px; }
-  .projects { padding: 80px 28px; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .proj-card:nth-child(n) { grid-column: 1 / -1; }
-  .certs-grid { grid-template-columns: 1fr; }
-  .red-strip { grid-template-columns: 1fr; }
-  .rs-div { display: none; }
-  footer { flex-direction: column; gap: 20px; text-align: center; }
-  .skills-cols { grid-template-columns: 1fr; }
-  .about, .certs, .contact, .skills-sec { padding: 80px 28px; }
-  .modal-header, .modal-title, .modal-about-block,
-  .modal-preview, .modal-divider, .modal-section-title,
-  .modal-points, .modal-stack, .modal-actions { padding-left: 20px; padding-right: 20px; }
-  .modal-about-block { margin: 16px 20px 0; }
-}
-</style>
+    .modal-about-block {
+      margin: 20px 40px 0;
+      padding: 20px 24px;
+      background: rgba(255, 58, 47, 0.04);
+      border-left: 2px solid rgba(255, 58, 47, 0.5);
+    }
+
+    .modal-about-block p {
+      font-size: 13px;
+      line-height: 1.95;
+      color: rgba(244, 238, 236, 0.6);
+    }
+
+    .modal-about-block p+p {
+      margin-top: 12px;
+    }
+
+    .modal-preview {
+      margin: 24px 40px 0;
+    }
+
+    .preview-label {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(244, 238, 236, 0.25);
+      margin-bottom: 10px;
+    }
+
+    .preview-screen {
+      background: #0d0a0c;
+      border: 1px solid rgba(244, 238, 236, 0.07);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .preview-dots {
+      padding: 10px 14px;
+      background: rgba(244, 238, 236, 0.03);
+      border-bottom: 1px solid rgba(244, 238, 236, 0.05);
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .preview-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .preview-dots span:nth-child(1) {
+      background: #ff5f57;
+    }
+
+    .preview-dots span:nth-child(2) {
+      background: #febc2e;
+    }
+
+    .preview-dots span:nth-child(3) {
+      background: #28c840;
+    }
+
+    .preview-dots .p-title {
+      font-size: 10px;
+      color: rgba(244, 238, 236, 0.2);
+      letter-spacing: 2px;
+      margin-left: 8px;
+    }
+
+    .preview-content {
+      padding: 20px 24px;
+      min-height: 160px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.85;
+      color: rgba(244, 238, 236, 0.45);
+    }
+
+    .modal-divider {
+      height: 1px;
+      background: rgba(244, 238, 236, 0.05);
+      margin: 24px 40px 0;
+    }
+
+    .modal-section-title {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 20px 40px 12px;
+    }
+
+    .modal-points {
+      list-style: none;
+      padding: 0 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-points li {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.75;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .modal-points li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 10px;
+      top: 3px;
+    }
+
+    .modal-stack {
+      padding: 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .modal-stack .stack-tag {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 58, 47, 0.3);
+      color: rgba(255, 58, 47, 0.7);
+      padding: 5px 14px;
+    }
+
+    .modal-actions {
+      padding: 24px 40px 36px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .modal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 12px 28px;
+      transition: all .3s;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      cursor: none;
+    }
+
+    .modal-btn.primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .modal-btn.primary:hover {
+      background: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .modal-btn.secondary {
+      border: 1px solid rgba(244, 238, 236, 0.15);
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .modal-btn.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .modal-btn.outline-white {
+      border: 1px solid rgba(244, 238, 236, 0.25);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .modal-btn.outline-white:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ─── SKILLS ─────────────────────────── */
+    .skills-sec {
+      padding: 110px 60px;
+      background: var(--dark2);
+    }
+
+    .skills-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .skills-intro .sec-title {
+      margin-bottom: 24px;
+    }
+
+    .skills-intro p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .skills-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .skills-group-title {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 58, 47, 0.2);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .skill-list li {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color .2s;
+    }
+
+    .skill-list li:hover {
+      color: var(--white);
+    }
+
+    .skill-list li::before {
+      content: '▸';
+      color: var(--accent);
+      font-size: 9px;
+      flex-shrink: 0;
+    }
+
+    /* ─── CERTS ─────────────────────────── */
+    .certs {
+      padding: 110px 60px;
+      background: var(--dark);
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 60px;
+    }
+
+    .cert-card {
+      background: var(--dark3);
+      padding: 32px;
+      border: 1px solid rgba(244, 238, 236, 0.04);
+      position: relative;
+      overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .cert-card:hover {
+      border-color: rgba(255, 58, 47, 0.25);
+      transform: translateY(-3px);
+    }
+
+    .cert-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle at bottom right, rgba(192, 57, 43, 0.12), transparent);
+    }
+
+    .cert-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 58, 47, 0.25);
+      color: var(--accent);
+      font-size: 16px;
+      margin-bottom: 20px;
+      transition: all .3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cert-card:hover .cert-icon {
+      background: rgba(255, 58, 47, 0.08);
+      border-color: var(--accent);
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .cert-org {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .cert-name {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--white);
+    }
+
+    /* ─── RED STRIP ────────────────────── */
+    .red-strip {
+      background: var(--accent);
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .rs-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(34px, 5vw, 64px);
+      letter-spacing: 4px;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .rs-div {
+      width: 1px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .rs-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    /* ─── CONTACT ─────────────────────── */
+    .contact {
+      padding: 120px 60px;
+      background: var(--dark2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: 'CONTACT';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: min(22vw, 260px);
+      color: rgba(244, 238, 236, 0.02);
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .contact .sec-eyebrow {
+      justify-content: center;
+    }
+
+    .contact .sec-eyebrow::before {
+      display: none;
+    }
+
+    .contact .sec-title {
+      font-size: clamp(32px, 5.5vw, 72px);
+      margin-bottom: 18px;
+    }
+
+    .contact-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 50px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .c-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 1px solid rgba(244, 238, 236, 0.1);
+      transition: all .3s;
+    }
+
+    .c-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .c-link .icon {
+      font-size: 16px;
+    }
+
+    .contact-cta {
+      margin-top: 10px;
+    }
+
+    /* ─── FOOTER ───────────────────────── */
+    footer {
+      padding: 36px 60px;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(244, 238, 236, 0.04);
+    }
+
+    .f-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 5px;
+      color: rgba(244, 238, 236, 0.3);
+    }
+
+    .f-logo em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .f-copy {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: rgba(244, 238, 236, 0.2);
+    }
+
+    .f-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .f-links a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(244, 238, 236, 0.25);
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    .f-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ─── ANIMATIONS ────────────────────── */
+    @keyframes upIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ghostIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(-52%) translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered children */
+    .stagger>* {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .stagger.show>*:nth-child(1) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .05s;
+    }
+
+    .stagger.show>*:nth-child(2) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .15s;
+    }
+
+    .stagger.show>*:nth-child(3) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .25s;
+    }
+
+    .stagger.show>*:nth-child(4) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .35s;
+    }
+
+    .stagger.show>*:nth-child(5) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .45s;
+    }
+
+    .stagger.show>*:nth-child(6) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .55s;
+    }
+
+    .stagger.show>*:nth-child(7) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .65s;
+    }
+
+    .stagger.show>*:nth-child(8) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .75s;
+    }
+
+    .stagger.show>*:nth-child(9) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .85s;
+    }
+
+    .stagger.show>*:nth-child(10) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .95s;
+    }
+
+    .stagger.show>*:nth-child(11) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 1.05s;
+    }
+
+    .stagger.show>*:nth-child(12) {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 1.15s;
+    }
+
+    /* ─── RESPONSIVE ────────────────────── */
+    @media(max-width:900px) {
+      nav {
+        padding: 18px 28px;
+      }
+
+      .nav-links,
+      .nav-hire,
+      .nav-actions {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-content {
+        width: 100%;
+        padding: 0 28px 120px;
+      }
+
+      .hero-figure {
+        width: 60%;
+        right: 5%;
+        opacity: .35;
+      }
+
+      .hero-ghost {
+        display: none;
+      }
+
+      .hero-stats {
+        right: 28px;
+        gap: 28px;
+        bottom: 60px;
+      }
+
+      .hero-social {
+        display: none;
+      }
+
+      .scroll-pill {
+        left: 28px;
+      }
+
+      .about,
+      .skills-inner {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .projects {
+        padding: 80px 28px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proj-card:nth-child(n) {
+        grid-column: 1 / -1;
+      }
+
+      .certs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .red-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .rs-div {
+        display: none;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .skills-cols {
+        grid-template-columns: 1fr;
+      }
+
+      .about,
+      .certs,
+      .contact,
+      .skills-sec {
+        padding: 80px 28px;
+      }
+
+      .modal-header,
+      .modal-title,
+      .modal-about-block,
+      .modal-preview,
+      .modal-divider,
+      .modal-section-title,
+      .modal-points,
+      .modal-stack,
+      .modal-actions {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .modal-about-block {
+        margin: 16px 20px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- CURSOR -->
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
+  <!-- CURSOR -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
 
-<!-- ╮══════════════ NAV ╮══════════════ -->
-<nav id="navbar">
-  <a class="nav-logo" href="#"><em>D</em>EVASISH</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certs">Certs</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
-    <button id="cyber-mode-btn" onclick="toggleCyberMode()"><i class="fa-solid fa-terminal"></i> CYBER MODE</button>
-    <a class="nav-hire" href="mailto:jajimoggaladevasishvenkatsai@gmail.com">Hire Me</a>
-  </div>
-  <button class="hamburger" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#skills" onclick="closeMobile()">Skills</a>
-  <a href="#certs" onclick="closeMobile()">Certs</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <button id="cyber-mode-btn-mobile" onclick="toggleCyberMode(); closeMobile();" style="background:none; border:1px solid var(--accent); color:var(--accent); font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:2px; padding:10px 24px; cursor:none; margin-top:20px; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-terminal"></i> CYBER MODE</button>
-</div>
-
-<!-- ╮══════════════ HERO ╮══════════════ -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-line"></div>
-
-  <!-- Ghost text -->
-  <div class="hero-ghost">DEVA<br>SISH</div>
-
-  <!-- Content -->
-  <div class="hero-content">
-    <div class="hero-eyebrow">Full Stack Developer &amp; Cybersecurity Expertise</div>
-    <h1 class="hero-name">
-      DEVASISH<br><span class="outline">JAJIMOGGALA</span>
-    </h1>
-    <p class="hero-role">B.Tech CSE &middot; Aditya University &middot; 2024&ndash;2028</p>
-    <p class="hero-desc">
-      I design and ship secure, user-first products end-to-end — from pixel-perfect interfaces to hardened backends. I bridge product thinking and security practices to build apps that people trust and teams rely on.
-    </p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-red">View Projects</a>
-      <a href="assets/Devasish_Resume.pdf" download class="btn-ghost-link">Download Resume</a>
-      <a href="#contact" class="btn-ghost-link">Get in Touch <span class="arr">&rarr;</span></a>
+  <!-- ╮══════════════ NAV ╮══════════════ -->
+  <nav id="navbar">
+    <a class="nav-logo" href="#"><em>D</em>EVASISH</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
+      <button id="cyber-mode-btn" onclick="toggleCyberMode()"><i class="fa-solid fa-terminal"></i> CYBER MODE</button>
+      <a class="nav-hire" href="mailto:jajimoggaladevasishvenkatsai@gmail.com">Hire Me</a>
     </div>
+    <button class="hamburger" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#projects" onclick="closeMobile()">Projects</a>
+    <a href="#skills" onclick="closeMobile()">Skills</a>
+    <a href="#certs" onclick="closeMobile()">Certs</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <button id="cyber-mode-btn-mobile" onclick="toggleCyberMode(); closeMobile();"
+      style="background:none; border:1px solid var(--accent); color:var(--accent); font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:2px; padding:10px 24px; cursor:none; margin-top:20px; display:flex; align-items:center; gap:8px;"><i
+        class="fa-solid fa-terminal"></i> CYBER MODE</button>
   </div>
 
-  <!-- Stats -->
-  <div class="hero-stats">
-    <div>
-      <div class="stat-val">7</div>
-      <div class="stat-lbl">Projects Built</div>
-    </div>
-    <div>
-      <div class="stat-val">10<sup>+</sup></div>
-      <div class="stat-lbl">Certifications</div>
-    </div>
-    <div>
-      <div class="stat-val">12<sup>+</sup></div>
-      <div class="stat-lbl">Tech Stacks</div>
-    </div>
-  </div>
+  <!-- ╮══════════════ HERO ╮══════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-line"></div>
 
-  <!-- Social -->
-  <div class="hero-social">
-    <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="https://github.com/Devasish009" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-    <div class="social-line"></div>
-  </div>
+    <!-- Ghost text -->
+    <div class="hero-ghost">DEVA<br>SISH</div>
 
-  <!-- Scroll indicator -->
-  <div class="scroll-pill">
-    <div class="bar"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ╮══════════════ MARQUEE ╮══════════════ -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="mq-item">Full Stack Dev <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Cyber Security <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Node.js &amp; Express <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">React &amp; UI Design <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Full Stack Dev <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Cyber Security <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">Node.js &amp; Express <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">React &amp; UI Design <span class="mq-dot">&#9670;</span></span>
-    <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">&#9670;</span></span>
-  </div>
-</div>
-
-<!-- ╮══════════════ ABOUT ╮══════════════ -->
-<section class="about" id="about">
-  <div class="about-text reveal">
-    <div class="sec-eyebrow">About Me</div>
-    <h2 class="sec-title">Who I<br>Am</h2>
-    <p class="about-body">
-      I'm Devasish Venkat Sai Jajimoggala — a full-stack engineer and security-minded problem solver from Kakinada. I focus on shipping production-ready software: secure architectures, intuitive UX, and measurable impact. I enjoy turning ambiguous problems into polished, reliable products used by real people.
-    </p>
-    <div class="about-details stagger">
-      <div class="about-row">
-        <span class="lbl">Location</span>
-        <span class="val">Kakinada, Andhra Pradesh, India</span>
-      </div>
-      <div class="about-row">
-        <span class="lbl">Phone</span>
-        <span class="val">+91 9505271744</span>
-      </div>
-      <div class="about-row">
-        <span class="lbl">GitHub</span>
-        <span class="val"><a href="https://github.com/Devasish009" target="_blank">Devasish009</a></span>
-      </div>
-      <div class="about-row">
-        <span class="lbl">LinkedIn</span>
-        <span class="val"><a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">Devasish</a></span>
+    <!-- Content -->
+    <div class="hero-content">
+      <div class="hero-eyebrow">Full Stack Developer &amp; Cybersecurity Expertise</div>
+      <h1 class="hero-name">
+        DEVASISH<br><span class="outline">JAJIMOGGALA</span>
+      </h1>
+      <p class="hero-role">B.Tech CSE &middot; Aditya University &middot; 2024&ndash;2028</p>
+      <p class="hero-desc">
+        I design and ship secure, user-first products end-to-end — from pixel-perfect interfaces to hardened backends. I
+        bridge product thinking and security practices to build apps that people trust and teams rely on.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-red">View Projects</a>
+        <a href="assets/Devasish_Resume.pdf" download class="btn-ghost-link">Download Resume</a>
+        <a href="#contact" class="btn-ghost-link">Get in Touch <span class="arr">&rarr;</span></a>
       </div>
     </div>
-  </div>
 
-  <div class="about-edu reveal">
-    <div class="edu-tag">Education</div>
-    <div class="edu-deg">B.Tech in Computer Science &amp; Engineering</div>
-    <div class="edu-uni">Aditya University, Surampalem, Andhra Pradesh</div>
-    <div class="edu-year">2024 &ndash; 2028</div>
-    <div class="edu-courses">
-      <div class="lbl">Relevant Coursework</div>
-      <div class="course-tags">
-        <span class="ctag">Full Stack Dev</span>
-        <span class="ctag">DSA</span>
-        <span class="ctag">DBMS</span>
-        <span class="ctag">OS</span>
-        <span class="ctag">Computer Networks</span>
-        <span class="ctag">OOPs</span>
-        <span class="ctag">Software Engineering</span>
+    <!-- Stats -->
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">7</div>
+        <div class="stat-lbl">Projects Built</div>
+      </div>
+      <div>
+        <div class="stat-val">10<sup>+</sup></div>
+        <div class="stat-lbl">Certifications</div>
+      </div>
+      <div>
+        <div class="stat-val">12<sup>+</sup></div>
+        <div class="stat-lbl">Tech Stacks</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ╮══════════════ PROJECTS ╮══════════════ -->
-<section class="projects" id="projects">
-  <div class="projects-header reveal">
-    <div>
-      <div class="sec-eyebrow">Work</div>
-      <h2 class="sec-title">Featured<br>Projects</h2>
+    <!-- Social -->
+    <div class="hero-social">
+      <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank" title="LinkedIn"><i
+          class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/Devasish009" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <div class="social-line"></div>
     </div>
-    <p class="projects-sub">Real products. Real tech. Real impact.</p>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-pill">
+      <div class="bar"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ╮══════════════ MARQUEE ╮══════════════ -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="mq-item">Full Stack Dev <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Cyber Security <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Node.js &amp; Express <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">React &amp; UI Design <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Full Stack Dev <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Cyber Security <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Flutter &amp; Mobile <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">Node.js &amp; Express <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">PostgreSQL &amp; MongoDB <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">React &amp; UI Design <span class="mq-dot">&#9670;</span></span>
+      <span class="mq-item">JWT &amp; WebSockets <span class="mq-dot">&#9670;</span></span>
+    </div>
   </div>
 
-  <div class="projects-grid stagger">
-
-    <!-- Thunder Thursday App -->
-    <div class="proj-card" onclick="openModal('thunder_app')">
-      <div class="proj-highlight-badge">Featured</div>
-      <div class="proj-body">
-        <div class="proj-num">01 &mdash; Mobile / Event Tech</div>
-        <div class="proj-name">Thunder Thursday &ndash; Student &amp; Performance App</div>
-        <p class="proj-desc">A feature-rich college event management and live voting mobile application built to enhance student participation and real-time coordination.</p>
-        <ul class="proj-points">
-          <li>Live voting system with real-time Firestore sync</li>
-          <li>Interactive event registration and performance registration</li>
-          <li>FCM push notifications and local reminders for event schedules</li>
-          <li>Native media support with custom intro video players</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Flutter</span>
-          <span class="stack-tag">Dart</span>
-          <span class="stack-tag">Firebase Auth</span>
-          <span class="stack-tag">Cloud Firestore</span>
-          <span class="stack-tag">FCM</span>
+  <!-- ╮══════════════ ABOUT ╮══════════════ -->
+  <section class="about" id="about">
+    <div class="about-text reveal">
+      <div class="sec-eyebrow">About Me</div>
+      <h2 class="sec-title">Who I<br>Am</h2>
+      <p class="about-body">
+        I'm Devasish Venkat Sai Jajimoggala — a full-stack engineer and security-minded problem solver from Kakinada. I
+        focus on shipping production-ready software: secure architectures, intuitive UX, and measurable impact. I enjoy
+        turning ambiguous problems into polished, reliable products used by real people.
+      </p>
+      <div class="about-details stagger">
+        <div class="about-row">
+          <span class="lbl">Location</span>
+          <span class="val">Kakinada, Andhra Pradesh, India</span>
+        </div>
+        <div class="about-row">
+          <span class="lbl">Phone</span>
+          <span class="val">+91 9505271744</span>
+        </div>
+        <div class="about-row">
+          <span class="lbl">GitHub</span>
+          <span class="val"><a href="https://github.com/Devasish009" target="_blank">Devasish009</a></span>
+        </div>
+        <div class="about-row">
+          <span class="lbl">LinkedIn</span>
+          <span class="val"><a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">Devasish</a></span>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2026</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
     </div>
 
-    <!-- Thunder Thursday Admin -->
-    <div class="proj-card" onclick="openModal('thunder_admin')">
-      <div class="proj-highlight-badge">Featured</div>
-      <div class="proj-body">
-        <div class="proj-num">02 &mdash; Mobile / Admin Portal</div>
-        <div class="proj-name">Thunder Thursday &ndash; Event Admin Console</div>
-        <p class="proj-desc">A dedicated supervisor dashboard application for coordinators to control event flows, manage performance lists, send bulk alerts, and export data.</p>
-        <ul class="proj-points">
-          <li>Live performance status coordinator (active, completed, next up)</li>
-          <li>Bulk push notification dispatcher and mailer announcement system</li>
-          <li>Detailed report generation exporting registration lists to Excel</li>
-          <li>Feedback and query resolution board with real-time Firestore sync</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Flutter</span>
-          <span class="stack-tag">Dart</span>
-          <span class="stack-tag">Cloud Firestore</span>
-          <span class="stack-tag">Mailer</span>
-          <span class="stack-tag">Excel API</span>
-          <span class="stack-tag">Share Plus</span>
+    <div class="about-edu reveal">
+      <div class="edu-tag">Education</div>
+      <div class="edu-deg">B.Tech in Computer Science &amp; Engineering</div>
+      <div class="edu-uni">Aditya University, Surampalem, Andhra Pradesh</div>
+      <div class="edu-year">2024 &ndash; 2028</div>
+      <div class="edu-courses">
+        <div class="lbl">Relevant Coursework</div>
+        <div class="course-tags">
+          <span class="ctag">Full Stack Dev</span>
+          <span class="ctag">DSA</span>
+          <span class="ctag">DBMS</span>
+          <span class="ctag">OS</span>
+          <span class="ctag">Computer Networks</span>
+          <span class="ctag">OOPs</span>
+          <span class="ctag">Software Engineering</span>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2026</span>
-        <button class="proj-arrow-btn">&#8599;</button>
+    </div>
+  </section>
+
+  <!-- ╮══════════════ PROJECTS ╮══════════════ -->
+  <section class="projects" id="projects">
+    <div class="projects-header reveal">
+      <div>
+        <div class="sec-eyebrow">Work</div>
+        <h2 class="sec-title">Featured<br>Projects</h2>
       </div>
+      <p class="projects-sub">Real products. Real tech. Real impact.</p>
     </div>
 
-    <!-- AegisX -->
-    <div class="proj-card" onclick="openModal('aegisx')">
-      <div class="proj-body">
-        <div class="proj-num">03 &mdash; Security</div>
-        <div class="proj-name">AegisX &ndash; Mini SIEM &amp; Intrusion Detection System</div>
-        <p class="proj-desc">Production SIEM: real-time log correlation, fast anomaly detection, and automated containment for risky auth and API patterns.</p>
-        <ul class="proj-points">
-          <li>Log aggregation &amp; event correlation engine for auth attempts and API patterns</li>
-          <li>Brute-force detection, anomaly-based behaviour analysis</li>
-          <li>Automated IP blocking mechanisms</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Node.js</span>
-          <span class="stack-tag">Express.js</span>
-          <span class="stack-tag">PostgreSQL</span>
-          <span class="stack-tag">JWT</span>
-          <span class="stack-tag">WebSockets</span>
+    <div class="projects-grid stagger">
+
+      <!-- Thunder Thursday App -->
+      <div class="proj-card" onclick="openModal('thunder_app')">
+        <div class="proj-highlight-badge">Featured</div>
+        <div class="proj-body">
+          <div class="proj-num">01 &mdash; Mobile / Event Tech</div>
+          <div class="proj-name">Thunder Thursday &ndash; Student &amp; Performance App</div>
+          <p class="proj-desc">A feature-rich college event management and live voting mobile application built to
+            enhance student participation and real-time coordination.</p>
+          <ul class="proj-points">
+            <li>Live voting system with real-time Firestore sync</li>
+            <li>Interactive event registration and performance registration</li>
+            <li>FCM push notifications and local reminders for event schedules</li>
+            <li>Native media support with custom intro video players</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">Flutter</span>
+            <span class="stack-tag">Dart</span>
+            <span class="stack-tag">Firebase Auth</span>
+            <span class="stack-tag">Cloud Firestore</span>
+            <span class="stack-tag">FCM</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-year">2026</span>
+          <button class="proj-arrow-btn">&#8599;</button>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2026</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
 
-    <!-- QuestAI -->
-    <div class="proj-card" onclick="openModal('questai')">
-      <div class="proj-body">
-        <div class="proj-num">04 &mdash; AI / Web</div>
-        <div class="proj-name">QuestAI &ndash; AI-Powered Q&amp;A Forum</div>
-        <p class="proj-desc">AI-backed Q&amp;A that surfaces high-quality answers instantly — combines model-driven responses with community voting and reputational signals.</p>
-        <ul class="proj-points">
-          <li>AI-driven answer generation for user questions</li>
-          <li>Community voting system to surface the best responses</li>
-          <li>Secure user authentication and profile management</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">React</span>
-          <span class="stack-tag">Tailwind CSS</span>
-          <span class="stack-tag">Node.js</span>
-          <span class="stack-tag">Express.js</span>
-          <span class="stack-tag">PostgreSQL</span>
-          <span class="stack-tag">Three.js</span>
+      <!-- Thunder Thursday Admin -->
+      <div class="proj-card" onclick="openModal('thunder_admin')">
+        <div class="proj-highlight-badge">Featured</div>
+        <div class="proj-body">
+          <div class="proj-num">02 &mdash; Mobile / Admin Portal</div>
+          <div class="proj-name">Thunder Thursday &ndash; Event Admin Console</div>
+          <p class="proj-desc">A dedicated supervisor dashboard application for coordinators to control event flows,
+            manage performance lists, send bulk alerts, and export data.</p>
+          <ul class="proj-points">
+            <li>Live performance status coordinator (active, completed, next up)</li>
+            <li>Bulk push notification dispatcher and mailer announcement system</li>
+            <li>Detailed report generation exporting registration lists to Excel</li>
+            <li>Feedback and query resolution board with real-time Firestore sync</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">Flutter</span>
+            <span class="stack-tag">Dart</span>
+            <span class="stack-tag">Cloud Firestore</span>
+            <span class="stack-tag">Mailer</span>
+            <span class="stack-tag">Excel API</span>
+            <span class="stack-tag">Share Plus</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-year">2026</span>
+          <button class="proj-arrow-btn">&#8599;</button>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2026</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
 
-    <!-- ExploreMate -->
-    <div class="proj-card" onclick="openModal('exploremate')">
-      <div class="proj-body">
-        <div class="proj-num">05 &mdash; Mobile / AI</div>
-        <div class="proj-name">ExploreMate &ndash; AI-Powered Travel Companion</div>
-        <p class="proj-desc">AI travel companion that recommends personalized itineraries, finds local gems, and gamifies exploration to boost user engagement.</p>
-        <ul class="proj-points">
-          <li>Hidden Gem Finder &mdash; discover underrated, locally popular destinations</li>
-          <li>Mood-Based Food Explorer &mdash; AI-powered food recommendations based on mood, weather, and time</li>
-          <li>Gamified City Explorer &mdash; missions, rewards, and leaderboards to encourage exploration</li>
-          <li>AI Audio Tour Guide &mdash; personalized storytelling with historical and cultural narratives</li>
-          <li>Smart search, real-time translation, and intelligent trip scheduling</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Flutter</span>
-          <span class="stack-tag">Dart</span>
-          <span class="stack-tag">AI/ML</span>
-          <span class="stack-tag">Node.js</span>
-          <span class="stack-tag">Firebase</span>
+      <!-- AegisX -->
+      <div class="proj-card" onclick="openModal('aegisx')">
+        <div class="proj-body">
+          <div class="proj-num">03 &mdash; Security</div>
+          <div class="proj-name">AegisX &ndash; Mini SIEM &amp; Intrusion Detection System</div>
+          <p class="proj-desc">Production SIEM: real-time log correlation, fast anomaly detection, and automated
+            containment for risky auth and API patterns.</p>
+          <ul class="proj-points">
+            <li>Log aggregation &amp; event correlation engine for auth attempts and API patterns</li>
+            <li>Brute-force detection, anomaly-based behaviour analysis</li>
+            <li>Automated IP blocking mechanisms</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Express.js</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">JWT</span>
+            <span class="stack-tag">WebSockets</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-year">2026</span>
+          <button class="proj-arrow-btn">&#8599;</button>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2026</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
 
-    <!-- ShieldX -->
-    <div class="proj-card" onclick="openModal('shieldx')">
-      <div class="proj-body">
-        <div class="proj-num">06 &mdash; Web</div>
-        <div class="proj-name">ShieldX &ndash; Cybersecurity Tools E-Commerce Showcase</div>
-        <p class="proj-desc">Security products showcase with a focus on clear information architecture, OWASP-aligned headers, and a polished, mobile-first storefront UI.</p>
-        <ul class="proj-points">
-          <li>Responsive UI with HTML &amp; CSS structured layout</li>
-          <li>Clean navigation &amp; user-friendly interface</li>
-          <li>Product showcase sections with OWASP-aligned architecture</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">HTML</span>
-          <span class="stack-tag">CSS</span>
-          <span class="stack-tag">Node.js</span>
-          <span class="stack-tag">Express.js</span>
+      <!-- QuestAI -->
+      <div class="proj-card" onclick="openModal('questai')">
+        <div class="proj-body">
+          <div class="proj-num">04 &mdash; AI / Web</div>
+          <div class="proj-name">QuestAI &ndash; AI-Powered Q&amp;A Forum</div>
+          <p class="proj-desc">AI-backed Q&amp;A that surfaces high-quality answers instantly — combines model-driven
+            responses with community voting and reputational signals.</p>
+          <ul class="proj-points">
+            <li>AI-driven answer generation for user questions</li>
+            <li>Community voting system to surface the best responses</li>
+            <li>Secure user authentication and profile management</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Tailwind CSS</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Express.js</span>
+            <span class="stack-tag">PostgreSQL</span>
+            <span class="stack-tag">Three.js</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-year">2026</span>
+          <button class="proj-arrow-btn">&#8599;</button>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2025</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
 
-    <!-- SkyRoute -->
-    <div class="proj-card" onclick="openModal('skyroute')">
-      <div class="proj-body">
-        <div class="proj-num">07 &mdash; Desktop / Java</div>
-        <div class="proj-name">SkyRoute &ndash; Bus Ticket Booking System</div>
-        <p class="proj-desc">Desktop booking system with transactional seat selection, admin controls, and robust JDBC-backed booking integrity for real-world operations.</p>
-        <ul class="proj-points">
-          <li>Interactive cinema-style seat selection with real-time availability</li>
-          <li>Admin dashboard with bus, route, and user management</li>
-          <li>Secure SHA-256 password hashing &amp; JDBC transaction handling</li>
-        </ul>
-        <div class="proj-stack">
-          <span class="stack-tag">Java</span>
-          <span class="stack-tag">Java Swing</span>
-          <span class="stack-tag">JDBC</span>
-          <span class="stack-tag">MySQL</span>
+      <!-- ExploreMate -->
+      <div class="proj-card" onclick="openModal('exploremate')">
+        <div class="proj-body">
+          <div class="proj-num">05 &mdash; Mobile / AI</div>
+          <div class="proj-name">ExploreMate &ndash; AI-Powered Travel Companion</div>
+          <p class="proj-desc">AI travel companion that recommends personalized itineraries, finds local gems, and
+            gamifies exploration to boost user engagement.</p>
+          <ul class="proj-points">
+            <li>Hidden Gem Finder &mdash; discover underrated, locally popular destinations</li>
+            <li>Mood-Based Food Explorer &mdash; AI-powered food recommendations based on mood, weather, and time</li>
+            <li>Gamified City Explorer &mdash; missions, rewards, and leaderboards to encourage exploration</li>
+            <li>AI Audio Tour Guide &mdash; personalized storytelling with historical and cultural narratives</li>
+            <li>Smart search, real-time translation, and intelligent trip scheduling</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">Flutter</span>
+            <span class="stack-tag">Dart</span>
+            <span class="stack-tag">AI/ML</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Firebase</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-year">2026</span>
+          <button class="proj-arrow-btn">&#8599;</button>
         </div>
       </div>
-      <div class="proj-footer">
-        <span class="proj-year">2025</span>
-        <button class="proj-arrow-btn">&#8599;</button>
-      </div>
-    </div>
 
-  </div>
-</section>
-
-<!-- PROJECT MODAL -->
-<div id="proj-modal" class="modal-overlay" onclick="closeModal(event)">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModalBtn()">&#10005;</button>
-    <div class="modal-header">
-      <span class="modal-num" id="m-num"></span>
-      <span class="modal-category" id="m-cat"></span>
-    </div>
-    <h2 class="modal-title" id="m-title"></h2>
-    <div class="modal-about-block" id="m-about"></div>
-    <div class="modal-preview">
-      <div class="preview-label">Project Showcase</div>
-      <div class="preview-screen">
-        <div class="preview-dots">
-          <span></span><span></span><span></span>
-          <span class="p-title" id="m-preview-title"></span>
+      <!-- ShieldX -->
+      <div class="proj-card" onclick="openModal('shieldx')">
+        <div class="proj-body">
+          <div class="proj-num">06 &mdash; Web</div>
+          <div class="proj-name">ShieldX &ndash; Cybersecurity Tools E-Commerce Showcase</div>
+          <p class="proj-desc">Security products showcase with a focus on clear information architecture, OWASP-aligned
+            headers, and a polished, mobile-first storefront UI.</p>
+          <ul class="proj-points">
+            <li>Responsive UI with HTML &amp; CSS structured layout</li>
+            <li>Clean navigation &amp; user-friendly interface</li>
+            <li>Product showcase sections with OWASP-aligned architecture</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">HTML</span>
+            <span class="stack-tag">CSS</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Express.js</span>
+          </div>
         </div>
-        <div class="preview-content" id="m-preview"></div>
+        <div class="proj-footer">
+          <span class="proj-year">2025</span>
+          <button class="proj-arrow-btn">&#8599;</button>
+        </div>
       </div>
+
+      <!-- SkyRoute -->
+      <div class="proj-card" onclick="openModal('skyroute')">
+        <div class="proj-body">
+          <div class="proj-num">07 &mdash; Desktop / Java</div>
+          <div class="proj-name">SkyRoute &ndash; Bus Ticket Booking System</div>
+          <p class="proj-desc">Desktop booking system with transactional seat selection, admin controls, and robust
+            JDBC-backed booking integrity for real-world operations.</p>
+          <ul class="proj-points">
+            <li>Interactive cinema-style seat selection with real-time availability</li>
+            <li>Admin dashboard with bus, route, and user management</li>
+            <li>Secure SHA-256 password hashing &amp; JDBC transaction handling</li>
+          </ul>
+          <div class="proj-stack">
+            <span class="stack-tag">Java</span>
+            <span class="stack-tag">Java Swing</span>
+            <span class="stack-tag">JDBC</span>
+            <span class="stack-tag">MySQL</span>
+          </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-year">2025</span>
+          <button class="proj-arrow-btn">&#8599;</button>
+        </div>
+      </div>
+
     </div>
-    <div class="modal-divider"></div>
-    <div class="modal-section-title">Key Features</div>
-    <ul class="modal-points" id="m-points"></ul>
-    <div class="modal-divider" style="margin-top:20px;"></div>
-    <div class="modal-section-title">Tech Stack</div>
-    <div class="modal-stack" id="m-stack"></div>
-    <div class="modal-actions" id="m-actions"></div>
-  </div>
-</div>
+  </section>
 
-<!-- ╮══════════════ RED STRIP ╮══════════════ -->
-<div class="red-strip reveal">
-  <div class="rs-title">Security<br>First.<br>Always.</div>
-  <div class="rs-div"></div>
-  <p class="rs-text">Every line of code I write is reviewed through a security lens &mdash; JWT auth, OWASP principles, and secure coding practices aren&rsquo;t afterthoughts, they&rsquo;re foundations.</p>
-</div>
-
-<!-- ╮══════════════ SKILLS ╮══════════════ -->
-<section class="skills-sec" id="skills">
-  <div class="skills-inner">
-    <div class="skills-intro reveal">
-      <div class="sec-eyebrow">Expertise</div>
-      <h2 class="sec-title">My Tech<br>Arsenal</h2>
-      <p>From low-level C/C++ to Flutter mobile apps and Node.js backends &mdash; I operate across the full stack with a security-first mindset.</p>
-    </div>
-
-    <div class="skills-cols stagger">
-
-      <div class="skills-group" data-cat="dev">
-        <div class="skills-group-title">Languages</div>
-        <ul class="skill-list">
-          <li>C</li>
-          <li>C++</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>JavaScript</li>
-          <li>Dart</li>
-          <li>SQL</li>
-        </ul>
+  <!-- PROJECT MODAL -->
+  <div id="proj-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModalBtn()">&#10005;</button>
+      <div class="modal-header">
+        <span class="modal-num" id="m-num"></span>
+        <span class="modal-category" id="m-cat"></span>
       </div>
-
-      <div class="skills-group" data-cat="dev">
-        <div class="skills-group-title">Frontend Development</div>
-        <ul class="skill-list">
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>JavaScript(ES6+)</li>
-          <li>React.js</li>
-          <li>Responsible Web Design</li>
-          <li>UI/UX Fundamentals</li>
-        </ul>
+      <h2 class="modal-title" id="m-title"></h2>
+      <div class="modal-about-block" id="m-about"></div>
+      <div class="modal-preview">
+        <div class="preview-label">Project Showcase</div>
+        <div class="preview-screen">
+          <div class="preview-dots">
+            <span></span><span></span><span></span>
+            <span class="p-title" id="m-preview-title"></span>
+          </div>
+          <div class="preview-content" id="m-preview"></div>
+        </div>
       </div>
-
-      <div class="skills-group" data-cat="dev">
-        <div class="skills-group-title">Mobile App Development</div>
-        <ul class="skill-list">
-          <li>Flutter</li>
-          <li>React Native</li>
-          <li>Android App Deployment</li>
-          <li>Firebase Integration</li>
-        </ul>
-      </div>
-
-      <div class="skills-group" data-cat="dev">
-        <div class="skills-group-title">Backend Development</div>
-        <ul class="skill-list">
-          <li>Node.js</li>
-          <li>Express.js</li>
-          <li>REST API Development</li>
-          <li>JWT Authentication</li>
-          <li>Middleware Architecture</li>
-          <li>WebSockets</li>
-          <li>Role-based Access Control(RBAC)</li>
-        </ul>
-      </div>
-
-      <div class="skills-group" data-cat="data">
-        <div class="skills-group-title">Databases</div>
-        <ul class="skill-list">
-          <li>PostgreSQL</li>
-          <li>MongoDB Atlas</li>
-          <li>Firebase</li>
-          <li>MySQL</li>
-          <li>SQLite</li>
-        </ul>
-      </div>
-
-      <div class="skills-group" data-cat="security">
-        <div class="skills-group-title">Security &amp; Architecture</div>
-        <ul class="skill-list">
-          <li>OWASP Principles</li>
-          <li>Secure Coding Practices</li>
-          <li>Authentication &amp; Authorization</li>
-          <li>Brute Force Protection Logic</li>
-          <li>Input Validation &amp; Sanitization</li>
-          <li>Session &amp; Token Management</li>
-        </ul>
-      </div>
-
-      <div class="skills-group" data-cat="data">
-        <div class="skills-group-title">Dev Tools &amp; Platforms</div>
-        <ul class="skill-list">
-          <li>Git</li>
-          <li>GitHub</li>
-          <li>VS Code</li>
-          <li>Android Studio</li>
-          <li>Postman</li>
-          <li>pgAdmin</li>
-          <li>MongoDB Compass</li>
-          <li>Bash</li>
-          <li>Vm Ware for Linux</li>
-          <li>Selenium</li>
-        </ul>
-      </div>
-
-      <div class="skills-group" data-cat="security">
-        <div class="skills-group-title">Cyber Security</div>
-        <ul class="skill-list">
-          <li>Network Security &amp; Foundations</li>
-          <li>Web Application Security</li>
-          <li>Offensive Security Techniques</li>
-          <li>Active Directory Attacks</li>
-          <li>Privilage Escalation</li>
-          <li>Password Cracking</li>
-          <li>Cloud Security</li>
-          <li>Scripting for Security</li>
-          <li>Reporting</li>
-          <li>Red Team Workflow</li>
-        </ul>
-      </div>
-
+      <div class="modal-divider"></div>
+      <div class="modal-section-title">Key Features</div>
+      <ul class="modal-points" id="m-points"></ul>
+      <div class="modal-divider" style="margin-top:20px;"></div>
+      <div class="modal-section-title">Tech Stack</div>
+      <div class="modal-stack" id="m-stack"></div>
+      <div class="modal-actions" id="m-actions"></div>
     </div>
   </div>
-</section>
 
-<!-- CERTIFICATIONS -->
-<section class="certs" id="certs">
-  <div class="reveal">
-    <div class="sec-eyebrow">Credentials</div>
-    <h2 class="sec-title">Certifications</h2>
-  </div>
-  <div class="certs-grid stagger">
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
-      <div class="cert-org">Cisco NETACAD</div>
-      <div class="cert-name">Python Essentials 1</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
-      <div class="cert-org">Cisco NETACAD</div>
-      <div class="cert-name">Programming Essentials in C &amp; C++</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-solid fa-server"></i></div>
-      <div class="cert-org">Cisco NETACAD</div>
-      <div class="cert-name">Operating Systems Basics</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-solid fa-database"></i></div>
-      <div class="cert-org">Coursera</div>
-      <div class="cert-name">Database Management System</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-solid fa-microchip"></i></div>
-      <div class="cert-org">Coursera</div>
-      <div class="cert-name">Artificial Intelligence &amp; Python</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
-      <div class="cert-org">Microsoft</div>
-      <div class="cert-name">MOS Excel 2019 Associate &amp; Power Platform Fundamentals</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
-      <div class="cert-org">Kitech &ndash; Vista Pvt Ltd</div>
-      <div class="cert-name">Cyber Security</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-brands fa-js"></i></div>
-      <div class="cert-org">Coursera</div>
-      <div class="cert-name">HTML, CSS &amp; JavaScript</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
-      <div class="cert-org">Coursera</div>
-      <div class="cert-name">Operating Systems</div>
-    </div>
-  </div>
-</section>
-
-<!-- ╮══════════════ CONTACT ╮══════════════ -->
-<section class="contact" id="contact">
-  <div class="sec-eyebrow reveal">Let&rsquo;s Connect</div>
-  <h2 class="sec-title reveal">Got an Idea?<br>Let&rsquo;s Build It.</h2>
-  <p class="contact-sub reveal">Open to internships, freelance projects, and collaborations. Let&rsquo;s create something impactful together.</p>
-
-  <div class="contact-links stagger">
-    <a class="c-link" href="mailto:jajimoggaladevasishvenkatsai@gmail.com">
-      <span class="icon">&#10003;</span> Email Me
-    </a>
-    <a class="c-link" href="https://github.com/Devasish009" target="_blank">
-      <span class="icon"><i class="fa-brands fa-github"></i></span> GitHub
-    </a>
-    <a class="c-link" href="https://linkedin.com/in/devasishjajimoggala" target="_blank">
-      <span class="icon"><i class="fa-brands fa-linkedin-in"></i></span> LinkedIn
-    </a>
-    <a class="c-link" href="https://devaverse.netlify.app" target="_blank">
-      <span class="icon">&#9672;</span> Devaverse
-    </a>
+  <!-- ╮══════════════ RED STRIP ╮══════════════ -->
+  <div class="red-strip reveal">
+    <div class="rs-title">Security<br>First.<br>Always.</div>
+    <div class="rs-div"></div>
+    <p class="rs-text">Every line of code I write is reviewed through a security lens &mdash; JWT auth, OWASP
+      principles, and secure coding practices aren&rsquo;t afterthoughts, they&rsquo;re foundations.</p>
   </div>
 
-  <div class="contact-cta reveal">
-    <a href="mailto:jajimoggaladevasishvenkatsai@gmail.com" class="btn-red">Lets build Something</a>
-  </div>
-</section>
+  <!-- ╮══════════════ SKILLS ╮══════════════ -->
+  <section class="skills-sec" id="skills">
+    <div class="skills-inner">
+      <div class="skills-intro reveal">
+        <div class="sec-eyebrow">Expertise</div>
+        <h2 class="sec-title">My Tech<br>Arsenal</h2>
+        <p>From low-level C/C++ to Flutter mobile apps and Node.js backends &mdash; I operate across the full stack with
+          a security-first mindset.</p>
+      </div>
 
-<!-- ╮══════════════ FOOTER ╮══════════════ -->
-<footer>
-  <div class="f-logo"><em>D</em>EVASISH</div>
-  <div class="f-copy">&copy; 2026 Devasish Venkat Sai Jajimoggala</div>
-  <div class="f-links">
-    <a href="https://github.com/Devasish009" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">LinkedIn</a>
-    <a href="https://devaverse.netlify.app" target="_blank">devaverse</a>
-  </div>
-</footer>
+      <div class="skills-cols stagger">
 
-<!-- ╮══════════════ JS ╮══════════════ -->
-<script>
-/* ── Cyber log fallback ── */
-let teLogs = [];
-function addTeLog(msg) {
-  teLogs.push(msg);
-  if (teLogs.length > 4) teLogs.shift();
-  console.log(msg);
-}
+        <div class="skills-group" data-cat="dev">
+          <div class="skills-group-title">Languages</div>
+          <ul class="skill-list">
+            <li>C</li>
+            <li>C++</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>Dart</li>
+            <li>SQL</li>
+          </ul>
+        </div>
 
-/* ── Cursor ── */
-const dot  = document.getElementById('cur-dot');
-const ring = document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-(function animC(){
-  dot.style.left=mx+'px'; dot.style.top=my+'px';
-  rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animC);
-})();
+        <div class="skills-group" data-cat="dev">
+          <div class="skills-group-title">Frontend Development</div>
+          <ul class="skill-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript(ES6+)</li>
+            <li>React.js</li>
+            <li>Responsible Web Design</li>
+            <li>UI/UX Fundamentals</li>
+          </ul>
+        </div>
 
-/* ── Nav scroll ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
-});
+        <div class="skills-group" data-cat="dev">
+          <div class="skills-group-title">Mobile App Development</div>
+          <ul class="skill-list">
+            <li>Flutter</li>
+            <li>React Native</li>
+            <li>Android App Deployment</li>
+            <li>Firebase Integration</li>
+          </ul>
+        </div>
 
-/* ── Scroll reveal ── */
-const revealEls = document.querySelectorAll('.reveal, .stagger');
-const io = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('show');
-      io.unobserve(entry.target);
+        <div class="skills-group" data-cat="dev">
+          <div class="skills-group-title">Backend Development</div>
+          <ul class="skill-list">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>REST API Development</li>
+            <li>JWT Authentication</li>
+            <li>Middleware Architecture</li>
+            <li>WebSockets</li>
+            <li>Role-based Access Control(RBAC)</li>
+          </ul>
+        </div>
+
+        <div class="skills-group" data-cat="data">
+          <div class="skills-group-title">Databases</div>
+          <ul class="skill-list">
+            <li>PostgreSQL</li>
+            <li>MongoDB Atlas</li>
+            <li>Firebase</li>
+            <li>MySQL</li>
+            <li>SQLite</li>
+          </ul>
+        </div>
+
+        <div class="skills-group" data-cat="security">
+          <div class="skills-group-title">Security &amp; Architecture</div>
+          <ul class="skill-list">
+            <li>OWASP Principles</li>
+            <li>Secure Coding Practices</li>
+            <li>Authentication &amp; Authorization</li>
+            <li>Brute Force Protection Logic</li>
+            <li>Input Validation &amp; Sanitization</li>
+            <li>Session &amp; Token Management</li>
+          </ul>
+        </div>
+
+        <div class="skills-group" data-cat="data">
+          <div class="skills-group-title">Dev Tools &amp; Platforms</div>
+          <ul class="skill-list">
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>VS Code</li>
+            <li>Android Studio</li>
+            <li>Postman</li>
+            <li>pgAdmin</li>
+            <li>MongoDB Compass</li>
+            <li>Bash</li>
+            <li>Vm Ware for Linux</li>
+            <li>Selenium</li>
+          </ul>
+        </div>
+
+        <div class="skills-group" data-cat="security">
+          <div class="skills-group-title">Cyber Security</div>
+          <ul class="skill-list">
+            <li>Network Security &amp; Foundations</li>
+            <li>Web Application Security</li>
+            <li>Offensive Security Techniques</li>
+            <li>Active Directory Attacks</li>
+            <li>Privilage Escalation</li>
+            <li>Password Cracking</li>
+            <li>Cloud Security</li>
+            <li>Scripting for Security</li>
+            <li>Reporting</li>
+            <li>Red Team Workflow</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="certs" id="certs">
+    <div class="reveal">
+      <div class="sec-eyebrow">Credentials</div>
+      <h2 class="sec-title">Certifications</h2>
+    </div>
+    <div class="certs-grid stagger">
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-brands fa-python"></i></div>
+        <div class="cert-org">Cisco NETACAD</div>
+        <div class="cert-name">Python Essentials 1</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="cert-org">Cisco NETACAD</div>
+        <div class="cert-name">Programming Essentials in C &amp; C++</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-server"></i></div>
+        <div class="cert-org">Cisco NETACAD</div>
+        <div class="cert-name">Operating Systems Basics</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="cert-org">Coursera</div>
+        <div class="cert-name">Database Management System</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="cert-org">Coursera</div>
+        <div class="cert-name">Artificial Intelligence &amp; Python</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
+        <div class="cert-org">Microsoft</div>
+        <div class="cert-name">MOS Excel 2019 Associate &amp; Power Platform Fundamentals</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="cert-org">Kitech &ndash; Vista Pvt Ltd</div>
+        <div class="cert-name">Cyber Security</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-brands fa-js"></i></div>
+        <div class="cert-org">Coursera</div>
+        <div class="cert-name">HTML, CSS &amp; JavaScript</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-terminal"></i></div>
+        <div class="cert-org">Coursera</div>
+        <div class="cert-name">Operating Systems</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╮══════════════ CONTACT ╮══════════════ -->
+  <section class="contact" id="contact">
+    <div class="sec-eyebrow reveal">Let&rsquo;s Connect</div>
+    <h2 class="sec-title reveal">Got an Idea?<br>Let&rsquo;s Build It.</h2>
+    <p class="contact-sub reveal">Open to internships, freelance projects, and collaborations. Let&rsquo;s create
+      something impactful together.</p>
+
+    <div class="contact-links stagger">
+      <a class="c-link" href="mailto:jajimoggaladevasishvenkatsai@gmail.com">
+        <span class="icon">&#10003;</span> Email Me
+      </a>
+      <a class="c-link" href="https://github.com/Devasish009" target="_blank">
+        <span class="icon"><i class="fa-brands fa-github"></i></span> GitHub
+      </a>
+      <a class="c-link" href="https://linkedin.com/in/devasishjajimoggala" target="_blank">
+        <span class="icon"><i class="fa-brands fa-linkedin-in"></i></span> LinkedIn
+      </a>
+      <a class="c-link" href="https://devaverse.netlify.app" target="_blank">
+        <span class="icon">&#9672;</span> Devaverse
+      </a>
+    </div>
+
+    <div class="contact-cta reveal">
+      <a href="mailto:jajimoggaladevasishvenkatsai@gmail.com" class="btn-red">Lets build Something</a>
+    </div>
+  </section>
+
+  <!-- ╮══════════════ FOOTER ╮══════════════ -->
+  <footer>
+    <div class="f-logo"><em>D</em>EVASISH</div>
+    <div class="f-copy">&copy; 2026 Devasish Venkat Sai Jajimoggala</div>
+    <div class="f-links">
+      <a href="https://github.com/Devasish009" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/devasishjajimoggala" target="_blank">LinkedIn</a>
+      <a href="https://devaverse.netlify.app" target="_blank">devaverse</a>
+    </div>
+  </footer>
+
+  <!-- ╮══════════════ JS ╮══════════════ -->
+  <script>
+    /* ── Cyber log fallback ── */
+    let teLogs = [];
+    function addTeLog(msg) {
+      teLogs.push(msg);
+      if (teLogs.length > 4) teLogs.shift();
+      console.log(msg);
     }
-  });
-}, { threshold: 0.12 });
-revealEls.forEach(el => io.observe(el));
 
-/* ── Hamburger (mobile) ── */
-const ham = document.getElementById('ham');
-const mobileMenu = document.getElementById('mobileMenu');
-let menuOpen = false;
-ham.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  mobileMenu.classList.toggle('open', menuOpen);
-  const spans = ham.querySelectorAll('span');
-  spans[0].style.transform = menuOpen ? 'rotate(45deg) translate(5px,5px)' : '';
-  spans[1].style.opacity   = menuOpen ? '0' : '1';
-  spans[2].style.transform = menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
-});
-function closeMobile() {
-  menuOpen = false;
-  mobileMenu.classList.remove('open');
-  ham.querySelectorAll('span').forEach(s => { s.style.transform=''; s.style.opacity='1'; });
-}
+    /* ── Cursor ── */
+    const dot = document.getElementById('cur-dot');
+    const ring = document.getElementById('cur-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function animC() {
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      rx += (mx - rx) * .13; ry += (my - ry) * .13;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animC);
+    })();
 
-/* ── Smooth active nav highlight ── */
-const sections = document.querySelectorAll('section[id]');
-const navAs = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    if(window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
-  });
-  navAs.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#'+current ? 'var(--accent)' : '';
-  });
-});
+    /* ── Nav scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-/* ── Parallax on hero figure ── */
-const fig = document.querySelector('.hero-figure');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  if(fig) fig.style.transform = `translateY(${y * 0.12}px)`;
-});
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal, .stagger');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
 
-/* ────────────────────────────────────────────── */
-/* PROJECT MODAL DATA                                          */
-/* ────────────────────────────────────────────── */
-const PROJECTS = {
-  exploremate: {
-    num: '02', cat: 'Mobile / AI / Travel Tech',
-    title: 'ExploreMate – AI-Powered Travel Companion',
-    about: [
-      'ExploreMate is an AI-powered mobile application designed to make travel more accessible, exciting, and independent — especially for solo travelers.',
-      'Unlike traditional travel apps that focus solely on booking and navigation, ExploreMate integrates advanced AI-driven features with personalization and gamification to create an immersive, interactive travel experience.',
-      'The app combines smart search, AI-based assistance, real-time language translation, and intelligent trip scheduling to help users plan and manage trips efficiently while discovering unique, locally-authentic experiences.'
-    ],
-    previewTitle: 'ExploreMate — AI Travel Assistant',
-    preview: `<span style="color:#ff3a2f">// ExploreMate — AI Travel Companion</span>
+    /* ── Hamburger (mobile) ── */
+    const ham = document.getElementById('ham');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+    ham.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      const spans = ham.querySelectorAll('span');
+      spans[0].style.transform = menuOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+      spans[1].style.opacity = menuOpen ? '0' : '1';
+      spans[2].style.transform = menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+    });
+    function closeMobile() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      ham.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = '1'; });
+    }
+
+    /* ── Smooth active nav highlight ── */
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+      });
+      navAs.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+      });
+    });
+
+    /* ── Parallax on hero figure ── */
+    const fig = document.querySelector('.hero-figure');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (fig) fig.style.transform = `translateY(${y * 0.12}px)`;
+    });
+
+    /* ────────────────────────────────────────────── */
+    /* PROJECT MODAL DATA                                          */
+    /* ────────────────────────────────────────────── */
+    const PROJECTS = {
+      exploremate: {
+        num: '02', cat: 'Mobile / AI / Travel Tech',
+        title: 'ExploreMate – AI-Powered Travel Companion',
+        about: [
+          'ExploreMate is an AI-powered mobile application designed to make travel more accessible, exciting, and independent — especially for solo travelers.',
+          'Unlike traditional travel apps that focus solely on booking and navigation, ExploreMate integrates advanced AI-driven features with personalization and gamification to create an immersive, interactive travel experience.',
+          'The app combines smart search, AI-based assistance, real-time language translation, and intelligent trip scheduling to help users plan and manage trips efficiently while discovering unique, locally-authentic experiences.'
+        ],
+        previewTitle: 'ExploreMate — AI Travel Assistant',
+        preview: `<span style="color:#ff3a2f">// ExploreMate — AI Travel Companion</span>
 <br><br><span style="color:#febc2e">🗺️ ExploreMate</span> &nbsp;<span style="color:#28c840">READY</span>
 <br><span style="color:rgba(244,238,236,.3)">Destinations: <span style="color:#f4eeec">500+</span> &nbsp;| Users: <span style="color:#f4eeec">12k+</span></span>
 <br><br><span style="color:#888">AI</span> hidden-gem-finder() &nbsp;<span style="color:#28c840">✓ active</span>
@@ -1568,137 +2569,136 @@ const PROJECTS = {
 <br><br><span style="color:rgba(244,238,236,.3)">Audio tours: <span style="color:#f4eeec">342</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Translations: <span style="color:#28c840">real-time ✓</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Leaderboard: <span style="color:#f4eeec">live</span></span>`,
-    features: [
-      'Smart Search & Personalization — AI-driven destination and activity recommendations tailored to user preferences',
-      'Hidden Gem Finder — discover underrated, locally popular places and hidden attractions off the beaten path',
-      'Mood-Based Food Explorer — intelligent food recommendations based on user mood, weather conditions, and time of day, with cultural stories attached',
-      'Gamified City Explorer — turn city exploration into an engaging game with missions, rewards, achievements, and leaderboards',
-      'AI Audio Tour Guide — personalized audio storytelling featuring historical insights, cultural narratives, and food-related stories',
-      'Real-Time Language Translation — instant translation for menus, signs, and conversations',
-      'Intelligent Trip Scheduling — AI-optimized itineraries that balance activities, travel time, and rest periods',
-      'Cross-Platform Compatibility — seamless experience on both Android and iOS devices'
-    ],
-    stack: ['Flutter','Dart','AI/ML','Node.js','Express.js','Firebase','PostgreSQL','Google Maps API'],
-    github: 'https://github.com/Devasish009/exploremate'
-  },
-  aegisx: {
-    num: '01', cat: 'Security / Backend',
-    title: 'AegisX – Mini SIEM & Intrusion Detection System',
-    about: [
-      'AegisX is a web-based Security Information and Event Management (SIEM) platform designed for real-time threat monitoring, log correlation, and automated incident response.',
-      'Built with an attacker mindset, it continuously tracks authentication attempts, API patterns, and anomalous behaviour — detecting threats before they escalate and responding automatically.'
-    ],
-    previewTitle: 'AegisX — Live Threat Dashboard',
-    preview: `<span style="color:#ff3a2f">// AegisX — Live Threat Dashboard</span>
+        features: [
+          'Smart Search & Personalization — AI-driven destination and activity recommendations tailored to user preferences',
+          'Hidden Gem Finder — discover underrated, locally popular places and hidden attractions off the beaten path',
+          'Mood-Based Food Explorer — intelligent food recommendations based on user mood, weather conditions, and time of day, with cultural stories attached',
+          'Gamified City Explorer — turn city exploration into an engaging game with missions, rewards, achievements, and leaderboards',
+          'AI Audio Tour Guide — personalized audio storytelling featuring historical insights, cultural narratives, and food-related stories',
+          'Real-Time Language Translation — instant translation for menus, signs, and conversations',
+          'Intelligent Trip Scheduling — AI-optimized itineraries that balance activities, travel time, and rest periods',
+          'Cross-Platform Compatibility — seamless experience on both Android and iOS devices'
+        ],
+        stack: ['Flutter', 'Dart', 'AI/ML', 'Node.js', 'Express.js', 'Firebase', 'PostgreSQL', 'Google Maps API'],
+        github: 'https://github.com/Devasish009/exploremate'
+      },
+      aegisx: {
+        num: '01', cat: 'Security / Backend',
+        title: 'AegisX – Mini SIEM & Intrusion Detection System',
+        about: [
+          'AegisX is a web-based Security Information and Event Management (SIEM) platform designed for real-time threat monitoring, log correlation, and automated incident response.',
+          'Built with an attacker mindset, it continuously tracks authentication attempts, API patterns, and anomalous behaviour — detecting threats before they escalate and responding automatically.'
+        ],
+        previewTitle: 'AegisX — Live Threat Dashboard',
+        preview: `<span style="color:#ff3a2f">// AegisX — Live Threat Dashboard</span>
 <br><span style="color:#888">GET</span>  /api/logs/stream &nbsp;&nbsp;&nbsp;<span style="color:#28c840">● LIVE</span>
 <br><span style="color:#888">POST</span> /api/auth/block-ip &nbsp;<span style="color:#febc2e">⚠ FLAGGED</span>
 <br><br><span style="color:rgba(244,238,236,.3)">Events correlated: <span style="color:#f4eeec">1,247</span></span>
 <br><span style="color:rgba(244,238,236,.3)">IPs blocked: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3a2f">23</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Alerts fired: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#febc2e">8</span></span>
 <br><br><span style="color:#555">WebSocket: <span style="color:#28c840">CONNECTED</span></span>`,
-    features: [
-      'Real-time log aggregation & event correlation engine tracking auth attempts and suspicious API access patterns',
-      'Brute-force detection with threshold-based anomaly analysis and automatic alerting',
-      'Automated IP blocking — flagged IPs banned via Express middleware in under 50ms',
-      'WebSocket-powered live dashboard — threat feeds update without page refresh',
-      'JWT-secured admin endpoints with role-based access control (RBAC)'
-    ],
-    stack: ['Node.js','Express.js','PostgreSQL','JWT','WebSockets'],
-    demo: 'https://aegisx-siem.onrender.com',
-    github: 'https://github.com/Devasish009/aegisx-siem'
-  },
-  thunder_app: {
-    num: '06', cat: 'Mobile / Event Tech',
-    title: 'Thunder Thursday – Student & Performance App',
-    about: [
-      'Thunder Thursday is a feature-rich mobile application built for college cultural event management, registration, and live voting.',
-      'It offers students a dynamic platform to register for events (such as Solo Dance, Group Music, etc.), view event guidelines, receive real-time notifications, and vote for their favorite performances.',
-      'The app incorporates native mobile experiences such as a video splash screen, interactive event gallery, and live push notifications using Firebase Cloud Messaging.'
-    ],
-    previewTitle: 'Thunder Thursday — Student App',
-    screenshots: ['assets/thunder_app_1.jpg','assets/thunder_app_2.jpg'],
-    demo: 'https://thunder-thursday.vercel.app',
-    preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event App Live</span>
+        features: [
+          'Real-time log aggregation & event correlation engine tracking auth attempts and suspicious API access patterns',
+          'Brute-force detection with threshold-based anomaly analysis and automatic alerting',
+          'Automated IP blocking — flagged IPs banned via Express middleware in under 50ms',
+          'WebSocket-powered live dashboard — threat feeds update without page refresh',
+          'JWT-secured admin endpoints with role-based access control (RBAC)'
+        ],
+        stack: ['Node.js', 'Express.js', 'PostgreSQL', 'JWT', 'WebSockets'],
+        Live Page: 'https://aegisx-siem.onrender.com',
+        github: 'https://github.com/Devasish009/aegisx-siem'
+      },
+      thunder_app: {
+        num: '06', cat: 'Mobile / Event Tech',
+        title: 'Thunder Thursday – Student & Performance App',
+        about: [
+          'Thunder Thursday is a feature-rich mobile application built for college cultural event management, registration, and live voting.',
+          'It offers students a dynamic platform to register for events (such as Solo Dance, Group Music, etc.), view event guidelines, receive real-time notifications, and vote for their favorite performances.',
+          'The app incorporates native mobile experiences such as a video splash screen, interactive event gallery, and live push notifications using Firebase Cloud Messaging.'
+        ],
+        previewTitle: 'Thunder Thursday — Student App',
+        Live Page: 'https://thunder-thursday.vercel.app',
+        preview: `<span style="color:#ff3a2f">// Thunder Thursday — Event App Live</span>
 <br><br><span style="color:#febc2e">⚡ Thunder Thursday</span> &nbsp;<span style="color:#28c840">ONLINE</span>
 <br><span style="color:rgba(244,238,236,.3)">Active Users: <span style="color:#f4eeec">340+</span> &nbsp;| Votes: <span style="color:#f4eeec">890+</span></span>
 <br><br><span style="color:#888">POST</span> /api/vote &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
 <br><span style="color:#888">GET</span>  /api/leaderboard &nbsp;<span style="color:#28c840">● STREAMING</span>
 <br><br><span style="color:rgba(244,238,236,.3)">Push FCM: <span style="color:#28c840">active ✓</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Video Splash: <span style="color:#28c840">initialized ✓</span></span>`,
-    features: [
-      'User registration and secure login with Firebase Authentication & verification logic',
-      'Interactive event registration forms supporting comprehensive field configurations',
-      'Live voting system with real-time Firestore synchronization for casting and viewing scores',
-      'Native-like carousels and sliders for event banner highlights',
-      'Local notifications and FCM push notification alerts for live updates and schedule changes',
-      'Custom video player for playing event promotional and intro reels'
-    ],
-    stack: ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Firebase Messaging', 'Shared Preferences'],
-    github: 'https://github.com/Devasish009/thunder-thursday-app'
-  },
-  thunder_admin: {
-    num: '07', cat: 'Mobile / Admin Portal',
-    title: 'Thunder Thursday – Event Admin Console',
-    about: [
-      'Thunder Thursday Admin Console is a dedicated management app that empowers college coordinators and event administrators to supervise and control the entire event flow in real time.',
-      'Administrators can view and manage event registrations, coordinate participant performances, run live voting sessions, send bulk email/push notifications, and export comprehensive registration reports to Excel format.',
-      'The console connects directly to Cloud Firestore to manipulate live event state, toggle voting permissions, and track live statistics.',
-      '<strong>Note:</strong> Due to security concerns, as this is a real official application, a live deployment is not hosted.'
-    ],
-    previewTitle: 'Thunder Thursday — Admin Panel',
-    screenshots: ['assets/thunder_admin_1.jpg'],
-    preview: `<span style="color:#ff3a2f">// Thunder Thursday — Admin Console</span>
+        features: [
+          'User registration and secure login with Firebase Authentication & verification logic',
+          'Interactive event registration forms supporting comprehensive field configurations',
+          'Live voting system with real-time Firestore synchronization for casting and viewing scores',
+          'Native-like carousels and sliders for event banner highlights',
+          'Local notifications and FCM push notification alerts for live updates and schedule changes',
+          'Custom video player for playing event promotional and intro reels'
+        ],
+        stack: ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'Firebase Messaging', 'Shared Preferences'],
+        github: 'https://github.com/Devasish009/thunder-thursday-app'
+      },
+      thunder_admin: {
+        num: '07', cat: 'Mobile / Admin Portal',
+        title: 'Thunder Thursday – Event Admin Console',
+        about: [
+          'Thunder Thursday Admin Console is a dedicated management app that empowers college coordinators and event administrators to supervise and control the entire event flow in real time.',
+          'Administrators can view and manage event registrations, coordinate participant performances, run live voting sessions, send bulk email/push notifications, and export comprehensive registration reports to Excel format.',
+          'The console connects directly to Cloud Firestore to manipulate live event state, toggle voting permissions, and track live statistics.',
+          '<strong>Note:</strong> Due to security concerns, as this is a real official application, a live deployment is not hosted.'
+        ],
+        previewTitle: 'Thunder Thursday — Admin Panel',
+        screenshots: ['assets/thunder_admin_1.jpg'],
+        preview: `<span style="color:#ff3a2f">// Thunder Thursday — Admin Console</span>
 <br><br><span style="color:#febc2e">🛡️ Admin Console</span> &nbsp;<span style="color:#28c840">CONNECTED</span>
 <br><span style="color:rgba(244,238,236,.3)">Registrations: <span style="color:#f4eeec">120+</span> &nbsp;| Toggled Votes: <span style="color:#28c840">YES</span></span>
 <br><br><span style="color:#888">EXEC</span> export-to-excel() &nbsp;&nbsp;<span style="color:#28c840">✓ SUCCESS</span>
 <br><span style="color:#888">POST</span> send-bulk-fcm() &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">✓ SENT (340)</span>
 <br><br><span style="color:rgba(244,238,236,.3)">Mailer SMTP: <span style="color:#28c840">connected ✓</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Firestore Control: <span style="color:#28c840">active ✓</span></span>`,
-    features: [
-      'Role-based admin access control with secure Firebase authentication',
-      'Real-time registration dashboard to approve, reject, or filter participant applications',
-      'Live performance coordinator tool to toggle performance status (active, completed, next up)',
-      'Bulk notification center to dispatch push alerts (FCM) and email announcements (Mailer)',
-      'Detailed reporting system to export registration details into Excel files directly from the device',
-      'Feedback and query management section to handle student concerns during the event'
-    ],
-    stack: ['Flutter', 'Dart', 'Cloud Firestore', 'Firebase Messaging', 'Mailer', 'Excel API', 'Share Plus'],
-    github: 'https://github.com/Devasish009/thunder_thursday_admin'
-  },
-  shieldx: {
-    num: '03', cat: 'Web / Security',
-    title: 'ShieldX – Cybersecurity Tools E-Commerce Showcase',
-    about: [
-      'ShieldX is a clean, responsive e-commerce showcase platform for cybersecurity tools and products, built with OWASP-aligned architecture.',
-      'Designed to establish trust for security-conscious users, it features a structured product layout, intuitive navigation, and a security-hardened Express.js backend.'
-    ],
-    previewTitle: 'ShieldX — Security Store',
-    preview: `<span style="color:#ff3a2f">// ShieldX — Security Tools Store</span>
+        features: [
+          'Role-based admin access control with secure Firebase authentication',
+          'Real-time registration dashboard to approve, reject, or filter participant applications',
+          'Live performance coordinator tool to toggle performance status (active, completed, next up)',
+          'Bulk notification center to dispatch push alerts (FCM) and email announcements (Mailer)',
+          'Detailed reporting system to export registration details into Excel files directly from the device',
+          'Feedback and query management section to handle student concerns during the event'
+        ],
+        stack: ['Flutter', 'Dart', 'Cloud Firestore', 'Firebase Messaging', 'Mailer', 'Excel API', 'Share Plus'],
+        github: 'https://github.com/Devasish009/thunder_thursday_admin'
+      },
+      shieldx: {
+        num: '03', cat: 'Web / Security',
+        title: 'ShieldX – Cybersecurity Tools E-Commerce Showcase',
+        about: [
+          'ShieldX is a clean, responsive e-commerce showcase platform for cybersecurity tools and products, built with OWASP-aligned architecture.',
+          'Designed to establish trust for security-conscious users, it features a structured product layout, intuitive navigation, and a security-hardened Express.js backend.'
+        ],
+        previewTitle: 'ShieldX — Security Store',
+        preview: `<span style="color:#ff3a2f">// ShieldX — Security Tools Store</span>
 <br><br><span style="color:#f4eeec">ShieldX</span> <span style="color:rgba(244,238,236,.3)">v1.0</span>
 <br><span style="color:rgba(244,238,236,.3)">Products: <span style="color:#f4eeec">12</span> &nbsp;| Categories: <span style="color:#f4eeec">3</span></span>
 <br><br><span style="color:#888">GET</span> /products &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
 <br><br><span style="color:rgba(244,238,236,.3)">OWASP headers: <span style="color:#28c840">configured ✓</span></span>
 <br><span style="color:rgba(244,238,236,.3)">CSP enabled: &nbsp;&nbsp;&nbsp;<span style="color:#28c840">yes ✓</span></span>`,
-    features: [
-      'Fully responsive UI built with semantic HTML5 and modern CSS — mobile-first design approach',
-      'Clean product grid layout with category sections: Firewall, Pentest tools, SIEM products',
-      'Structured navigation with smooth UX and user-friendly interface design',
-      'Node.js + Express.js backend with OWASP security headers — CSP, X-Frame-Options, HSTS configured',
-      'Input sanitisation, rate limiting, and secure error handling throughout'
-    ],
-    stack: ['HTML5','CSS3','JavaScript','Node.js','Express.js'],
-    github: 'https://github.com/Devasish009/ShieldX'
-  },
-  skyroute: {
-    num: '05', cat: 'Desktop / Java',
-    title: 'SkyRoute – Bus Ticket Booking System',
-    about: [
-      'SkyRoute is a full-featured desktop application built with Java Swing for booking bus tickets. It provides a complete end-to-end booking experience — from searching routes and selecting seats to confirming tickets and managing bookings.',
-      'The system supports two roles: Users can search buses, view seat availability in a cinema-style interactive layout, book tickets with passenger details, and manage their bookings. Admins have a dedicated dashboard to manage buses, routes, bookings, and users.',
-      'Built with clean MVC architecture, DAO pattern for data access, secure SHA-256 password hashing, and JDBC transactions to ensure booking integrity — SkyRoute demonstrates real-world software engineering principles in a polished desktop application.'
-    ],
-    previewTitle: 'SkyRoute — Booking Terminal',
-    preview: `<span style="color:#ff3a2f">// SkyRoute — Bus Booking System</span>
+        features: [
+          'Fully responsive UI built with semantic HTML5 and modern CSS — mobile-first design approach',
+          'Clean product grid layout with category sections: Firewall, Pentest tools, SIEM products',
+          'Structured navigation with smooth UX and user-friendly interface design',
+          'Node.js + Express.js backend with OWASP security headers — CSP, X-Frame-Options, HSTS configured',
+          'Input sanitisation, rate limiting, and secure error handling throughout'
+        ],
+        stack: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'Express.js'],
+        github: 'https://github.com/Devasish009/ShieldX'
+      },
+      skyroute: {
+        num: '05', cat: 'Desktop / Java',
+        title: 'SkyRoute – Bus Ticket Booking System',
+        about: [
+          'SkyRoute is a full-featured desktop application built with Java Swing for booking bus tickets. It provides a complete end-to-end booking experience — from searching routes and selecting seats to confirming tickets and managing bookings.',
+          'The system supports two roles: Users can search buses, view seat availability in a cinema-style interactive layout, book tickets with passenger details, and manage their bookings. Admins have a dedicated dashboard to manage buses, routes, bookings, and users.',
+          'Built with clean MVC architecture, DAO pattern for data access, secure SHA-256 password hashing, and JDBC transactions to ensure booking integrity — SkyRoute demonstrates real-world software engineering principles in a polished desktop application.'
+        ],
+        previewTitle: 'SkyRoute — Booking Terminal',
+        preview: `<span style="color:#ff3a2f">// SkyRoute — Bus Booking System</span>
 <br><br><span style="color:#febc2e">🚌 SkyRoute v1.0</span> &nbsp;<span style="color:#28c840">RUNNING</span>
 <br><span style="color:rgba(244,238,236,.3)">Routes: <span style="color:#f4eeec">15</span> &nbsp;| Buses: <span style="color:#f4eeec">24</span> &nbsp;| Users: <span style="color:#f4eeec">156</span></span>
 <br><br><span style="color:#888">SELECT</span> * FROM routes WHERE departure = 'Kakinada'
@@ -1707,29 +2707,29 @@ const PROJECTS = {
 <br><span style="color:rgba(244,238,236,.3)">Booking ref: <span style="color:#f4eeec">SKY-2025-A7X9</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Payment: <span style="color:#28c840">confirmed ✓</span></span>
 <br><span style="color:rgba(244,238,236,.3)">SHA-256 auth: <span style="color:#28c840">secure ✓</span></span>`,
-    features: [
-      'User registration and login with SHA-256 password hashing and input validation',
-      'Dashboard with real-time stats — total bookings, upcoming trips, and spending overview',
-      'Bus search by city and date with route filtering and fare display',
-      'Interactive cinema-style seat selection — visually pick available seats from the bus layout',
-      'Complete booking flow with passenger details, payment method, and booking reference generation',
-      'View, manage, and cancel bookings with JDBC transaction-safe cancellation',
-      'Admin panel — manage buses (add/edit/delete), routes (auto seat generation), view all bookings, and user management (activate/deactivate, role changes)',
-      'Clean MVC architecture with DAO pattern, custom exceptions, and utility classes'
-    ],
-    stack: ['Java','Java Swing','JDBC','MySQL','SHA-256','MVC Architecture'],
-    github: 'https://github.com/Devasish009/SkyRoute'
-  },
-  questai: {
-    num: '04', cat: 'AI / Web',
-    title: 'QuestAI – AI-Powered Q&A Forum',
-    about: [
-      'QuestAI is a web-based Q&A platform that leverages artificial intelligence to provide instant, accurate answers to user questions while fostering a vibrant community-driven knowledge ecosystem.',
-      'The platform combines a modern React frontend with immersive Three.js visual effects, a robust Node.js backend, and AI-powered answer generation — creating an intelligent forum where users can ask questions, receive AI-generated responses, and engage with community-voted answers.',
-      'With secure authentication, profile management, and a voting system to surface the best responses, QuestAI transforms traditional Q&A forums into a smart, interactive learning experience.'
-    ],
-    previewTitle: 'QuestAI — AI Forum Live',
-    preview: `<span style="color:#ff3a2f">// QuestAI — AI-Powered Q&A Forum</span>
+        features: [
+          'User registration and login with SHA-256 password hashing and input validation',
+          'Dashboard with real-time stats — total bookings, upcoming trips, and spending overview',
+          'Bus search by city and date with route filtering and fare display',
+          'Interactive cinema-style seat selection — visually pick available seats from the bus layout',
+          'Complete booking flow with passenger details, payment method, and booking reference generation',
+          'View, manage, and cancel bookings with JDBC transaction-safe cancellation',
+          'Admin panel — manage buses (add/edit/delete), routes (auto seat generation), view all bookings, and user management (activate/deactivate, role changes)',
+          'Clean MVC architecture with DAO pattern, custom exceptions, and utility classes'
+        ],
+        stack: ['Java', 'Java Swing', 'JDBC', 'MySQL', 'SHA-256', 'MVC Architecture'],
+        github: 'https://github.com/Devasish009/SkyRoute'
+      },
+      questai: {
+        num: '04', cat: 'AI / Web',
+        title: 'QuestAI – AI-Powered Q&A Forum',
+        about: [
+          'QuestAI is a web-based Q&A platform that leverages artificial intelligence to provide instant, accurate answers to user questions while fostering a vibrant community-driven knowledge ecosystem.',
+          'The platform combines a modern React frontend with immersive Three.js visual effects, a robust Node.js backend, and AI-powered answer generation — creating an intelligent forum where users can ask questions, receive AI-generated responses, and engage with community-voted answers.',
+          'With secure authentication, profile management, and a voting system to surface the best responses, QuestAI transforms traditional Q&A forums into a smart, interactive learning experience.'
+        ],
+        previewTitle: 'QuestAI — AI Forum Live',
+        preview: `<span style="color:#ff3a2f">// QuestAI — AI-Powered Q&A Forum</span>
 <br><br><span style="color:#febc2e">🤖 QuestAI</span> &nbsp;<span style="color:#28c840">ONLINE</span>
 <br><span style="color:rgba(244,238,236,.3)">Questions: <span style="color:#f4eeec">1,482</span> &nbsp;| Answers: <span style="color:#f4eeec">3,217</span></span>
 <br><br><span style="color:#888">POST</span> /api/ask &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#28c840">200 OK</span>
@@ -1738,157 +2738,158 @@ const PROJECTS = {
 <br><span style="color:rgba(244,238,236,.3)">Community votes: <span style="color:#f4eeec">8,941</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Auth: <span style="color:#28c840">JWT secured ✓</span></span>
 <br><span style="color:rgba(244,238,236,.3)">Three.js scene: <span style="color:#28c840">rendered ✓</span></span>`,
-    features: [
-      'AI-driven answer generation — users ask questions and receive intelligent, context-aware responses powered by AI',
-      'Community voting system — upvote and downvote answers to surface the most helpful responses',
-      'Secure user authentication with JWT — registration, login, and protected routes',
-      'User profile management — track questions asked, answers given, and reputation score',
-      'Immersive Three.js visual effects — interactive 3D elements enhance the frontend experience',
-      'Modern React frontend with Tailwind CSS — responsive, clean UI with smooth animations',
-      'RESTful API backend built with Node.js and Express.js — scalable and well-structured',
-      'PostgreSQL database for reliable data persistence — questions, answers, users, and votes'
-    ],
-    stack: ['React','Tailwind CSS','Three.js','Node.js','Express.js','PostgreSQL'],
-    github: 'https://github.com/Devasish009/QuestAI'
-  }
-};
-
-function openModal(id) {
-  const p = PROJECTS[id]; if(!p) return;
-  document.getElementById('m-num').textContent = p.num;
-  document.getElementById('m-cat').textContent = p.cat;
-  document.getElementById('m-title').textContent = p.title;
-  document.getElementById('m-about').innerHTML = p.about.map(t => '<p>'+t+'</p>').join('');
-  document.getElementById('m-preview-title').textContent = p.previewTitle;
-  // Render screenshots if available, then fallback to text preview
-  let previewHtml = '';
-  if (p.screenshots && p.screenshots.length) {
-    previewHtml += p.screenshots.map(s => '<img src="'+s+'" style="max-width:100%;margin-bottom:10px;border-radius:6px">').join('');
-  }
-  previewHtml += p.preview || '';
-  document.getElementById('m-preview').innerHTML = previewHtml;
-  document.getElementById('m-points').innerHTML = p.features.map(f => '<li>'+f+'</li>').join('');
-  document.getElementById('m-stack').innerHTML = p.stack.map(t => '<span class="stack-tag">'+t+'</span>').join('');
-  // Build action buttons dynamically (GitHub, Demo, Play/App store if present)
-  let actions = '';
-  if (p.github) actions += '<a href="'+p.github+'" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> View on GitHub</a>';
-  if (p.demo) actions += '<a href="'+p.demo+'" target="_blank" class="modal-btn outline-white"><i class="fa-solid fa-globe"></i> Live page</a>';
-  if (p.play) actions += '<a href="'+p.play+'" target="_blank" class="modal-btn outline-white"><i class="fa-brands fa-google-play"></i> Play Store</a>';
-  if (p.app) actions += '<a href="'+p.app+'" target="_blank" class="modal-btn outline-white"><i class="fa-brands fa-apple"></i> App Store</a>';
-  actions += '<button onclick="closeModalBtn()" class="modal-btn secondary">✕ Close</button>';
-  document.getElementById('m-actions').innerHTML = actions;
-  document.getElementById('proj-modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(e) { if(e.target === document.getElementById('proj-modal')) closeModalBtn(); }
-function closeModalBtn() { document.getElementById('proj-modal').classList.remove('active'); document.body.style.overflow = ''; }
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModalBtn(); });
-
-/* ─── CYBER MODE FUNCTION ─── */
-let cyberMode = false;
-function toggleCyberMode() {
-  cyberMode = !cyberMode;
-  const root = document.documentElement;
-  const btn = document.getElementById('cyber-mode-btn');
-  const btnMobile = document.getElementById('cyber-mode-btn-mobile');
-  
-  if (cyberMode) {
-    root.style.setProperty('--accent', '#00ff66');
-    root.style.setProperty('--red', '#00cc52');
-    if (btn) {
-      btn.style.borderColor = '#00ff66';
-      btn.style.color = '#00ff66';
-      btn.innerHTML = '<i class="fa-solid fa-shield-halved"></i> CRIMSON MODE';
-    }
-    if (btnMobile) {
-      btnMobile.style.borderColor = '#00ff66';
-      btnMobile.style.color = '#00ff66';
-      btnMobile.innerHTML = '<i class="fa-solid fa-shield-halved"></i> CRIMSON MODE';
-    }
-    addTeLog('[Security Engine] Override activated. Cyber theme applied.');
-  } else {
-    root.style.setProperty('--accent', '#ff3a2f');
-    root.style.setProperty('--red', '#c0392b');
-    if (btn) {
-      btn.style.borderColor = 'rgba(244, 238, 236, 0.15)';
-      btn.style.color = 'var(--muted)';
-      btn.innerHTML = '<i class="fa-solid fa-terminal"></i> CYBER MODE';
-    }
-    if (btnMobile) {
-      btnMobile.style.borderColor = '#ff3a2f';
-      btnMobile.style.color = '#ff3a2f';
-      btnMobile.innerHTML = '<i class="fa-solid fa-terminal"></i> CYBER MODE';
-    }
-    addTeLog('[Security Engine] Restored baseline production config.');
-  }
-}
-
-/* ─── SKILLS FILTER FUNCTION ─── */
-function filterSkills(category) {
-  document.querySelectorAll('.skill-filter-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-filter') === category);
-  });
-  
-  const groups = document.querySelectorAll('.skills-group');
-  groups.forEach(group => {
-    const cat = group.getAttribute('data-cat');
-    if (category === 'all' || cat === category) {
-      group.classList.remove('hidden');
-      group.style.position = '';
-      group.style.visibility = '';
-    } else {
-      group.classList.add('hidden');
-      setTimeout(() => {
-        if (group.classList.contains('hidden')) {
-          group.style.position = 'absolute';
-          group.style.visibility = 'hidden';
-        }
-      }, 400);
-    }
-  });
-}
-
-/* ─── HERO STATS COUNTER ANIMATION ─── */
-const statsObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateStats();
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-const statsEl = document.querySelector('.hero-stats');
-if (statsEl) statsObserver.observe(statsEl);
-
-function animateStats() {
-  const statVals = document.querySelectorAll('.stat-val');
-  statVals.forEach(valEl => {
-    const text = valEl.innerHTML;
-    const target = parseInt(text.replace(/[^0-9]/g, ''));
-    if (isNaN(target)) return;
-    
-    let current = 0;
-    const duration = 1500;
-    const interval = 30;
-    const step = target / (duration / interval);
-    
-    const hasSup = text.includes('sup');
-    const isPlus = text.includes('+');
-    
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) {
-        clearInterval(timer);
-        valEl.innerHTML = hasSup ? `${target}<sup>+</sup>` : (isPlus ? `${target}<sup>+</sup>` : `${target}`);
-      } else {
-        const rounded = Math.floor(current);
-        valEl.innerHTML = hasSup ? `${rounded}<sup>+</sup>` : (isPlus ? `${rounded}<sup>+</sup>` : `${rounded}`);
+        features: [
+          'AI-driven answer generation — users ask questions and receive intelligent, context-aware responses powered by AI',
+          'Community voting system — upvote and downvote answers to surface the most helpful responses',
+          'Secure user authentication with JWT — registration, login, and protected routes',
+          'User profile management — track questions asked, answers given, and reputation score',
+          'Immersive Three.js visual effects — interactive 3D elements enhance the frontend experience',
+          'Modern React frontend with Tailwind CSS — responsive, clean UI with smooth animations',
+          'RESTful API backend built with Node.js and Express.js — scalable and well-structured',
+          'PostgreSQL database for reliable data persistence — questions, answers, users, and votes'
+        ],
+        stack: ['React', 'Tailwind CSS', 'Three.js', 'Node.js', 'Express.js', 'PostgreSQL'],
+        github: 'https://github.com/Devasish009/QuestAI'
       }
-    }, interval);
-  });
-}
+    };
 
-</script>
+    function openModal(id) {
+      const p = PROJECTS[id]; if (!p) return;
+      document.getElementById('m-num').textContent = p.num;
+      document.getElementById('m-cat').textContent = p.cat;
+      document.getElementById('m-title').textContent = p.title;
+      document.getElementById('m-about').innerHTML = p.about.map(t => '<p>' + t + '</p>').join('');
+      document.getElementById('m-preview-title').textContent = p.previewTitle;
+      // Render screenshots if available, then fallback to text preview
+      let previewHtml = '';
+      if (p.screenshots && p.screenshots.length) {
+        previewHtml += p.screenshots.map(s => '<img src="' + s + '" style="max-width:100%;margin-bottom:10px;border-radius:6px">').join('');
+      }
+      previewHtml += p.preview || '';
+      document.getElementById('m-preview').innerHTML = previewHtml;
+      document.getElementById('m-points').innerHTML = p.features.map(f => '<li>' + f + '</li>').join('');
+      document.getElementById('m-stack').innerHTML = p.stack.map(t => '<span class="stack-tag">' + t + '</span>').join('');
+      // Build action buttons dynamically (GitHub, Demo, Play/App store if present)
+      let actions = '';
+      if (p.github) actions += '<a href="' + p.github + '" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> View on GitHub</a>';
+      if (p.demo) actions += '<a href="' + p.demo + '" target="_blank" class="modal-btn outline-white"><i class="fa-solid fa-globe"></i> Live page</a>';
+      if (p.play) actions += '<a href="' + p.play + '" target="_blank" class="modal-btn outline-white"><i class="fa-brands fa-google-play"></i> Play Store</a>';
+      if (p.app) actions += '<a href="' + p.app + '" target="_blank" class="modal-btn outline-white"><i class="fa-brands fa-apple"></i> App Store</a>';
+      actions += '<button onclick="closeModalBtn()" class="modal-btn secondary">✕ Close</button>';
+      document.getElementById('m-actions').innerHTML = actions;
+      document.getElementById('proj-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(e) { if (e.target === document.getElementById('proj-modal')) closeModalBtn(); }
+    function closeModalBtn() { document.getElementById('proj-modal').classList.remove('active'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalBtn(); });
+
+    /* ─── CYBER MODE FUNCTION ─── */
+    let cyberMode = false;
+    function toggleCyberMode() {
+      cyberMode = !cyberMode;
+      const root = document.documentElement;
+      const btn = document.getElementById('cyber-mode-btn');
+      const btnMobile = document.getElementById('cyber-mode-btn-mobile');
+
+      if (cyberMode) {
+        root.style.setProperty('--accent', '#00ff66');
+        root.style.setProperty('--red', '#00cc52');
+        if (btn) {
+          btn.style.borderColor = '#00ff66';
+          btn.style.color = '#00ff66';
+          btn.innerHTML = '<i class="fa-solid fa-shield-halved"></i> CRIMSON MODE';
+        }
+        if (btnMobile) {
+          btnMobile.style.borderColor = '#00ff66';
+          btnMobile.style.color = '#00ff66';
+          btnMobile.innerHTML = '<i class="fa-solid fa-shield-halved"></i> CRIMSON MODE';
+        }
+        addTeLog('[Security Engine] Override activated. Cyber theme applied.');
+      } else {
+        root.style.setProperty('--accent', '#ff3a2f');
+        root.style.setProperty('--red', '#c0392b');
+        if (btn) {
+          btn.style.borderColor = 'rgba(244, 238, 236, 0.15)';
+          btn.style.color = 'var(--muted)';
+          btn.innerHTML = '<i class="fa-solid fa-terminal"></i> CYBER MODE';
+        }
+        if (btnMobile) {
+          btnMobile.style.borderColor = '#ff3a2f';
+          btnMobile.style.color = '#ff3a2f';
+          btnMobile.innerHTML = '<i class="fa-solid fa-terminal"></i> CYBER MODE';
+        }
+        addTeLog('[Security Engine] Restored baseline production config.');
+      }
+    }
+
+    /* ─── SKILLS FILTER FUNCTION ─── */
+    function filterSkills(category) {
+      document.querySelectorAll('.skill-filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-filter') === category);
+      });
+
+      const groups = document.querySelectorAll('.skills-group');
+      groups.forEach(group => {
+        const cat = group.getAttribute('data-cat');
+        if (category === 'all' || cat === category) {
+          group.classList.remove('hidden');
+          group.style.position = '';
+          group.style.visibility = '';
+        } else {
+          group.classList.add('hidden');
+          setTimeout(() => {
+            if (group.classList.contains('hidden')) {
+              group.style.position = 'absolute';
+              group.style.visibility = 'hidden';
+            }
+          }, 400);
+        }
+      });
+    }
+
+    /* ─── HERO STATS COUNTER ANIMATION ─── */
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStats();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statsObserver.observe(statsEl);
+
+    function animateStats() {
+      const statVals = document.querySelectorAll('.stat-val');
+      statVals.forEach(valEl => {
+        const text = valEl.innerHTML;
+        const target = parseInt(text.replace(/[^0-9]/g, ''));
+        if (isNaN(target)) return;
+
+        let current = 0;
+        const duration = 1500;
+        const interval = 30;
+        const step = target / (duration / interval);
+
+        const hasSup = text.includes('sup');
+        const isPlus = text.includes('+');
+
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            clearInterval(timer);
+            valEl.innerHTML = hasSup ? `${target}<sup>+</sup>` : (isPlus ? `${target}<sup>+</sup>` : `${target}`);
+          } else {
+            const rounded = Math.floor(current);
+            valEl.innerHTML = hasSup ? `${rounded}<sup>+</sup>` : (isPlus ? `${rounded}<sup>+</sup>` : `${rounded}`);
+          }
+        }, interval);
+      });
+    }
+
+  </script>
 </body>
+
 </html>
