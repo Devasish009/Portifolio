@@ -649,6 +649,8 @@ nav.scrolled { background: rgba(8,5,7,0.97); }
 .modal-btn.primary:hover { background: var(--red); transform: translateY(-2px); }
 .modal-btn.secondary { border: 1px solid rgba(244,238,236,0.15); color: var(--muted); background: transparent; }
 .modal-btn.secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.modal-btn.outline-white { border: 1px solid rgba(244,238,236,0.25); color: var(--white); background: transparent; }
+.modal-btn.outline-white:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
 /* ─── SKILLS ─────────────────────────── */
 .skills-sec {
@@ -1602,6 +1604,7 @@ const PROJECTS = {
       'JWT-secured admin endpoints with role-based access control (RBAC)'
     ],
     stack: ['Node.js','Express.js','PostgreSQL','JWT','WebSockets'],
+    demo: 'https://aegisx-siem.onrender.com',
     github: 'https://github.com/Devasish009/aegisx-siem'
   },
   thunder_app: {
@@ -1769,9 +1772,9 @@ function openModal(id) {
   // Build action buttons dynamically (GitHub, Demo, Play/App store if present)
   let actions = '';
   if (p.github) actions += '<a href="'+p.github+'" target="_blank" class="modal-btn primary"><i class="fa-brands fa-github"></i> View on GitHub</a>';
-  if (p.demo) actions += '<a href="'+p.demo+'" target="_blank" class="modal-btn"><i class="fa-solid fa-globe"></i> Live Demo</a>';
-  if (p.play) actions += '<a href="'+p.play+'" target="_blank" class="modal-btn"><i class="fa-brands fa-google-play"></i> Play Store</a>';
-  if (p.app) actions += '<a href="'+p.app+'" target="_blank" class="modal-btn"><i class="fa-brands fa-apple"></i> App Store</a>';
+  if (p.demo) actions += '<a href="'+p.demo+'" target="_blank" class="modal-btn outline-white"><i class="fa-solid fa-globe"></i> Live page</a>';
+  if (p.play) actions += '<a href="'+p.play+'" target="_blank" class="modal-btn outline-white"><i class="fa-brands fa-google-play"></i> Play Store</a>';
+  if (p.app) actions += '<a href="'+p.app+'" target="_blank" class="modal-btn outline-white"><i class="fa-brands fa-apple"></i> App Store</a>';
   actions += '<button onclick="closeModalBtn()" class="modal-btn secondary">✕ Close</button>';
   document.getElementById('m-actions').innerHTML = actions;
   document.getElementById('proj-modal').classList.add('active');
