@@ -34,13 +34,14 @@ html.name-intro,html.name-intro body{overflow:hidden}
 .name-arrived header,.name-arrived .hero-topline,.name-arrived .hero-caption,.name-arrived .hero-bottom,.name-arrived .portrait-layer,.name-arrived .section-dots{animation:portfolio-arrive 1s both}
 .name-arrived .hero-caption,.name-arrived .hero-bottom{animation-delay:.18s}
 @keyframes portfolio-arrive{from{opacity:0}to{opacity:1}}
-header{gap:20px}
-.header-socials{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));align-items:center;gap:0;min-width:0;width:clamp(480px,42vw,640px);overflow-x:auto}
-.header-socials a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;font-size:11px;line-height:1;white-space:nowrap;padding:12px 6px;transition:color .2s}
+header{gap:16px}
+.header-socials{display:flex;align-items:center;gap:12px;min-width:0;max-width:100%;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.header-socials::-webkit-scrollbar{display:none}
+.header-socials a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;font-size:11px;line-height:1;white-space:nowrap;padding:6px 4px;transition:color .2s;flex-shrink:0}
 .header-socials svg{display:block;width:15px;height:15px;fill:currentColor;flex-shrink:0}
 .header-socials a:hover{color:var(--red)}
-@media(max-width:760px){header{gap:12px}.header-socials{grid-template-columns:repeat(4,minmax(112px,1fr));width:448px}.header-socials a{font-size:10px}}
-@media(max-width:600px){header{flex-wrap:wrap;height:auto;padding-top:20px;row-gap:8px}.header-socials{order:3;flex-basis:100%;width:100%}.menu-toggle{margin-left:auto}.header-socials a{padding:10px 6px;gap:6px}.header-socials svg{width:14px;height:14px}.hero-topline{top:140px}}
+@media(max-width:850px){header{gap:10px}.header-socials{gap:8px}.header-socials a{font-size:10px;padding:4px 2px;gap:4px}}
+@media(max-width:600px){header{flex-wrap:nowrap;height:auto;padding-top:12px;padding-bottom:12px}.header-socials{order:0;flex-basis:auto;width:auto;overflow-x:auto}.menu-toggle{margin-left:auto}.header-socials a{padding:4px;gap:4px}.header-socials svg{width:13px;height:13px}}
 
 /* Splash screen opening overlay */
 .splash-overlay{position:fixed;inset:0;z-index:35;background:#050505;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;opacity:0;visibility:hidden;transition:opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s}
