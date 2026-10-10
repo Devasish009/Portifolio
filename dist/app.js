@@ -25,6 +25,7 @@ async function introduceName(replay = false) {
     title.style.removeProperty('visibility');
     rest.style.removeProperty('visibility');
     root.classList.remove('name-intro');
+    root.classList.remove('name-settling');
     root.classList.add('name-arrived');
     root.style.scrollBehavior = previousScrollBehavior;
     history.scrollRestoration = previousScrollRestoration;
@@ -58,15 +59,20 @@ async function introduceName(replay = false) {
       await play(title, [{ opacity: 0 }, { opacity: 1 }], { duration: 250 });
       rest.style.removeProperty('visibility');
       await play(rest, [{ opacity: 0 }, { opacity: 1 }], { duration: 400, delay: 500 });
+
       return;
     }
     await play(title, [{ transform: monogram, opacity: 0 }, { transform: monogram, opacity: 1 }], { duration: 450, easing: 'ease-out' });
     rest.style.removeProperty('visibility');
+    
     await Promise.all([
-      play(title, [{ transform: monogram }, { transform: centered }], { duration: 1100, delay: 200, easing: 'cubic-bezier(.22,1,.36,1)' }),
-      play(rest, [{ clipPath: 'inset(-20% 100% -20% 0)', transform: 'translateX(-.45em)', opacity: 0 }, { clipPath: 'inset(-20% -10% -20% 0)', transform: 'translateX(0)', opacity: 1 }], { duration: 1100, delay: 200, easing: 'cubic-bezier(.22,1,.36,1)' })
+      play(title, [{ transform: monogram }, { transform: centered }], { duration: 1100, delay: 100, easing: 'cubic-bezier(.22,1,.36,1)' }),
+      play(rest, [{ clipPath: 'inset(-20% 100% -20% 0)', transform: 'translateX(-.45em)', opacity: 0 }, { clipPath: 'inset(-20% -10% -20% 0)', transform: 'translateX(0)', opacity: 1 }], { duration: 1100, delay: 100, easing: 'cubic-bezier(.22,1,.36,1)' })
     ]);
-    await play(title, [{ transform: centered }, { transform: 'translate(-50%, -10%) scale(1)' }], { duration: 1200, delay: 250, easing: 'cubic-bezier(.76,0,.24,1)' });
+    // Gently enlarge the revealed name into place; the portrait arrives near the end.
+    root.classList.add('name-settling');
+    await play(title, [{ transform: centered }, { transform: 'translate(-50%, -10%) scale(1)' }], { duration: 1600, easing: 'cubic-bezier(.45,0,.2,1)' });
+
   } catch (error) {
     // Cancellation (resize or motion preference changes) reveals the page immediately.
     if (error.name !== 'AbortError') console.warn('Name intro could not complete:', error);
@@ -79,11 +85,49 @@ async function introduceName(replay = false) {
 introduceName();
 const menu = document.querySelector('#menu');
 const menuToggle = document.querySelector('.menu-toggle');
-function closeMenu() { menu.close(); }
-menuToggle.addEventListener('click', () => { menu.showModal(); menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; });
-menu.addEventListener('close', () => { menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; });
+let menuClosing = null;
+let menuOverflow = '';
+function closeMenu() {
+  if (!menu.open) return Promise.resolve();
+  if (menuClosing) return menuClosing;
+  const animation = reducedMotion.matches ? null : menu.animate([
+    { opacity: 1, transform: 'translateY(0) scale(1)' },
+    { opacity: 0, transform: 'translateY(-8px) scale(.98)' }
+  ], { duration: 160, easing: 'ease-in', fill: 'forwards' });
+  menuClosing = (animation ? animation.finished.catch(() => {}) : Promise.resolve()).then(() => {
+    menu.close();
+    if (animation) animation.cancel();
+    menuClosing = null;
+  });
+  return menuClosing;
+}
+menuToggle.addEventListener('click', () => {
+  if (menu.open) { closeMenu(); return; }
+  menuOverflow = document.body.style.overflow;
+  menu.showModal(); menuToggle.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
+  if (!reducedMotion.matches) menu.animate([
+    { opacity: 0, transform: 'translateY(-12px) scale(.97)' },
+    { opacity: 1, transform: 'translateY(0) scale(1)' }
+  ], { duration: 260, easing: 'cubic-bezier(.16,1,.3,1)' });
+});
+menu.addEventListener('close', () => { menuToggle.setAttribute('aria-expanded', 'false'); document.body.style.overflow = menuOverflow; });
+menu.addEventListener('cancel', event => { event.preventDefault(); closeMenu(); });
+menu.addEventListener('click', event => {
+  const bounds = menu.getBoundingClientRect();
+  if (event.target === menu && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) closeMenu();
+});
 document.querySelector('.close-menu').addEventListener('click', closeMenu);
-menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { closeMenu(); }));
+const menuLinks = [...menu.querySelectorAll('nav a')];
+menuLinks.forEach(link => link.addEventListener('click', async event => {
+  event.preventDefault();
+  await closeMenu();
+  const target = document.querySelector(link.getAttribute('href'));
+  if (!target) return;
+  history.pushState(null, '', link.getAttribute('href'));
+  target.setAttribute('tabindex', '-1');
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+}));
 const credits = document.querySelector('#credits');
 document.querySelector('#credits-open').addEventListener('click', () => credits.showModal());
 document.querySelector('#credits-close').addEventListener('click', () => credits.close());
@@ -113,6 +157,7 @@ function updateScroll() {
   let active = 0;
   panels.forEach((section, index) => { if (section.getBoundingClientRect().top < innerHeight * .5) active = index; });
   dots.forEach((dot, index) => index === active ? dot.setAttribute('aria-current', 'location') : dot.removeAttribute('aria-current'));
+  menuLinks.forEach(link => link.getAttribute('href') === `#${panels[active].id}` ? link.setAttribute('aria-current', 'location') : link.removeAttribute('aria-current'));
 }
 addEventListener('scroll', () => { if (!pending) { pending = true; requestAnimationFrame(updateScroll); } }, { passive: true });
 addEventListener('resize', updateScroll);
@@ -148,13 +193,13 @@ document.querySelectorAll('.project-card').forEach(card => {
     const y = event.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -12;
-    const rotateY = ((x - centerX) / centerX) * 12;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.03, 1.03, 1.03) translateZ(12px)`;
+    const rotateX = Math.max(-1, Math.min(1, (y - centerY) / centerY)) * -2;
+    const rotateY = Math.max(-1, Math.min(1, (x - centerX) / centerX)) * 2;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
     card.style.setProperty('--gx', `${(x / rect.width * 100).toFixed(1)}%`);
     card.style.setProperty('--gy', `${(y / rect.height * 100).toFixed(1)}%`);
   }, { passive: true });
   card.addEventListener('pointerleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1) translateZ(0px)';
+    card.style.removeProperty('transform');
   });
 });
