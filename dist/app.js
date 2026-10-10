@@ -20,6 +20,8 @@ async function introduceName(replay = false) {
   root.classList.add('name-intro');
   title.style.visibility = 'hidden';
   rest.style.visibility = 'hidden';
+  // Hand the first-paint black screen to the prepared name animation.
+  root.classList.remove('intro-loading');
   const finish = () => {
     animations.forEach(animation => animation.cancel());
     title.style.removeProperty('visibility');
