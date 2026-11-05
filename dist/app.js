@@ -55,6 +55,7 @@ async function introduceName(replay = false) {
     const dy = innerHeight / 2 - (box.top + box.height / 2);
     const centered = `translate(calc(-50% + ${dx}px), calc(-10% + ${dy}px)) scale(${scale})`;
     const monogram = `translate(calc(-50% + ${dx + (box.width - d.width) * scale / 2}px), calc(-10% + ${dy}px)) scale(${scale})`;
+    const fromRight = `translate(calc(-50% + ${dx + (box.width - d.width) * scale / 2 + innerWidth * .35}px), calc(-10% + ${dy}px)) scale(${scale})`;
     title.style.removeProperty('visibility');
     if (reducedMotion.matches) {
       // Preserve the D-to-name sequence without spatial motion.
@@ -64,7 +65,12 @@ async function introduceName(replay = false) {
 
       return;
     }
-    await play(title, [{ transform: monogram, opacity: 0 }, { transform: monogram, opacity: 1 }], { duration: 450, easing: 'ease-out' });
+    // Bring D in from the right before revealing the rest from behind it.
+    await play(title, [
+      { transform: fromRight, opacity: 0, offset: 0 },
+      { opacity: 1, offset: .18 },
+      { transform: monogram, opacity: 1, offset: 1 }
+    ], { duration: 1400, easing: 'cubic-bezier(.22,1,.36,1)' });
     rest.style.removeProperty('visibility');
     
     await Promise.all([
@@ -73,7 +79,10 @@ async function introduceName(replay = false) {
     ]);
     // Gently enlarge the revealed name into place; the portrait arrives near the end.
     root.classList.add('name-settling');
-    await play(title, [{ transform: centered }, { transform: 'translate(-50%, -10%) scale(1)' }], { duration: 1600, easing: 'cubic-bezier(.45,0,.2,1)' });
+    await Promise.all([
+      play(title, [{ transform: centered }, { transform: 'translate(-50%, -10%) scale(1)' }], { duration: 1600, easing: 'cubic-bezier(.45,0,.2,1)' }),
+      window.revealPortrait ? window.revealPortrait() : new Promise(resolve => setTimeout(resolve, 3200))
+    ]);
 
   } catch (error) {
     // Cancellation (resize or motion preference changes) reveals the page immediately.
@@ -166,7 +175,7 @@ addEventListener('resize', updateScroll);
 updateScroll();
 const hero = document.querySelector('.hero');
 hero.addEventListener('pointermove', event => {
-  if (reducedMotion.matches || event.pointerType !== 'mouse') return;
+  if (reducedMotion.matches || document.documentElement.dataset.motion === 'off' || event.pointerType !== 'mouse') return;
   document.documentElement.style.setProperty('--px', event.clientX / innerWidth * 2 - 1);
   document.documentElement.style.setProperty('--py', event.clientY / innerHeight * 2 - 1);
 }, { passive: true });
@@ -189,7 +198,7 @@ document.querySelectorAll('.web').forEach(svg => {
 // Interactive 3D tilt & glare tracking for project cards
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('pointermove', event => {
-    if (reducedMotion.matches || event.pointerType !== 'mouse') return;
+    if (reducedMotion.matches || document.documentElement.dataset.motion === 'off' || event.pointerType !== 'mouse') return;
     const rect = card.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;

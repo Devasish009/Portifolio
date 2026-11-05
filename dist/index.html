@@ -22,8 +22,12 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
   <link rel="preload" href="assets/portrait.jpg" as="image">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="portfolio.css?v=24">
-  <script src="app.js?v=15" defer onerror="document.documentElement.classList.remove('intro-loading')"></script>
+  <link rel="stylesheet" href="portfolio.css?v=29">
+  <link rel="stylesheet" href="motion.css?v=1">
+  <script src="assets/portrait-particles.js?v=1" defer></script>
+  <script src="portrait-reveal.js?v=6" defer></script>
+  <script src="app.js?v=17" defer onerror="document.documentElement.classList.remove('intro-loading')"></script>
+  <script src="motion.js?v=1" defer></script>
 </head>
 
 <body>
@@ -86,7 +90,9 @@
   </dialog>
   <main>
     <section id="home" class="hero panel" aria-labelledby="hero-title">
-      <div class="portrait-layer" aria-hidden="true"><img src="assets/portrait.jpg" alt="" fetchpriority="high"></div>
+      <div class="portrait-layer" aria-hidden="true">
+        <img class="portrait-photo" src="assets/portrait.jpg" alt="" fetchpriority="high">
+      </div>
       <svg class="web web-left" viewBox="0 0 200 300" aria-hidden="true"></svg>
       <div class="hero-topline"><span>FULL STACK DEVELOPMENT / CYBERSECURITY</span><span>B.TECH CSE / 2024–2028</span>
       </div>
@@ -567,17 +573,12 @@
         <div class="account-cards-grid">
           <a class="account-card" href="mailto:jajimoggaladevasishvenkatsai@gmail.com" target="_blank"
             rel="noopener noreferrer">
-            <div class="account-icon">✉️</div>
             <div class="account-info">
               <span class="account-label">Email Address</span>
               <span class="account-val">jajimoggaladevasishvenkatsai@gmail.com ↗</span>
             </div>
           </a>
           <a class="account-card" href="https://github.com/Devasish009" target="_blank" rel="noopener noreferrer">
-            <div class="account-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.57 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15A10.7 10.7 0 0 1 12 6.1c.95 0 1.9.13 2.8.38 2.13-1.45 3.07-1.15 3.07-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.33-2.64 5.28-5.15 5.56.4.35.76 1.03.76 2.08v3.12c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z" />
-              </svg></div>
             <div class="account-info">
               <span class="account-label">GitHub Profile</span>
               <span class="account-val">@Devasish009 ↗</span>
@@ -585,17 +586,12 @@
           </a>
           <a class="account-card" href="https://linkedin.com/in/devasishjajimoggala" target="_blank"
             rel="noopener noreferrer">
-            <div class="account-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3ZM6.5 7.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.2c0-1.3-.5-2-1.5-2s-1.5.7-1.5 2V19h-3V9h3v1.3c.6-.9 1.5-1.5 2.7-1.5 2.2 0 3.3 1.4 3.3 4.2Z" />
-              </svg></div>
             <div class="account-info">
               <span class="account-label">LinkedIn Profile</span>
               <span class="account-val">Devasish Jajimoggala ↗</span>
             </div>
           </a>
           <a class="account-card" href="https://devaverse.netlify.app" target="_blank" rel="noopener noreferrer">
-            <div class="account-icon">🌐</div>
             <div class="account-info">
               <span class="account-label">Devaverse Website</span>
               <span class="account-val">devaverse.netlify.app ↗</span>
@@ -604,14 +600,12 @@
           <a class="account-card account-card-highlight"
             href="assets/Devasish_Resume.pdf"
             target="_blank" rel="noopener noreferrer">
-            <div class="account-icon">📄</div>
             <div class="account-info">
               <span class="account-label">Official Resume</span>
               <span class="account-val">View / Download Resume (PDF) ↗</span>
             </div>
           </a>
           <a class="account-card" href="tel:+919505271744">
-            <div class="account-icon">📞</div>
             <div class="account-info">
               <span class="account-label">Phone / WhatsApp</span>
               <span class="account-val">+91 9505271744</span>
